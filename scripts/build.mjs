@@ -1,0 +1,124 @@
+// Builds each extension in src/<lang>/<name>/index.ts into one script in dist/sources/, and
+// writes the repository's dist/index.json from their `info`. Publish dist/ anywhere that
+// serves static files (the GitHub workflow uses a "repo" branch) and add its address in the
+// app under Settings → Sources.
+
+import { build } from "esbuild"
+import { createHash } from "node:crypto"
+import { copyFile, mkdir, readdir, readFile, rm, stat, writeFile } from "node:fs/promises"
+import path from "node:path"
+import { fileURLToPath } from "node:url"
+import vm from "node:vm"
+
+/** The host API these scripts are written against: `JSRuntime.apiVersion` in the app. */
+const API_VERSION = 1
+
+const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
+const dist = path.join(root, "dist")
+const manifest = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"))
+
+await rm(dist, { recursive: true, force: true })
+await mkdir(path.join(dist, "sources"), { recursive: true })
+
+const sources = []
+let failed = false
+
+for (const lang of await directories(path.join(root, "src"))) {
+  for (const name of await directories(path.join(root, "src", lang))) {
+    const folder = path.join(root, "src", lang, name)
+    const entry = path.join(folder, "index.ts")
+    if (!(await exists(entry))) continue
+    try {
+      sources.push(await buildSource({ folder, entry, key: `${lang}.${name}` }))
+    } catch (error) {
+      failed = true
+      console.error(`✗ ${lang}/${name}: ${error.message}`)
+    }
+  }
+}
+
+await writeFile(path.join(dist, "index.json"), JSON.stringify({ name: manifest.rakuen?.repoName ?? manifest.name, sources }, null, 2) + "\n")
+console.log(`\n${sources.length} source${sources.length === 1 ? "" : "s"} → dist/index.json`)
+if (failed) process.exit(1)
+
+async function buildSource({ folder, entry, key }) {
+  const result = await build({
+    entryPoints: [entry],
+    bundle: true,
+    format: "iife",
+    globalName: "__extension",
+    // The app calls the global `source`.
+    footer: { js: "globalThis.source = __extension.default;" },
+    target: "es2022",
+    charset: "utf8",
+    legalComments: "inline",
+    write: false,
+    logLevel: "silent",
+  })
+  const code = result.outputFiles[0].text
+  const info = readInfo(code, entry)
+
+  const file = `sources/${key}.js`
+  await writeFile(path.join(dist, file), code)
+
+  let icon = info.icon
+  if (!icon && (await exists(path.join(folder, "icon.png")))) {
+    await mkdir(path.join(dist, "icons"), { recursive: true })
+    icon = `icons/${key}.png`
+    await copyFile(path.join(folder, "icon.png"), path.join(dist, icon))
+  }
+
+  console.log(`✓ ${info.name} ${info.version} (${info.lang}) → ${file}`)
+  return {
+    ...info,
+    icon,
+    apiVersion: API_VERSION,
+    file,
+    sha256: createHash("sha256").update(code).digest("hex"),
+  }
+}
+
+/** Runs the bundle in a bare context, as the app would before calling it, and checks `info`. */
+function readInfo(code, entry) {
+  const context = {
+    Rakuen: new Proxy({}, { get: () => { throw new Error("uses Rakuen while loading; only call it from the source's functions") } }),
+    console,
+  }
+  vm.runInNewContext(code, context, { filename: entry })
+  const raw = context.source?.info
+  if (!raw) throw new Error("no default export with `info`")
+  const info = JSON.parse(JSON.stringify(raw))
+
+  for (const field of ["id", "name", "lang", "version", "baseUrl"]) {
+    if (typeof info[field] !== "string" || !info[field]) throw new Error(`info.${field} must be a non-empty string`)
+  }
+  if (!/^\d+$/.test(info.id)) throw new Error(`info.id must be Mihon's source ID as a decimal string, not "${info.id}"`)
+  for (const field of ["getPopularManga", "searchManga", "getMangaDetails", "getChapterList", "getPageList"]) {
+    if (typeof context.source[field] !== "function") throw new Error(`source.${field} is missing`)
+  }
+  if (info.supportsLatest && typeof context.source.getLatestUpdates !== "function") {
+    throw new Error("supportsLatest is true but source.getLatestUpdates is missing")
+  }
+
+  const mihonID = mihonSourceID(info.name, info.lang)
+  if (info.id !== mihonID) {
+    console.warn(`! ${info.name}: id ${info.id} isn't md5("${info.name.toLowerCase()}/${info.lang}/1") = ${mihonID}. ` +
+      "That's right only if the Mihon extension overrides its id; otherwise Mihon backups won't find this source.")
+  }
+  return info
+}
+
+/** Mihon's source ID: the first 8 bytes of MD5("<name lowercased>/<lang>/<versionId>"), sign bit cleared. */
+function mihonSourceID(name, lang, versionID = 1) {
+  const digest = createHash("md5").update(`${name.toLowerCase()}/${lang}/${versionID}`).digest()
+  return (digest.readBigUInt64BE(0) & 0x7fffffffffffffffn).toString()
+}
+
+async function directories(folder) {
+  const entries = await readdir(folder, { withFileTypes: true }).catch(() => [])
+  return entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort()
+}
+
+async function exists(file) {
+  return stat(file).then(() => true, () => false)
+}

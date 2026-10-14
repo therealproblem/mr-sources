@@ -1,0 +1,20 @@
+{
+  "name": "manga-rakuen-extensions",
+  "private": true,
+  "type": "module",
+  "description": "Sources for Manga Rakuen, and the SDK for writing them.",
+  "license": "Apache-2.0",
+  "rakuen": {
+    "repoName": "Manga Rakuen Example Sources"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "tsc",
+    "serve": "node scripts/serve.mjs",
+    "dev": "npm run check && npm run build && npm run serve"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  }
+}

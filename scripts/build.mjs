@@ -29,7 +29,7 @@ for (const lang of await directories(path.join(root, "src"))) {
     const entry = path.join(folder, "index.ts")
     if (!(await exists(entry))) continue
     try {
-      sources.push(await buildSource({ folder, entry, key: `${lang}.${name}` }))
+      sources.push(...(await buildSource({ folder, entry, key: `${lang}.${name}` })))
     } catch (error) {
       failed = true
       console.error(`✗ ${lang}/${name}: ${error.message}`)
@@ -56,47 +56,52 @@ async function buildSource({ folder, entry, key }) {
     logLevel: "silent",
   })
   const code = result.outputFiles[0].text
-  const info = readInfo(code, entry)
+  const infos = readInfos(code, entry)
 
   const file = `sources/${key}.js`
   await writeFile(path.join(dist, file), code)
 
-  let icon = info.icon
-  if (!icon && (await exists(path.join(folder, "icon.png")))) {
+  let localIcon
+  if (await exists(path.join(folder, "icon.png"))) {
     await mkdir(path.join(dist, "icons"), { recursive: true })
-    icon = `icons/${key}.png`
-    await copyFile(path.join(folder, "icon.png"), path.join(dist, icon))
+    localIcon = `icons/${key}.png`
+    await copyFile(path.join(folder, "icon.png"), path.join(dist, localIcon))
   }
 
-  console.log(`✓ ${info.name} ${info.version} (${info.lang}) → ${file}`)
-  return {
-    ...info,
-    icon,
-    apiVersion: API_VERSION,
-    file,
-    sha256: createHash("sha256").update(code).digest("hex"),
-  }
+  const sha256 = createHash("sha256").update(code).digest("hex")
+  console.log(`✓ ${infos[0].name} ${infos[0].version} (${infos.map((info) => info.lang).join(", ")}) → ${file}`)
+  // Every source an extension exports shares its script; the app keeps the one it installs.
+  return infos.map((info) => ({ ...info, icon: info.icon ?? localIcon, apiVersion: API_VERSION, file, sha256 }))
 }
 
-/** Runs the bundle in a bare context, as the app would before calling it, and checks `info`. */
-function readInfo(code, entry) {
+/**
+ * Runs the bundle in a bare context, as the app would before calling it, and checks each
+ * source's `info`. The default export is a source, or an array of them (one per language).
+ */
+function readInfos(code, entry) {
   const context = {
     Rakuen: new Proxy({}, { get: () => { throw new Error("uses Rakuen while loading; only call it from the source's functions") } }),
     console,
   }
   vm.runInNewContext(code, context, { filename: entry })
-  const raw = context.source?.info
-  if (!raw) throw new Error("no default export with `info`")
-  const info = JSON.parse(JSON.stringify(raw))
+  const sources = Array.isArray(context.source) ? context.source : [context.source]
+  if (sources.length === 0 || sources.some((source) => !source?.info)) throw new Error("no default export with `info`")
+  const ids = sources.map((source) => String(source.info.id))
+  if (new Set(ids).size !== ids.length) throw new Error("two sources share an id")
+  return sources.map((source) => checkSource(source))
+}
+
+function checkSource(source) {
+  const info = JSON.parse(JSON.stringify(source.info))
 
   for (const field of ["id", "name", "lang", "version", "baseUrl"]) {
     if (typeof info[field] !== "string" || !info[field]) throw new Error(`info.${field} must be a non-empty string`)
   }
   if (!/^\d+$/.test(info.id)) throw new Error(`info.id must be Mihon's source ID as a decimal string, not "${info.id}"`)
   for (const field of ["getPopularManga", "searchManga", "getMangaDetails", "getChapterList", "getPageList"]) {
-    if (typeof context.source[field] !== "function") throw new Error(`source.${field} is missing`)
+    if (typeof source[field] !== "function") throw new Error(`${info.name}: source.${field} is missing`)
   }
-  if (info.supportsLatest && typeof context.source.getLatestUpdates !== "function") {
+  if (info.supportsLatest && typeof source.getLatestUpdates !== "function") {
     throw new Error("supportsLatest is true but source.getLatestUpdates is missing")
   }
 

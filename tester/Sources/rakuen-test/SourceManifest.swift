@@ -1,0 +1,1 @@
+../../../../Manga Rakuen/Core/Extensions/SourceManifest.swift

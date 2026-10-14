@@ -24,7 +24,10 @@ export interface SourceInfo {
   aliases?: string[]
   /** Like Keiyoushi's `rateLimit(permits, period)`: requests to `host` the app lets through. */
   rateLimits?: { host: string; permits: number; periodMs: number }[]
-  /** Sent with page image requests. Referer defaults to `baseUrl`. */
+  /**
+   * Sent with page and cover image requests. Referer defaults to `baseUrl`; an empty value
+   * leaves a header out.
+   */
   imageHeaders?: Record<string, string>
 }
 
@@ -112,6 +115,8 @@ export interface HTTPRequest {
   method?: string
   headers?: Record<string, string>
   body?: string
+  /** Give up after this long (default 60 s). */
+  timeoutMs?: number
 }
 
 export interface HTTPResponse {
@@ -135,8 +140,18 @@ export interface HTMLNode {
   /** `attr("abs:href")` gives the attribute as an absolute URL. Missing attributes are "". */
   attr(name: string): string
   hasAttr(name: string): boolean
+  /** Same as `attr("abs:" + name)`. */
+  absUrl(name: string): string
+  /** A `<script>` or `<style>` element's contents; `text()` is empty for those. */
+  data(): string
+  id(): string
+  hasClass(name: string): boolean
+  /** Whether this element matches a CSS query. */
+  is(cssQuery: string): boolean
   parent(): HTMLNode | null
   children(): HTMLNode[]
+  nextElementSibling(): HTMLNode | null
+  previousElementSibling(): HTMLNode | null
 }
 
 export type PrefValue = string | number | boolean | string[]

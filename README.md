@@ -45,6 +45,14 @@ export default source
 
 The functions mirror Mihon's `HttpSource`. Porting a Keiyoushi extension usually means rewriting each `*Request`/`*Parse` pair as one async function. Jsoup selectors work unchanged, because the app parses HTML with SwiftSoup (a Jsoup port).
 
+### Several sources in one extension
+
+Like Mihon's `SourceFactory`, an extension can default-export an **array** of sources, typically one per language, each with its own Mihon `id`. The build lists each in `index.json` and they share one script. See `src/all/mangafire` or `src/all/hdoujin`.
+
+### Themes
+
+Sites built on the same engine share a theme in [`themes/`](themes), as Keiyoushi's `lib-multisrc` does: `galleryadults`, `madara` (the no-AJAX subset), `masonry` and `kemono`. A site is then a few lines of options; see `src/all/imhentai`.
+
 ### What a source can use
 
 Sources run in JavaScriptCore, not a browser or Node. There's no `fetch`, DOM, `URL`, `setTimeout` or `atob`. The app provides the `Rakuen` global and `console` (see [`sdk/host.d.ts`](sdk/host.d.ts)):
@@ -54,9 +62,19 @@ Sources run in JavaScriptCore, not a browser or Node. There's no `fetch`, DOM, `
 | `Rakuen.request({ url, method, headers, body })` | Goes through the app's HTTP client, so it gets the app's User-Agent and cookies, your `rateLimits` and Cloudflare handling. Every status resolves. |
 | `Rakuen.parseHTML(html, baseUrl?)` | Native HTML parsing with Jsoup's API: `select`, `selectFirst`, `text`, `attr("abs:href")`, `parent`, `children`. |
 | `Rakuen.prefs.get/set` | The source's own settings. A Mihon backup restores its source's settings here. |
+| `Rakuen.localStorage(url, key)` | What the site keeps in the web view's `localStorage` (Mihon's `getLocalStorage`), for tokens sites hand out there. |
+| `Rakuen.loadInWebView(url, { waitForLocalStorage })` | Opens a page in a hidden web view so its scripts can issue a token; resolves with that `localStorage` value. |
+| `Rakuen.sleep(ms)` | Waits; there's no `setTimeout`. |
 | `console.log/warn/error` | The app's log (Console.app, category "Extension <name>"). |
 
-[`sdk/helpers.ts`](sdk/helpers.ts) adds `fetchHTML`, `fetchJSON`, `fetchText` (all throw on HTTP errors), `relativeUrl` (Mihon's `setUrlWithoutDomain`) and `queryString`. Helpers are bundled into each source that uses them.
+[`sdk/helpers.ts`](sdk/helpers.ts) adds `fetchHTML`, `fetchPage`, `fetchJSON`, `fetchText` (all throw on HTTP errors), `relativeUrl` (Mihon's `setUrlWithoutDomain`, percent-decoded like Mihon stores URLs), `queryString`, `formBody`, `imgAttr`, `mapLimit`, base64 and UTF-8 helpers, and date parsing. Helpers are bundled into each source that uses them.
+
+`info.imageHeaders` apply to page images and covers; a header set to `""` is left out (some image hosts refuse a Referer).
+
+What the app can't do yet, so ports work around it:
+- **Lazy page images.** Mihon resolves some pages' images only when they're shown (`getImageUrl`). Ports resolve them in `getPageList`, a few at a time with `mapLimit`.
+- **Image interceptors.** Fallbacks done per image in OkHttp (Kemono's thumbnail fallback) are decided once in `getPageList` instead.
+- **Filters fetched from the site** (`fetchFilterData`). Ports keep the built-in filters only.
 
 ### Keep Mihon's IDs and URLs
 
@@ -68,6 +86,10 @@ People switching from Mihon restore their backups into Manga Rakuen. Each librar
 ### Filters
 
 `getFilterList()` returns Mihon's filter kinds as plain data: `header`, `separator`, `text`, `select`, `checkboxes`, `tristates` and `sort`. The app shows them, and `searchManga` receives the same list with the user's choices. See `src/en/weebcentral/filters.ts`.
+
+## Testing
+
+`npm test -- "<source name>"` (or a source ID, or `name/lang`) runs a built source through the app's own JavaScript runtime on your Mac, with `tester/`: popular, latest, details, chapters and pages, and checks that a cover and a page image download. `npm test -- "<source name>" manga <url> [<chapter url>]` checks a particular entry, such as one from a Mihon backup. It needs Xcode, and links to the app's Swift files, so it works in this repository.
 
 ## Publishing a repository
 

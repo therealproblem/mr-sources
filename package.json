@@ -11,7 +11,8 @@
     "build": "node scripts/build.mjs",
     "check": "tsc",
     "serve": "node scripts/serve.mjs",
-    "dev": "npm run check && npm run build && npm run serve"
+    "dev": "npm run check && npm run build && npm run serve",
+    "test": "swift run --package-path tester -c release rakuen-test dist"
   },
   "devDependencies": {
     "esbuild": "^0.28.2",

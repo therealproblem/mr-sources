@@ -87,7 +87,7 @@ async function postFor(path: string, sourceData?: string): Promise<PostDto> {
 
 const source: Source = {
   info: {
-    id: "6501663152246384585", name: "4KHD", lang: "all", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "6501663152246384585", name: "4KHD", lang: "all", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/fourkhd/res/mipmap-xhdpi/ic_launcher.png",
   },
 

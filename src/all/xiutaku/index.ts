@@ -23,7 +23,7 @@ function parseDate(text: string | undefined): number | undefined {
 
 const source: Source = {
   info: {
-    id: "6520733892888572506", name: "Xiutaku", lang: "all", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "6520733892888572506", name: "Xiutaku", lang: "all", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/xiutaku/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "xiutaku.com", permits: 10, periodMs: 1000 }],
   },

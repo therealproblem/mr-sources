@@ -5,6 +5,6 @@
 import { masonry } from "../../../themes/masonry"
 
 export default masonry({
-  id: "6842598531101194683", name: "Elite Babes", lang: "all", version: "1.0.0", baseUrl: "https://www.elitebabes.com", nsfw: true,
+  id: "6842598531101194683", name: "Elite Babes", lang: "all", version: "1.0.1", baseUrl: "https://www.elitebabes.com", nsfw: true,
   icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/elitebabes/res/mipmap-xhdpi/ic_launcher.png",
 })

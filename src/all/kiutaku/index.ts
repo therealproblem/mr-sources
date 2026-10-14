@@ -18,7 +18,7 @@ function parseList(document: HTMLNode): MangasPage {
 
 const source: Source = {
   info: {
-    id: "3040035304874076216", name: "Kiutaku", lang: "all", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "3040035304874076216", name: "Kiutaku", lang: "all", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/kiutaku/res/mipmap-xhdpi/ic_launcher.png",
     // The image host (mitaku.net) refuses a kiutaku.com Referer.
     imageHeaders: { Referer: "" },

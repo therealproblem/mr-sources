@@ -17,7 +17,7 @@ function parseList(document: HTMLNode): MangasPage {
 
 const source: Source = {
   info: {
-    id: "5874068195320206396", name: "FoamGirl", lang: "all", version: "1.0.0", baseUrl, supportsLatest: false, nsfw: true,
+    id: "5874068195320206396", name: "FoamGirl", lang: "all", version: "1.0.1", baseUrl, supportsLatest: false, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/foamgirl/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "foamgirl.net", permits: 3, periodMs: 1000 }],
   },

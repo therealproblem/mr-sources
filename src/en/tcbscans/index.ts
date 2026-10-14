@@ -25,7 +25,7 @@ async function projects(): Promise<MangasPage> {
 
 const source: Source = {
   info: {
-    id: "1435116756378369709", name: "TCB Scans", lang: "en", version: "1.0.0", baseUrl, supportsLatest: false,
+    id: "1435116756378369709", name: "TCB Scans", lang: "en", version: "1.0.1", baseUrl, supportsLatest: false,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/tcbscans/res/mipmap-xhdpi/ic_launcher.png",
   },
 

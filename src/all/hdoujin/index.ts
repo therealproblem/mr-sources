@@ -135,7 +135,7 @@ function makeSource([id, lang]: [string, string]): Source {
 
   return {
     info: {
-      id, name: "HDoujin", lang, version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+      id, name: "HDoujin", lang, version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/hdoujin/res/mipmap-xhdpi/ic_launcher.png",
       rateLimits: [{ host: "api.hdoujin.org", permits: 3, periodMs: 1000 }],
       imageHeaders: headers,

@@ -33,7 +33,7 @@ const list = async (url: string) => parseList((await fetchPage(url)).document)
 
 const source: Source = {
   info: {
-    id: "3422463439145930309", name: "Hentai Cosplay", lang: "all", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "3422463439145930309", name: "Hentai Cosplay", lang: "all", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/hentaicosplay/res/mipmap-xhdpi/ic_launcher.png",
   },
 

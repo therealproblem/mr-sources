@@ -36,7 +36,7 @@ async function tags(names: string, type: number): Promise<Tag[]> {
 
 const source: Source = {
   info: {
-    id: "7689490563697355048", name: "NineHentai", lang: "en", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "7689490563697355048", name: "NineHentai", lang: "en", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/ninehentai/res/mipmap-xhdpi/ic_launcher.png",
   },
 

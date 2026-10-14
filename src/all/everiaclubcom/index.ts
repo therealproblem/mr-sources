@@ -23,7 +23,7 @@ const categories: [string, string][] = [["Any", ""], ["Gravure", "Gravure.html"]
 
 const source: Source = {
   info: {
-    id: "8698756602692547891", name: "EveriaClub (unoriginal)", lang: "all", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "8698756602692547891", name: "EveriaClub (unoriginal)", lang: "all", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/everiaclubcom/res/mipmap-xhdpi/ic_launcher.png",
   },
 

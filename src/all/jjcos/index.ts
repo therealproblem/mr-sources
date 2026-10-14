@@ -33,7 +33,7 @@ const index = (page: number, query?: string) =>
 
 const source: Source = {
   info: {
-    id: "5763134940669279175", name: "JJCOS", lang: "all", version: "1.0.0", baseUrl, supportsLatest: false, nsfw: true,
+    id: "5763134940669279175", name: "JJCOS", lang: "all", version: "1.0.1", baseUrl, supportsLatest: false, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/jjcos/res/mipmap-xhdpi/ic_launcher.png",
   },
 

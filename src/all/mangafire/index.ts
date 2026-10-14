@@ -69,7 +69,7 @@ function makeSource([id, lang]: [string, string]): Source {
       id,
       name: "MangaFire",
       lang,
-      version: "1.0.0",
+      version: "1.0.1",
       baseUrl,
       supportsLatest: true,
       nsfw: true,

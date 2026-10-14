@@ -37,7 +37,7 @@ const sorts: [string, string][] = [["default", "index"], ["hot", "hot"]]
 
 const source: Source = {
   info: {
-    id: "4721197766605490540", name: "Junmeitu", lang: "all", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "4721197766605490540", name: "Junmeitu", lang: "all", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/junmeitu/res/mipmap-xhdpi/ic_launcher.png",
   },
 

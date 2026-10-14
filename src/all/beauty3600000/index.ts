@@ -53,7 +53,7 @@ const categories: [string, string][] = [
 
 const source: Source = {
   info: {
-    id: "5498091984644576825", name: "3600000 Beauty", lang: "all", version: "1.0.0", baseUrl, supportsLatest: false, nsfw: true,
+    id: "5498091984644576825", name: "3600000 Beauty", lang: "all", version: "1.0.1", baseUrl, supportsLatest: false, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/beauty3600000/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "3600000.xyz", permits: 1, periodMs: 1000 }],
     imageHeaders: headers,

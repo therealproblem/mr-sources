@@ -95,7 +95,7 @@ const advancedFilters: [string, string, string][] = [
 
 const source: Source = {
   info: {
-    id: "7719798645438596394", name: "HentaiNexus", lang: "en", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "7719798645438596394", name: "HentaiNexus", lang: "en", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/hentainexus/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "hentainexus.com", permits: 1, periodMs: 1000 }],
   },

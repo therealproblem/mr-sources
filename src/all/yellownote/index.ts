@@ -44,7 +44,7 @@ function makeSource([id, lang, baseUrl]: [string, string, string]): Source {
 
   return {
     info: {
-      id, name: "小黄书", lang, version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+      id, name: "小黄书", lang, version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/yellownote/res/mipmap-xhdpi/ic_launcher.png",
       // The image host blocks requests that don't look like a browser loading an image.
       imageHeaders: { Accept: "image/avif,image/webp,image/png,image/jpeg,*/*" },

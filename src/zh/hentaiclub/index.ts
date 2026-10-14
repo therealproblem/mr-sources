@@ -21,7 +21,7 @@ async function parseList(url: string): Promise<MangasPage> {
 
 const source: Source = {
   info: {
-    id: "8618065660246087865", name: "绅士会所", lang: "zh", version: "1.0.0", baseUrl, supportsLatest: false, nsfw: true,
+    id: "8618065660246087865", name: "绅士会所", lang: "zh", version: "1.0.1", baseUrl, supportsLatest: false, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/zh/hentaiclub/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "www.hentaiclub.net", permits: 2, periodMs: 1000 }],
   },

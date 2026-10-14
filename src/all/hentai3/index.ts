@@ -43,7 +43,7 @@ const textFilters: [string, string, string, string][] = [
 function makeSource([id, lang, searchLang]: [string, string, string]): Source {
   return {
     info: {
-      id, name: "3Hentai", lang, version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+      id, name: "3Hentai", lang, version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/hentai3/res/mipmap-xhdpi/ic_launcher.png",
     },
 

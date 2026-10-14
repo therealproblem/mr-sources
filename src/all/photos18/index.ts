@@ -31,7 +31,7 @@ const sorts: [string, string][] = [["Latest", "created"], ["Popular", "hits"], [
 
 const source: Source = {
   info: {
-    id: "225835804698740720", name: "Photos18", lang: "all", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "225835804698740720", name: "Photos18", lang: "all", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/photos18/res/mipmap-xhdpi/ic_launcher.png",
   },
 

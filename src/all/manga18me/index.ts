@@ -29,7 +29,7 @@ function makeSource([id, lang]: [string, string]): Source {
 
   return {
     info: {
-      id, name: "Manga18.me", lang, version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+      id, name: "Manga18.me", lang, version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/manga18me/res/mipmap-xhdpi/ic_launcher.png",
       imageHeaders: headers,
     },

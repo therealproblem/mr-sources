@@ -52,7 +52,7 @@ const statuses: Record<string, MangaStatus> = { ongoing: "ongoing", dropped: "ca
 
 const source: Source = {
   info: {
-    id: "8531542650987673943", name: "Flame Comics", lang: "en", version: "1.0.0", baseUrl, supportsLatest: true,
+    id: "8531542650987673943", name: "Flame Comics", lang: "en", version: "1.0.1", baseUrl, supportsLatest: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/flamecomics/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "flamecomics.xyz", permits: 2, periodMs: 2000 }],
   },

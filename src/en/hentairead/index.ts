@@ -48,7 +48,7 @@ async function tagId(tag: string, type: string): Promise<number | undefined> {
 
 const source: Source = {
   info: {
-    id: "2299981010822511979", name: "HentaiRead", lang: "en", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "2299981010822511979", name: "HentaiRead", lang: "en", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/hentairead/res/mipmap-xhdpi/ic_launcher.png",
   },
 

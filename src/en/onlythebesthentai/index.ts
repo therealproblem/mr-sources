@@ -40,7 +40,7 @@ function bestImage(img: HTMLNode): string {
 
 const source: Source = {
   info: {
-    id: "5862792365006156918", name: "Only The Best Hentai", lang: "en", version: "1.0.0", baseUrl, supportsLatest: false, nsfw: true,
+    id: "5862792365006156918", name: "Only The Best Hentai", lang: "en", version: "1.0.1", baseUrl, supportsLatest: false, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/onlythebesthentai/res/mipmap-xhdpi/ic_launcher.png",
   },
 

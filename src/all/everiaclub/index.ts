@@ -28,7 +28,7 @@ const categories: [string, string][] = [["Any", ""], ["China", "42"], ["Cosplay"
 
 const source: Source = {
   info: {
-    id: "7698513740234984368", name: "Everia.club", lang: "all", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "7698513740234984368", name: "Everia.club", lang: "all", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/everiaclub/res/mipmap-xhdpi/ic_launcher.png",
   },
 

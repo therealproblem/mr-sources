@@ -12,7 +12,7 @@ const languages: [string, string][] = [["4841602236575491202", "en"], ["68646434
 
 export default languages.map(([id, lang]) => madara({
   info: {
-    id, name: "Manhwa18.cc", lang, version: "1.0.0", baseUrl, nsfw: true,
+    id, name: "Manhwa18.cc", lang, version: "1.0.1", baseUrl, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/manhwa18cc/res/mipmap-xhdpi/ic_launcher.png",
   },
   mangaSubString: lang === "ko" ? "raw" : "webtoons",

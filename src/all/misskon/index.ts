@@ -14,7 +14,7 @@ const items = (document: HTMLNode) => document.select("article.item-list").map(m
 
 const source: Source = {
   info: {
-    id: "492049561920540214", name: "MissKon", lang: "all", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "492049561920540214", name: "MissKon", lang: "all", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/misskon/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "misskon.com", permits: 10, periodMs: 1000 }],
   },

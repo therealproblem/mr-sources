@@ -74,7 +74,7 @@ const releasedAt = (text: string | null | undefined) => (text ? Date.parse(`${te
 
 const source: Source = {
   info: {
-    id: "6202325652827735606", name: "SpyFakku", lang: "en", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "6202325652827735606", name: "SpyFakku", lang: "en", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/spyfakku/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "hentalk.pw", permits: 2, periodMs: 1000 }],
   },

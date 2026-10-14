@@ -30,7 +30,7 @@ async function albums(page: number, type?: string, value?: string): Promise<Mang
 
 const source: Source = {
   info: {
-    id: "703138310497011533", name: "OSOSEDKI", lang: "all", version: "1.0.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "703138310497011533", name: "OSOSEDKI", lang: "all", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/ososedki/res/mipmap-xhdpi/ic_launcher.png",
   },
 

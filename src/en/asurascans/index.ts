@@ -66,7 +66,7 @@ const sorts: [string, string][] = [["Latest Update", "latest"], ["Popular", "pop
 
 const source: Source = {
   info: {
-    id: "6247824327199706550", name: "Asura Scans", lang: "en", version: "1.0.0", baseUrl, supportsLatest: true,
+    id: "6247824327199706550", name: "Asura Scans", lang: "en", version: "1.0.1", baseUrl, supportsLatest: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/asurascans/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "asurascans.com", permits: 2, periodMs: 2000 }, { host: "api.asurascans.com", permits: 2, periodMs: 2000 }],
   },

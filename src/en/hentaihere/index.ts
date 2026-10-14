@@ -11,7 +11,7 @@ const source: Source = {
     id: "7266624490370375187",
     name: "HentaiHere",
     lang: "en",
-    version: "1.0.0",
+    version: "1.0.1",
     baseUrl,
     supportsLatest: true,
     nsfw: true,

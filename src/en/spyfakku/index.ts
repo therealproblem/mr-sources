@@ -15,7 +15,7 @@ interface Tag { namespace: string; name: string }
 interface Hentai { id: number; hash: string; title: string; thumbnail: number; pages: number; tags?: Tag[] }
 interface ShortHentai { hash: string; title: string; thumbnail: number; description?: string | null; releasedAt?: string | null; createdAt?: string | null; tags?: Tag[] | null; size: number; pages: number }
 
-const fullTitlePref = () => Yomu.prefs.get("display_full_title") === true
+const fullTitlePref = () => Honya.prefs.get("display_full_title") === true
 
 function fullTitle(title: string, tags: Tag[] | null | undefined): string {
   const named = (namespace: string) => (tags ?? []).filter((t) => t.namespace === namespace && t.name.trim()).map((t) => t.name).join(" & ")
@@ -46,11 +46,11 @@ const apiPath = (url: string) => url.replace(/^\/archive\/(\d+)\/.*/, "/g/$1").s
 /** Details from the API, else from the page's SvelteKit data (its values are indexed). */
 async function shortHentai(url: string): Promise<ShortHentai> {
   const path = apiPath(url)
-  const response = await Yomu.request(api + path)
+  const response = await Honya.request(api + path)
   if (response.status >= 200 && response.status < 300) return JSON.parse(response.body) as ShortHentai
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
-      const page = await Yomu.request(`${baseUrl}${path}/__data.json`)
+      const page = await Honya.request(`${baseUrl}${path}/__data.json`)
       if (page.status < 200 || page.status > 299) continue
       const nodes = (JSON.parse(page.body) as { nodes: { data: unknown[] }[] }).nodes
       const data = nodes[nodes.length - 1].data

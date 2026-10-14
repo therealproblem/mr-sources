@@ -61,7 +61,7 @@ export function galleryAdults(options: GalleryAdultsOptions): Source {
   const pageUri = options.pageUri ?? "g"
   const xhrHeaders = { "X-Requested-With": "XMLHttpRequest" }
 
-  const shortTitle = () => Yomu.prefs.get("pref_short_title") === true
+  const shortTitle = () => Honya.prefs.get("pref_short_title") === true
   const fullTitle = (element: HTMLNode, selector: string) => element.selectFirst(selector)?.text()
   const mangaTitle = (element: HTMLNode, selector = titleSelector) => {
     const title = fullTitle(element, selector)
@@ -83,7 +83,7 @@ export function galleryAdults(options: GalleryAdultsOptions): Source {
   async function load(url: string) {
     const response = await send(url)
     options.checkPage?.(response.body)
-    return { document: Yomu.parseHTML(response.body, response.url), url: response.url }
+    return { document: Honya.parseHTML(response.body, response.url), url: response.url }
   }
 
   function listItem(element: HTMLNode): Manga | undefined {
@@ -278,7 +278,7 @@ export function galleryAdults(options: GalleryAdultsOptions): Source {
           ...(serverNumber ? [["server", serverNumber] as [string, string]] : []),
         ])
         const response = await send({ url: `${baseUrl}/inc/thumbs_loader.php`, method: "POST", headers: { ...xhrHeaders, ...form.headers }, body: form.body })
-        const more = Yomu.parseHTML(response.body, response.url).select("a").flatMap((a) => { const img = a.selectFirst("img"); return img ? [imgAttr(img)] : [] })
+        const more = Honya.parseHTML(response.body, response.url).select("a").flatMap((a) => { const img = a.selectFirst("img"); return img ? [imgAttr(img)] : [] })
         if (more.length > 0) {
           thumbnails.push(...more)
         } else {

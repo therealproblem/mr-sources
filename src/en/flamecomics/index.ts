@@ -35,8 +35,8 @@ async function freshBuildId(): Promise<string> {
 
 async function nextData<T>(path: string, params: [string, string][] = []): Promise<T> {
   const url = (id: string) => `${baseUrl}/_next/data/${id}/${path}${params.length ? `?${queryString(params)}` : ""}`
-  let response = await Yomu.request(url(buildId ?? await freshBuildId()))
-  if (response.status === 404) response = await Yomu.request(url(await freshBuildId()))
+  let response = await Honya.request(url(buildId ?? await freshBuildId()))
+  if (response.status === 404) response = await Honya.request(url(await freshBuildId()))
   if (response.status < 200 || response.status > 299) throw new Error(`HTTP ${response.status} for ${response.url}`)
   return (JSON.parse(response.body) as { pageProps: T }).pageProps
 }
@@ -73,7 +73,7 @@ const source: Source = {
   async getMangaDetails(manga) {
     const id = seriesId(manga.url)
     const { series } = await nextData<{ series: SeriesDto }>(`series/${id}.json`, [["id", id]])
-    const synopsis = series.description ? Yomu.parseHTML(`<body>${series.description}</body>`).text() : ""
+    const synopsis = series.description ? Honya.parseHTML(`<body>${series.description}</body>`).text() : ""
     const alternatives = (series.altTitles ?? []).map((t) => t.trim()).filter(Boolean)
     const description = [synopsis, alternatives.length ? `Alternative Names:${alternatives.map((n) => `\n- ${n}`).join("")}` : ""].filter(Boolean).join("\n\n")
     return {

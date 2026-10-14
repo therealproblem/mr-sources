@@ -8,10 +8,10 @@ const baseUrl = "https://tcbonepiecechapters.com"
 
 /** Old entries from an earlier TCB Scans source 404 here. */
 async function page(url: string) {
-  const response = await Yomu.request(url)
+  const response = await Honya.request(url)
   if (response.status === 404 && /\/(mangas|chapters)\//.test(url)) throw new Error("This entry is from an older TCB Scans source. Search for it again here.")
   if (response.status < 200 || response.status > 299) throw new Error(`HTTP ${response.status} for ${response.url}`)
-  return Yomu.parseHTML(response.body, response.url)
+  return Honya.parseHTML(response.body, response.url)
 }
 
 async function projects(): Promise<MangasPage> {

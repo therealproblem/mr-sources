@@ -96,7 +96,7 @@ function makeSource([id, lang, baseUrl]: [string, string, string]): Source {
 
     async getPageList(chapter) {
       const { document } = await fetchPage(baseUrl + sitePath(chapter.url))
-      const quality = Yomu.prefs.get("XChina::IMAGE_QUALITY") ?? "original"
+      const quality = Honya.prefs.get("XChina::IMAGE_QUALITY") ?? "original"
       return document.select("main a[href^=/photoShow] img").map((img) => {
         const url = img.absUrl("src")
         return { url: quality === "original" ? url.replace(/_600x0\.webp$/, ".jpg") : url }

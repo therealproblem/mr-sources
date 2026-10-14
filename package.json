@@ -1,10 +1,10 @@
 {
-  "name": "yomu-extensions",
+  "name": "honya-extensions",
   "private": true,
   "type": "module",
-  "description": "Sources for Yomu, and the SDK for writing them.",
+  "description": "Sources for Honya, and the SDK for writing them.",
   "license": "Apache-2.0",
-  "yomu": {
+  "honya": {
     "repoName": "Jo Test Repo",
     "sfwRepoName": "Jo SFW Repo"
   },
@@ -13,7 +13,7 @@
     "check": "tsc",
     "serve": "node scripts/serve.mjs",
     "dev": "npm run check && npm run build && npm run serve",
-    "test": "swift run --package-path tester -c release yomu-test dist"
+    "test": "swift run --package-path tester -c release honya-test dist"
   },
   "devDependencies": {
     "esbuild": "^0.28.2",

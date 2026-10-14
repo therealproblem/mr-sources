@@ -36,7 +36,7 @@ interface VolumeDto { id: number; number: number; name?: string; chapterCount: n
 
 /** GETs a signed API URL, explaining the captcha MangaFire sometimes asks for. */
 async function api<T>(path: string, params: [string, string][] = []): Promise<T> {
-  const response = await Yomu.request({ url: signedUrl(baseUrl, path, params), headers })
+  const response = await Honya.request({ url: signedUrl(baseUrl, path, params), headers })
   if (response.status === 403 && response.body.includes("captcha_required")) {
     throw new Error("MangaFire is asking for a captcha. Open MangaFire in the web view, solve it, then try again.")
   }
@@ -46,7 +46,7 @@ async function api<T>(path: string, params: [string, string][] = []): Promise<T>
 
 function makeSource([id, lang]: [string, string]): Source {
   const langCode = lang === "es-419" ? "es-la" : lang === "pt-BR" ? "pt-br" : lang
-  const pref = <T>(key: string, fallback: T): T => (Yomu.prefs.get(key) as T | null | undefined) ?? fallback
+  const pref = <T>(key: string, fallback: T): T => (Honya.prefs.get(key) as T | null | undefined) ?? fallback
   const contentRating = () => pref<string[]>("pref_content_rating", [])
 
   async function titles(params: [string, string][]): Promise<MangasPage> {
@@ -181,7 +181,7 @@ function toDetails(dto: MangaDetailsDto): Partial<Manga> {
     thumbnailUrl: dto.poster?.large ?? dto.poster?.medium ?? dto.poster?.small,
     author: dto.authors?.map((a) => a.title).join(", "),
     artist: dto.artists?.map((a) => a.title).join(", "),
-    description: dto.synopsisHtml ? Yomu.parseHTML(`<body>${dto.synopsisHtml}</body>`).text() : undefined,
+    description: dto.synopsisHtml ? Honya.parseHTML(`<body>${dto.synopsisHtml}</body>`).text() : undefined,
     genres: [
       ...(dto.type ? [dto.type.charAt(0).toUpperCase() + dto.type.slice(1)] : []),
       ...(dto.genres ?? []).map((g) => g.title),

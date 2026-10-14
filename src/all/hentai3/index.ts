@@ -20,7 +20,7 @@ const languages: [string, string, string][] = [
   ["5003216810967182175", "la", "latin"], ["1533969146563051444", "ar", "arabic"],
 ]
 
-const shortTitle = (title: string) => (Yomu.prefs.get("full_title") === true ? title : title.replace(/(\[[^\]]*]|[({][^)}]*[)}])/g, "").trim())
+const shortTitle = (title: string) => (Honya.prefs.get("full_title") === true ? title : title.replace(/(\[[^\]]*]|[({][^)}]*[)}])/g, "").trim())
 const capitalizeEach = (text: string) => text.split(" ").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
 const imageOf = (img: HTMLNode) => img.attr("data-src") || img.absUrl("src")
 

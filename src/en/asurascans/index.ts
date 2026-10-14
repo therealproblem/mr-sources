@@ -46,10 +46,10 @@ function publicSlug(sourceData: string | undefined, key: string): string | undef
 
 async function seriesPage(manga: Manga) {
   const url = `${baseUrl}/comics/${publicSlug(manga.sourceData, "slug") ?? mangaSlug(manga.url)}`
-  const first = await Yomu.request(url)
+  const first = await Honya.request(url)
   // Without its random suffix, the URL redirects to the current one.
   if (first.status < 200 || first.status > 299) return fetchPage(url.replace(randomSuffix, ""))
-  return { document: Yomu.parseHTML(first.body, first.url), url: first.url }
+  return { document: Honya.parseHTML(first.body, first.url), url: first.url }
 }
 
 interface MangaDto { public_url: string; slug: string; title: string; cover?: string; coverUrl?: string }
@@ -107,7 +107,7 @@ const source: Source = {
       d.rating != null ? `Rating: ${d.rating.toFixed(2)}` : "",
       d.bookmarkCount != null ? `Bookmarks: ${compact(d.bookmarkCount)}` : "",
     ].filter(Boolean).join(" • ")
-    const about = d.description ? Yomu.parseHTML(`<body>${d.description}</body>`).text() : ""
+    const about = d.description ? Honya.parseHTML(`<body>${d.description}</body>`).text() : ""
     const alternatives = (d.alternativeTitles ?? "").split(d.alternativeTitles?.includes("•") ? "•" : ",").map((t) => t.trim()).filter(Boolean)
     return {
       title: d.title,
@@ -125,7 +125,7 @@ const source: Source = {
     const { document } = await seriesPage(manga)
     const { publicUrl } = astroProp<{ publicUrl: string }>(document, "publicUrl")
     const slug = lastSegment(publicUrl)
-    const hidePremium = (Yomu.prefs.get("pref_hide_premium_chapters") as boolean | null) ?? true
+    const hidePremium = (Honya.prefs.get("pref_hide_premium_chapters") as boolean | null) ?? true
     const chapters = astroProp<{ chapters?: ChapterDto[] }>(document, "chapters").chapters ?? []
     return chapters.filter((c) => !(hidePremium && isLocked(c))).map((c): Chapter => {
       const number = String(c.number)

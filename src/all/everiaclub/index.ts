@@ -8,7 +8,7 @@ import { fetchPage, mapLimit, queryString, relativeUrl, send, type HTMLNode, typ
 const baseUrl = "https://everia.club"
 
 const imgSrc = (img: HTMLNode) => img.attr("data-lazy-src") || img.attr("data-src") || img.attr("src")
-const decode = (text: string) => Yomu.parseHTML(`<body>${text}</body>`).text()
+const decode = (text: string) => Honya.parseHTML(`<body>${text}</body>`).text()
 
 interface WPPost { link: string; title: { rendered: string }; _embedded?: { "wp:featuredmedia"?: { source_url: string }[] } }
 

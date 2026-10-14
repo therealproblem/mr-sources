@@ -17,7 +17,7 @@ const tags = (document: HTMLNode, selector: string) => [...new Set(document.sele
 
 async function albums(page: number, type?: string, value?: string): Promise<MangasPage> {
   const data = await fetchJSON<{ html: string; hasMore?: boolean }>(`${baseUrl}/api/albums?${queryString([["page", page], ...(type && value ? [["type", type], ["value", value]] as [string, string][] : [])])}`)
-  const document = Yomu.parseHTML(`<body>${data.html}</body>`, baseUrl)
+  const document = Honya.parseHTML(`<body>${data.html}</body>`, baseUrl)
   const mangas = document.select("article.gallery-item:has(a.gallery-link)").flatMap((item) => {
     const albumId = albumIdOf(item.selectFirst("a.gallery-link")?.absUrl("href") ?? "")
     if (!albumId) return []

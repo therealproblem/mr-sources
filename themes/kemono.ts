@@ -72,10 +72,10 @@ export function kemono(info: SourceInfo, types: string[]): Source {
   async function getWithRetry(url: string): Promise<string> {
     let status = 0
     for (let attempt = 0; attempt < 5; attempt++) {
-      const response = await Yomu.request({ url, headers: apiHeaders })
+      const response = await Honya.request({ url, headers: apiHeaders })
       if (response.status >= 200 && response.status < 300) return response.body
       status = response.status
-      if (status === 429) await Yomu.sleep(10_000)
+      if (status === 429) await Honya.sleep(10_000)
     }
     throw new Error(`HTTP error ${status}`)
   }
@@ -97,7 +97,7 @@ export function kemono(info: SourceInfo, types: string[]): Source {
 
     let favorites: FavoriteDto[] = []
     if (favoritesOnly != null) {
-      const response = await Yomu.request({ url: `${api}/account/favorites`, headers: apiHeaders })
+      const response = await Honya.request({ url: `${api}/account/favorites`, headers: apiHeaders })
       if (response.status < 200 || response.status > 299) {
         throw new Error(`Failed to fetch favorites: ${response.status === 401 ? "You are not logged in (log in through the web view)" : `HTTP error ${response.status}`}`)
       }
@@ -152,7 +152,7 @@ export function kemono(info: SourceInfo, types: string[]): Source {
 
     async getChapterList(manga) {
       const offsetHours = manga.author === "Pixiv Fanbox" || manga.author === "Fantia" ? 9 : 0
-      const maxPosts = Math.min(Number(Yomu.prefs.get("POST_PAGES") ?? "1") || 1, 75) * postsPerPage
+      const maxPosts = Math.min(Number(Honya.prefs.get("POST_PAGES") ?? "1") || 1, 75) * postsPerPage
       const chapters: Chapter[] = []
       for (let offset = 0; offset < maxPosts; offset += postsPerPage) {
         const posts = JSON.parse(await getWithRetry(`${api}${manga.url}/posts?o=${offset}`)) as PostDto[]
@@ -167,11 +167,11 @@ export function kemono(info: SourceInfo, types: string[]): Source {
       const paths = images(post)
       // Full-size files redirect to file servers that are often unreachable, while the thumbnail
       // server works. Try one; if it can't be reached, use thumbnails for the rest of the session.
-      if (!fileServersUnreachable && paths.length > 0 && Yomu.prefs.get("USE_LOW_RES_IMG") !== true) {
-        const probe = await Yomu.request({ url: `${baseUrl}/data${paths[0]}`, method: "HEAD", timeoutMs: 8000 }).catch(() => undefined)
+      if (!fileServersUnreachable && paths.length > 0 && Honya.prefs.get("USE_LOW_RES_IMG") !== true) {
+        const probe = await Honya.request({ url: `${baseUrl}/data${paths[0]}`, method: "HEAD", timeoutMs: 8000 }).catch(() => undefined)
         if (!probe || probe.status >= 400) fileServersUnreachable = true
       }
-      const lowRes = fileServersUnreachable || Yomu.prefs.get("USE_LOW_RES_IMG") === true
+      const lowRes = fileServersUnreachable || Honya.prefs.get("USE_LOW_RES_IMG") === true
       return paths.map((path) => ({ url: `${baseUrl}/${lowRes ? "thumbnail/data" : "data"}${path}` }))
     },
 

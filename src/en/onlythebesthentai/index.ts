@@ -14,7 +14,7 @@ async function load(url: string): Promise<{ document: HTMLNode; url: string }> {
   if (head.includes("One moment, please") || head.includes("wsidchk")) {
     throw new Error("Bot protection detected. Open this source in the web view to pass the check, then try again.")
   }
-  return { document: Yomu.parseHTML(response.body, response.url), url: response.url }
+  return { document: Honya.parseHTML(response.body, response.url), url: response.url }
 }
 
 async function parseList(url: string): Promise<MangasPage> {

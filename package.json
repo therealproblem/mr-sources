@@ -5,7 +5,8 @@
   "description": "Sources for Manga Rakuen, and the SDK for writing them.",
   "license": "Apache-2.0",
   "rakuen": {
-    "repoName": "Manga Rakuen Example Sources"
+    "repoName": "Jo Test Repo",
+    "rakuen.sfwRepoName": "Jo SFW Repo"
   },
   "scripts": {
     "build": "node scripts/build.mjs",

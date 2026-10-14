@@ -108,6 +108,8 @@ Host `dist/` anywhere that serves static files. Users can add any of these:
 
 [`.github/workflows/publish.yml`](.github/workflows/publish.yml) builds on every push to `main` and force-pushes `dist/` to the `repo` branch. Put this folder at the root of its own repository to use it.
 
+The build also writes `dist-sfw/`: the same, but only the sources whose `info.nsfw` isn't true. The workflow publishes it to the `repo-sfw` branch, which users add as `https://github.com/<you>/<repo>/tree/repo-sfw`. Set `nsfw: true` on any source that can show adult content, or it will appear there.
+
 The app checks each download against `sha256` and loads the script once before installing it. It won't offer a source whose `apiVersion` is newer than the version it supports (currently 1).
 
 ## Versions

@@ -1,7 +1,8 @@
 // Builds each extension in src/<lang>/<name>/index.ts into one script in dist/sources/, and
-// writes the repository's dist/index.json from their `info`. Publish dist/ anywhere that
-// serves static files (the GitHub workflow uses a "repo" branch) and add its address in the
-// app under Settings → Sources.
+// writes the repository's dist/index.json from their `info`; dist-sfw/ gets the same for only
+// the sources not marked nsfw. Publish either anywhere that serves static files (the GitHub
+// workflow uses the "repo" and "repo-sfw" branches) and add its address in the app under
+// Settings → Sources.
 
 import { build } from "esbuild"
 import { createHash } from "node:crypto"
@@ -39,6 +40,17 @@ for (const lang of await directories(path.join(root, "src"))) {
 
 await writeFile(path.join(dist, "index.json"), JSON.stringify({ name: manifest.rakuen?.repoName ?? manifest.name, sources }, null, 2) + "\n")
 console.log(`\n${sources.length} source${sources.length === 1 ? "" : "s"} → dist/index.json`)
+
+// A second repository with only the sources not marked nsfw, published to its own branch.
+const sfw = path.join(root, "dist-sfw")
+await rm(sfw, { recursive: true, force: true })
+const sfwSources = sources.filter((source) => !source.nsfw)
+for (const file of new Set(sfwSources.flatMap((source) => [source.file, source.icon].filter((f) => f && !/^https?:/.test(f))))) {
+  await mkdir(path.dirname(path.join(sfw, file)), { recursive: true })
+  await copyFile(path.join(dist, file), path.join(sfw, file))
+}
+await writeFile(path.join(sfw, "index.json"), JSON.stringify({ name: manifest.rakuen?.sfwRepoName ?? `${manifest.rakuen?.repoName ?? manifest.name} (SFW)`, sources: sfwSources }, null, 2) + "\n")
+console.log(`${sfwSources.length} source${sfwSources.length === 1 ? "" : "s"} → dist-sfw/index.json`)
 if (failed) process.exit(1)
 
 async function buildSource({ folder, entry, key }) {

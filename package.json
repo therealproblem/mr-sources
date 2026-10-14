@@ -1,19 +1,19 @@
 {
-  "name": "manga-rakuen-extensions",
+  "name": "yomu-extensions",
   "private": true,
   "type": "module",
-  "description": "Sources for Manga Rakuen, and the SDK for writing them.",
+  "description": "Sources for Yomu, and the SDK for writing them.",
   "license": "Apache-2.0",
-  "rakuen": {
+  "yomu": {
     "repoName": "Jo Test Repo",
-    "rakuen.sfwRepoName": "Jo SFW Repo"
+    "sfwRepoName": "Jo SFW Repo"
   },
   "scripts": {
     "build": "node scripts/build.mjs",
     "check": "tsc",
     "serve": "node scripts/serve.mjs",
     "dev": "npm run check && npm run build && npm run serve",
-    "test": "swift run --package-path tester -c release rakuen-test dist"
+    "test": "swift run --package-path tester -c release yomu-test dist"
   },
   "devDependencies": {
     "esbuild": "^0.28.2",

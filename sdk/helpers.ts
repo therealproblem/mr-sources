@@ -5,7 +5,7 @@ import type { HTMLNode, HTTPRequest, HTTPResponse } from "./types"
 
 /** Sends a request, throwing for a status outside 200–299. */
 export async function send(request: string | HTTPRequest): Promise<HTTPResponse> {
-  const response = await Rakuen.request(request)
+  const response = await Yomu.request(request)
   if (response.status < 200 || response.status > 299) {
     throw new Error(`HTTP ${response.status} for ${response.url}`)
   }
@@ -23,7 +23,7 @@ export async function fetchJSON<T = unknown>(request: string | HTTPRequest): Pro
 /** Fetches a page and parses it; `attr("abs:href")` resolves against the page's URL. */
 export async function fetchHTML(request: string | HTTPRequest): Promise<HTMLNode> {
   const response = await send(request)
-  return Rakuen.parseHTML(response.body, response.url)
+  return Yomu.parseHTML(response.body, response.url)
 }
 
 /**
@@ -162,7 +162,7 @@ export async function mapLimit<T, R>(items: T[], limit: number, transform: (item
 /** Sends a request and parses the HTML it gets, with the URL it ended up at. */
 export async function fetchPage(request: string | HTTPRequest): Promise<{ document: HTMLNode; url: string }> {
   const response = await send(request)
-  return { document: Rakuen.parseHTML(response.body, response.url), url: response.url }
+  return { document: Yomu.parseHTML(response.body, response.url), url: response.url }
 }
 
 /** A form body (`application/x-www-form-urlencoded`) and its Content-Type header. */

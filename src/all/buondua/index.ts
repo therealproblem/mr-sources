@@ -5,7 +5,7 @@
 import { fetchPage, mapLimit, queryParam, queryString, relativeUrl, type HTMLNode, type MangasPage, type Source } from "../../../sdk"
 
 const baseUrl = "https://buondua.com"
-const splitPages = () => (Rakuen.prefs.get("pref_split_pages") as boolean | null) ?? true
+const splitPages = () => (Yomu.prefs.get("pref_split_pages") as boolean | null) ?? true
 
 async function parseList(url: string): Promise<MangasPage> {
   const { document } = await fetchPage(url)

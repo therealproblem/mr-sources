@@ -33,7 +33,7 @@ export interface SourceInfo {
 
 /**
  * The extension's default export. The app calls these; each runs in the extension's own
- * JavaScript context with only the `Rakuen` global (see host.d.ts) to reach the outside.
+ * JavaScript context with only the `Yomu` global (see host.d.ts) to reach the outside.
  */
 export interface Source {
   info: SourceInfo
@@ -128,7 +128,7 @@ export interface HTTPResponse {
   body: string
 }
 
-/** An element from `Rakuen.parseHTML`: Jsoup's calls, as Mihon extensions use them. */
+/** An element from `Yomu.parseHTML`: Jsoup's calls, as Mihon extensions use them. */
 export interface HTMLNode {
   readonly tagName: string
   select(cssQuery: string): HTMLNode[]

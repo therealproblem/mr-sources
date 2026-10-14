@@ -12,7 +12,7 @@ import { fileURLToPath } from "node:url"
 import vm from "node:vm"
 
 /** The host API these scripts are written against: `JSRuntime.apiVersion` in the app. */
-const API_VERSION = 1
+const API_VERSION = 2
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 const dist = path.join(root, "dist")
@@ -38,7 +38,7 @@ for (const lang of await directories(path.join(root, "src"))) {
   }
 }
 
-await writeFile(path.join(dist, "index.json"), JSON.stringify({ name: manifest.rakuen?.repoName ?? manifest.name, sources }, null, 2) + "\n")
+await writeFile(path.join(dist, "index.json"), JSON.stringify({ name: manifest.yomu?.repoName ?? manifest.name, sources }, null, 2) + "\n")
 console.log(`\n${sources.length} source${sources.length === 1 ? "" : "s"} → dist/index.json`)
 
 // A second repository with only the sources not marked nsfw, published to its own branch.
@@ -49,7 +49,7 @@ for (const file of new Set(sfwSources.flatMap((source) => [source.file, source.i
   await mkdir(path.dirname(path.join(sfw, file)), { recursive: true })
   await copyFile(path.join(dist, file), path.join(sfw, file))
 }
-await writeFile(path.join(sfw, "index.json"), JSON.stringify({ name: manifest.rakuen?.sfwRepoName ?? `${manifest.rakuen?.repoName ?? manifest.name} (SFW)`, sources: sfwSources }, null, 2) + "\n")
+await writeFile(path.join(sfw, "index.json"), JSON.stringify({ name: manifest.yomu?.sfwRepoName ?? `${manifest.yomu?.repoName ?? manifest.name} (SFW)`, sources: sfwSources }, null, 2) + "\n")
 console.log(`${sfwSources.length} source${sfwSources.length === 1 ? "" : "s"} → dist-sfw/index.json`)
 if (failed) process.exit(1)
 
@@ -92,7 +92,7 @@ async function buildSource({ folder, entry, key }) {
  */
 function readInfos(code, entry) {
   const context = {
-    Rakuen: new Proxy({}, { get: () => { throw new Error("uses Rakuen while loading; only call it from the source's functions") } }),
+    Yomu: new Proxy({}, { get: () => { throw new Error("uses Yomu while loading; only call it from the source's functions") } }),
     console,
   }
   vm.runInNewContext(code, context, { filename: entry })

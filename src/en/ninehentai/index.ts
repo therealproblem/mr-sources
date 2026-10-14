@@ -100,7 +100,7 @@ const source: Source = {
     const id = Number(chapter.url.split("/g/")[1]?.split("/")[0])
     let total = (await fetchBook(id)).total_page
     // The last page is sometimes counted but missing.
-    if ((await Rakuen.request(`${imageBaseUrl}/${id}/preview/${total}t.jpg`)).status === 404) total--
+    if ((await Yomu.request(`${imageBaseUrl}/${id}/preview/${total}t.jpg`)).status === 404) total--
     return Array.from({ length: total }, (_, i) => ({ url: `${imageBaseUrl}/${id}/${i + 1}.jpg` }))
   },
 

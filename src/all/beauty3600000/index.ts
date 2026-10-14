@@ -11,7 +11,7 @@ const headers = { Referer: `${baseUrl}/` }
 
 interface PostDto { id: number; link: string; title: { rendered: string }; content: { rendered: string }; date: string }
 
-const decode = (text: string) => Rakuen.parseHTML(`<body>${text}</body>`).text()
+const decode = (text: string) => Yomu.parseHTML(`<body>${text}</body>`).text()
 
 async function get(url: string) {
   return send({ url, headers })
@@ -27,7 +27,7 @@ function postsIn(body: string): PostDto[] {
 function toManga(post: PostDto) {
   const title = decode(post.title.rendered)
   if (!title.trim()) throw new Error("Title is mandatory")
-  const img = Rakuen.parseHTML(`<body>${post.content.rendered}</body>`).selectFirst("img")
+  const img = Yomu.parseHTML(`<body>${post.content.rendered}</body>`).selectFirst("img")
   return { url: String(post.id), title, thumbnailUrl: img?.attr("src") || undefined, status: "completed" as const }
 }
 
@@ -99,7 +99,7 @@ const source: Source = {
 
   async getPageList(chapter) {
     const found = await post(chapter.url)
-    return Rakuen.parseHTML(`<body>${found.content.rendered}</body>`).select("img").map((img) => ({ url: img.attr("src") }))
+    return Yomu.parseHTML(`<body>${found.content.rendered}</body>`).select("img").map((img) => ({ url: img.attr("src") }))
   },
 
   getFilterList() {

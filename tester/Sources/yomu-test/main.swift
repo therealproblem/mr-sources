@@ -3,14 +3,14 @@ import Foundation
 // Runs a built extension through the app's own JSRuntime (the Swift files beside this are links
 // into the app) and prints what each call returns, checking the images download.
 //
-//   rakuen-test <dist> <source id | name | name/lang> [run | manga <url> [chapter url] | search <query> | filters]
-//   rakuen-test <dist> list
-//   rakuen-test visit <url> [seconds]      load a page in WebKit and list its localStorage
-//   rakuen-test fetch <url> [Header: value…]   fetch through the app's HTTP client
+//   yomu-test <dist> <source id | name | name/lang> [run | manga <url> [chapter url] | search <query> | filters]
+//   yomu-test <dist> list
+//   yomu-test visit <url> [seconds]      load a page in WebKit and list its localStorage
+//   yomu-test fetch <url> [Header: value…]   fetch through the app's HTTP client
 
 let args = CommandLine.arguments
 guard args.count >= 3 else {
-    print("usage: rakuen-test <dist> <source id|name[/lang]> [run | manga <url> [chapter] | search <q> | filters | list]")
+    print("usage: yomu-test <dist> <source id|name[/lang]> [run | manga <url> [chapter] | search <q> | filters | list]")
     exit(2)
 }
 if args[1] == "fetch" {

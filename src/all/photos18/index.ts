@@ -6,7 +6,7 @@
 import { fetchHTML, queryString, type HTMLNode, type MangasPage, type Source } from "../../../sdk"
 
 const baseUrl = "https://www.photos18.com"
-const withLang = () => (Rakuen.prefs.get("ZH_HANT") === true ? baseUrl : `${baseUrl}/zh-hans`)
+const withLang = () => (Yomu.prefs.get("ZH_HANT") === true ? baseUrl : `${baseUrl}/zh-hans`)
 
 function parseList(document: HTMLNode): MangasPage {
   const items = document.selectFirst("#videos")?.children() ?? []

@@ -1,11 +1,11 @@
-// What the app provides to extensions: the `Rakuen` global and `console`. Extensions run in
+// What the app provides to extensions: the `Yomu` global and `console`. Extensions run in
 // JavaScriptCore, not a browser or Node, so there's no fetch, DOM, URL, setTimeout or atob.
 // The app's side is `Core/Extensions/JSRuntime.swift`; host API version 1.
 
 import type { HTMLNode, HTTPRequest, HTTPResponse, PrefValue } from "./types"
 
 declare global {
-  const Rakuen: {
+  const Yomu: {
     /** The host API version the app provides. */
     readonly apiVersion: number
     /**

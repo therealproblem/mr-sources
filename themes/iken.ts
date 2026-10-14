@@ -41,7 +41,7 @@ const sortOptions: [string, string][] = [["Last Chapter", "lastChapterAddedAt"],
 
 function toManga(post: PostDto): Manga {
   const description = [
-    post.postContent ? Rakuen.parseHTML(`<body>${post.postContent.replace(/\n/g, "<br>")}</body>`).text() : "",
+    post.postContent ? Yomu.parseHTML(`<body>${post.postContent.replace(/\n/g, "<br>")}</body>`).text() : "",
     post.alternativeTitles ? `Alternative Names: ${post.alternativeTitles}` : "",
   ].filter(Boolean).join("\n\n").trim()
   const type = ({ MANGA: "Manga", MANHUA: "Manhua", MANHWA: "Manhwa" } as Record<string, string>)[post.seriesType ?? ""]
@@ -69,7 +69,7 @@ function toChapter(c: ChapterDto, mangaSlug: string): Chapter {
 
 export function iken(info: SourceInfo, options: { apiUrl?: string; sortPagesByFilename?: boolean } = {}): Source {
   const api = options.apiUrl ?? info.baseUrl.replace("https://", "https://api.")
-  const showLocked = () => Rakuen.prefs.get("pref_show_locked_chapters") === true
+  const showLocked = () => Yomu.prefs.get("pref_show_locked_chapters") === true
 
   async function query(page: number, params: [string, string][]): Promise<MangasPage> {
     // Novels are left out; a page of only novels moves on to the next.

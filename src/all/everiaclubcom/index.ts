@@ -7,7 +7,7 @@ import { fetchHTML, queryString, relativeUrl, type HTMLNode, type MangasPage, ty
 const baseUrl = "https://www.everiaclub.com"
 
 const imgSrc = (img: HTMLNode) => ["data-original", "data-lazy-src", "data-src", "src"].map((a) => (img.hasAttr(a) ? img.attr(a) : "")).find(Boolean)
-const decode = (text: string) => Rakuen.parseHTML(`<body>${text.replace(/</g, "&lt;")}</body>`).text()
+const decode = (text: string) => Yomu.parseHTML(`<body>${text.replace(/</g, "&lt;")}</body>`).text()
 
 function mangaFrom(a: HTMLNode) {
   const img = a.selectFirst("img")

@@ -17,14 +17,14 @@ interface PostDto {
   _embedded?: { "wp:featuredmedia"?: { source_url?: string }[]; "wp:term"?: { name?: string }[][] }
 }
 
-const htmlText = (html: string) => Rakuen.parseHTML(`<body>${html}</body>`).text().trim()
+const htmlText = (html: string) => Yomu.parseHTML(`<body>${html}</body>`).text().trim()
 const isImage = (url: string) => /\.(?:jpe?g|png|webp|gif|avif)(?:$|\?)/i.test(url)
 const linkPath = (post: PostDto) => (post.link ? /^https?:\/\/[^/]+([^?#]*)/.exec(post.link)?.[1] : undefined) || "/"
 const postData = (id: number | undefined) => (id != null ? JSON.stringify({ post_id: id }) : undefined)
 
 function imageUrls(html: string): string[] {
   if (!html.trim()) return []
-  const document = Rakuen.parseHTML(`<body>${html}</body>`, baseUrl)
+  const document = Yomu.parseHTML(`<body>${html}</body>`, baseUrl)
   const root = document.selectFirst(".entry-content.wp-block-post-content, .entry-content") ?? document
   const unique = (urls: string[]) => [...new Map(urls.map((url) => [url.split("?")[0], url])).values()]
   const images = root.select("img[data-src], img[data-lazy-src], img[src]").flatMap((img) => {
@@ -48,7 +48,7 @@ async function posts(params: [string, string][]): Promise<{ posts: PostDto[]; to
   if (response.body.trimStart().startsWith("<")) {
     const sites = /const sites = \[([^\]]*)\]/.exec(response.body)?.[1].match(/https?:\/\/[^'"\s,]+/g) ?? []
     for (const site of sites) {
-      const attempt = await Rakuen.request(`${site.replace(/\/+$/, "")}/index.php?${query}`).catch(() => undefined)
+      const attempt = await Yomu.request(`${site.replace(/\/+$/, "")}/index.php?${query}`).catch(() => undefined)
       if (attempt && attempt.status === 200 && !attempt.body.trimStart().startsWith("<")) {
         mirror = site.replace(/\/+$/, "")
         response = attempt

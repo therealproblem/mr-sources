@@ -142,7 +142,7 @@ const source: Source = {
     const encoded = script.split("initReader(\"")[1].split("\",")[0]
     const images = (JSON.parse(decrypt(encoded)) as Record<string, string>[]).filter((item) => item.type === "image")
     if (images.length === 0) return []
-    const format = (Rakuen.prefs.get("pref_image_format") as string | null) ?? "webp"
+    const format = (Yomu.prefs.get("pref_image_format") as string | null) ?? "webp"
     const field = format === "source" ? "image_source" : format === "avif" ? "image_avif" : "image_fallback"
     if (images[0][field] == null) throw new Error(`Selected quality '${format}' is not available. Log in or choose another quality.`)
     return images.map((image) => ({ url: image[field] }))

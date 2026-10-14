@@ -32,7 +32,7 @@ interface MangaDetail {
 type DataKey = { id?: number; size?: number; key?: string } | undefined
 interface MangaData { data: { "0": DataKey; "780"?: DataKey; "980"?: DataKey; "1280"?: DataKey; "1600"?: DataKey } }
 
-const pref = <T>(key: string, fallback: T): T => (Rakuen.prefs.get(key) as T | null | undefined) ?? fallback
+const pref = <T>(key: string, fallback: T): T => (Yomu.prefs.get(key) as T | null | undefined) ?? fallback
 
 async function json<T>(url: string): Promise<T> {
   return JSON.parse((await send({ url, headers })).body) as T
@@ -44,12 +44,12 @@ async function json<T>(url: string): Promise<T> {
  */
 let clearance: string | null = null
 async function withClearance(url: string, readerUrl: string, post = false): Promise<string> {
-  clearance ??= await Rakuen.localStorage(`${baseUrl}/`, "clearance")
-    ?? await Rakuen.loadInWebView(readerUrl, { waitForLocalStorage: "clearance" })
+  clearance ??= await Yomu.localStorage(`${baseUrl}/`, "clearance")
+    ?? await Yomu.loadInWebView(readerUrl, { waitForLocalStorage: "clearance" })
   if (!clearance) throw new Error("Open HDoujin in the web view to refresh its token, then try again.")
   const signed = `${url}${url.includes("?") ? "&" : "?"}crt=${encodeURIComponent(clearance)}`
   const form = formBody([])
-  const response = await Rakuen.request(post ? { url: signed, method: "POST", headers: { ...headers, ...form.headers }, body: form.body } : { url: signed, headers })
+  const response = await Yomu.request(post ? { url: signed, method: "POST", headers: { ...headers, ...form.headers }, body: form.body } : { url: signed, headers })
   if (response.status === 400 || response.status === 403) {
     clearance = null
     throw new Error("Open HDoujin in the web view to refresh its token, then try again.")

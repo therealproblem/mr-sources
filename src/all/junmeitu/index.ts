@@ -23,11 +23,11 @@ async function imageOf(url: string): Promise<string> {
   const response = await send(url)
   if ((response.headers["content-type"] ?? "").includes("application/json") || /[?&]ajax=1(&|$)/.test(response.url)) {
     const pic = (JSON.parse(response.body) as { pic: string }).pic
-    const img = Rakuen.parseHTML(`<body>${pic}</body>`, baseUrl).selectFirst("img")
+    const img = Yomu.parseHTML(`<body>${pic}</body>`, baseUrl).selectFirst("img")
     if (!img) throw new Error("Image not found in AJAX response")
     return img.absUrl("src")
   }
-  const img = Rakuen.parseHTML(response.body, response.url).selectFirst(".pictures img")
+  const img = Yomu.parseHTML(response.body, response.url).selectFirst(".pictures img")
   if (!img) throw new Error("Image not found in HTML response")
   return lazySrc(img)
 }

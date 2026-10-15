@@ -3,7 +3,7 @@
 // Sites built on it set the options below, as the Kotlin extensions override the theme.
 
 import {
-  formBody, imgAttr, mapLimit, parseDate, parseRelativeDate, queryString, relativeUrl, send,
+  formBody, imgAttr, mapLimit, parseDate, parseRelativeDate, queryString, relativeUrl, send, unescapeEntities,
   type Filter, type HTMLNode, type Manga, type MangasPage, type Source, type SourceInfo,
 } from "../sdk"
 
@@ -62,7 +62,11 @@ export function galleryAdults(options: GalleryAdultsOptions): Source {
   const xhrHeaders = { "X-Requested-With": "XMLHttpRequest" }
 
   const shortTitle = () => Honya.prefs.get("pref_short_title") === true
-  const fullTitle = (element: HTMLNode, selector: string) => element.selectFirst(selector)?.text()
+  // Unescaped once more: IMHentai encodes some titles twice ("Sensei&amp;#039;s").
+  const fullTitle = (element: HTMLNode, selector: string) => {
+    const title = element.selectFirst(selector)?.text()
+    return title && unescapeEntities(title)
+  }
   const mangaTitle = (element: HTMLNode, selector = titleSelector) => {
     const title = fullTitle(element, selector)
     return title && shortTitle() ? title.replace(/(\[[^\]]*]|[({][^)}]*[)}])/g, "").trim() : title
@@ -130,7 +134,7 @@ export function galleryAdults(options: GalleryAdultsOptions): Source {
       }),
       ...[
         ["Pages", totalPages(document)],
-        ["Alternative title", info.selectFirst("h1 + h2, .subtitle")?.ownText()],
+        ["Alternative title", unescapeEntities(info.selectFirst("h1 + h2, .subtitle")?.ownText() ?? "")],
         ["Full title", shortTitle() ? fullTitle(info, "h1") : undefined],
       ].flatMap(([label, value]) => (value?.trim() ? [`**${label}**: ${value}`] : [])),
     ].join("\n\n")

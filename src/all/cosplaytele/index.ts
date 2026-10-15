@@ -3,7 +3,7 @@
 // Licensed under the Apache License, Version 2.0. Only its built-in categories are here; the
 // Kotlin version also fetches the site's tags.
 
-import { fetchJSON, fetchPage, queryString, relativeUrl, type HTMLNode, type MangasPage, type Source } from "../../../sdk"
+import { fetchJSON, fetchPage, queryString, relativeUrl, unescapeEntities, type HTMLNode, type MangasPage, type Source } from "../../../sdk"
 
 const baseUrl = "https://cosplaytele.com"
 const popularLimit = 20
@@ -20,7 +20,7 @@ const categories: [string, string][] = [["All", ""], ["Cosplay Nude", "category/
 
 const source: Source = {
   info: {
-    id: "7395748658970167454", name: "CosplayTele", lang: "all", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
+    id: "7395748658970167454", name: "CosplayTele", lang: "all", version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/cosplaytele/res/mipmap-xhdpi/ic_launcher.png",
   },
 
@@ -30,7 +30,7 @@ const source: Source = {
         ["offset", page * popularLimit], ["limit", popularLimit], ["range", "last7days"], ["embed", "true"],
         ["_embed", "wp:featuredmedia"], ["_fields", "title,link,_embedded,_links.wp:featuredmedia"],
       ])}`)
-    const mangas = posts.map((post) => ({ title: post.title.rendered, url: relativeUrl(post.link), thumbnailUrl: post._embedded?.["wp:featuredmedia"]?.[0]?.source_url }))
+    const mangas = posts.map((post) => ({ title: unescapeEntities(post.title.rendered), url: relativeUrl(post.link), thumbnailUrl: post._embedded?.["wp:featuredmedia"]?.[0]?.source_url }))
     return { mangas, hasNextPage: mangas.length >= popularLimit }
   },
 

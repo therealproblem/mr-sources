@@ -13,7 +13,7 @@ const languages: [string, string][] = [
 
 export default languages.map(([id, lang]) => galleryAdults({
   info: {
-    id, name: "IMHentai", lang, version: "1.0.2", baseUrl: "https://imhentai.xxx", nsfw: true,
+    id, name: "IMHentai", lang, version: "1.0.3", baseUrl: "https://imhentai.xxx", nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/imhentai/res/mipmap-xhdpi/ic_launcher.png",
   },
   mangaLang: languageSlugs[lang],

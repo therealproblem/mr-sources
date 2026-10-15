@@ -170,6 +170,23 @@ export function formBody(fields: [string, string][]): { body: string; headers: R
   return { body: queryString(fields), headers: { "Content-Type": "application/x-www-form-urlencoded" } }
 }
 
+const namedEntities: Record<string, string> = {
+  amp: "&", lt: "<", gt: ">", quot: "\"", apos: "'", nbsp: " ", hearts: "♥", hellip: "…",
+  mdash: "—", ndash: "–", lsquo: "‘", rsquo: "’", ldquo: "“", rdquo: "”",
+}
+
+/**
+ * Jsoup's `Parser.unescapeEntities`: "&hearts;" becomes "♥". For text that arrives with its
+ * entities still in it, like WordPress's `title.rendered` or a site that encodes them twice.
+ */
+export function unescapeEntities(text: string): string {
+  return text.replace(/&(?:#(\d+)|#x([\da-f]+)|([a-z][a-z\d]*));/gi, (entity, decimal?: string, hex?: string, name?: string) => {
+    if (name) return namedEntities[name] ?? (Honya.parseHTML(entity).text() || entity)
+    const code = decimal ? Number(decimal) : parseInt(hex!, 16)
+    return code > 0 && code <= 0x10ffff ? String.fromCodePoint(code) : entity
+  })
+}
+
 /** The image URL from the first of `data-cfsrc`, `data-src`, `data-lazy-src`, `srcset` and `src` it has. */
 export function imgAttr(element: HTMLNode): string {
   if (element.hasAttr("data-cfsrc")) return element.absUrl("data-cfsrc")

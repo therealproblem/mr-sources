@@ -14,7 +14,7 @@
 // What the app can't do yet: Mihon renews a chapter's MangaDex@Home address when it expires,
 // per image; here a chapter left open for over 15 minutes is reopened instead.
 
-import { mapLimit, parseDate, queryString, type Chapter, type Manga, type MangaStatus, type MangasPage, type Source } from "../../../sdk"
+import { mapLimit, parseDate, queryString, unescapeEntities, type Chapter, type Manga, type MangaStatus, type MangasPage, type Source } from "../../../sdk"
 import { apiDate, demographics, filterList, queryParams, safeRatings, tagGroups } from "./filters"
 
 const baseUrl = "https://mangadex.org"
@@ -266,7 +266,7 @@ function makeSource([id, lang]: [string, string]): Source {
 
     return {
       url: `/manga/${manga.id}`,
-      title: removeEntities(title),
+      title: unescapeEntities(title),
       thumbnailUrl: fileName ? `${cdnUrl}/covers/${manga.id}/${fileName}${pref("thumbnailQuality", "")}` : undefined,
     }
   }
@@ -300,11 +300,11 @@ function makeSource([id, lang]: [string, string]): Source {
         .filter((title) => title[dexLang] != null || title[romanized] != null)
         .flatMap((title) => (Object.values(title).length === 1 ? Object.values(title) : []))
         .filter((title) => title)
-      if (altTitles.length > 0) description.push(removeEntities(`Alternative titles:\n${altTitles.map((title) => `• ${title}`).join("\n")}`))
+      if (altTitles.length > 0) description.push(unescapeEntities(`Alternative titles:\n${altTitles.map((title) => `• ${title}`).join("\n")}`))
     }
     if (pref("finalChapterInDesc", true)) {
       const final = [attributes.lastVolume && `Vol.${attributes.lastVolume}`, attributes.lastChapter && `Ch.${attributes.lastChapter}`].filter(Boolean)
-      if (final.length > 0) description.push(removeEntities(`Final chapter:\n${final.join(" ")}`))
+      if (final.length > 0) description.push(unescapeEntities(`Final chapter:\n${final.join(" ")}`))
     }
 
     return {
@@ -322,7 +322,7 @@ function makeSource([id, lang]: [string, string]): Source {
       id,
       name: "MangaDex",
       lang,
-      version: "1.0.0",
+      version: "1.0.1",
       baseUrl,
       supportsLatest: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
@@ -534,7 +534,7 @@ function toChapter(chapter: ChapterEntity): Chapter {
 
   return {
     url: `/chapter/${chapter.id}`,
-    name: removeEntities(name.join(" ")),
+    name: unescapeEntities(name.join(" ")),
     dateUpload: parseDate(attributes.publishAt),
     scanlator: (attributes.isUnavailable ? "UNAVAILABLE - " : "") + scanlator,
   }
@@ -550,23 +550,10 @@ function languageName(code: string, locale: string): string | undefined {
   }
 }
 
-const namedEntities: Record<string, string> = {
-  amp: "&", lt: "<", gt: ">", quot: "\"", apos: "'", nbsp: " ", hearts: "♥", hellip: "…",
-  mdash: "—", ndash: "–", lsquo: "‘", rsquo: "’", ldquo: "“", rdquo: "”",
-}
-
-/** Jsoup's `Parser.unescapeEntities`: "&hearts;" becomes "♥". */
-function removeEntities(text: string): string {
-  return text.replace(/&(?:#(\d+)|#x([\da-f]+)|([a-z][a-z\d]*));/gi, (entity, decimal?: string, hex?: string, name?: string) => {
-    if (name) return namedEntities[name] ?? (Honya.parseHTML(entity).text() || entity)
-    const code = decimal ? Number(decimal) : parseInt(hex!, 16)
-    return code > 0 && code <= 0x10ffff ? String.fromCodePoint(code) : entity
-  })
-}
 
 /** Also drops the links and emphasis of MangaDex's Markdown, and what follows a "---" rule. */
 function removeEntitiesAndMarkdown(text: string): string {
-  return removeEntities(text)
+  return unescapeEntities(text)
     .split("\n---")[0]
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
     .replace(/\*+\s*([^*]*)\s*\*+/g, "$1")

@@ -135,7 +135,7 @@ function makeSource([id, lang]: [string, string]): Source {
 
   return {
     info: {
-      id, name: "HDoujin", lang, version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
+      id, name: "HDoujin", lang, version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/hdoujin/res/mipmap-xhdpi/ic_launcher.png",
       rateLimits: [{ host: "api.hdoujin.org", permits: 3, periodMs: 1000 }],
       imageHeaders: headers,
@@ -217,7 +217,7 @@ function makeSource([id, lang]: [string, string]): Source {
     getFilterList(): Filter[] {
       const text = (fid: string, name: string): Filter => ({ type: "text", id: fid, name, value: "" })
       return [
-        { type: "select", id: "sort", name: "Sort by", options: [["Title", "2"], ["Pages", "3"], ["Date", ""], ["Views", "8"], ["Favourites", "9"], ["Popular This Week", "popular"]].map(([label, value]) => ({ label, value })), selected: 2 },
+        { type: "select", id: "sort", name: "Sort by", options: [["Title", "2"], ["Pages", "3"], ["Date", ""], ["Views", "8"], ["Favourites", "9"], ["Popular This Week", "popular"]].map(([label, value]) => ({ label, value })), selected: 2, listings: { popular: "8", latest: "" } },
         { type: "checkboxes", id: "cat", name: "Categories", options: [{ label: "Manga", value: "2" }, { label: "Doujinshi", value: "4" }, { label: "Illustration", value: "8" }], checked: ["2", "4", "8"] },
         { type: "separator", id: "s1" },
         { type: "select", id: "tag_type", name: "Tags Include Type", options: [{ label: "AND", value: "and" }, { label: "OR", value: "or" }], selected: 0 },

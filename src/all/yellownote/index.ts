@@ -44,7 +44,7 @@ function makeSource([id, lang, baseUrl]: [string, string, string]): Source {
 
   return {
     info: {
-      id, name: "小黄书", lang, version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
+      id, name: "小黄书", lang, version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/yellownote/res/mipmap-xhdpi/ic_launcher.png",
       // The image host blocks requests that don't look like a browser loading an image.
       imageHeaders: { Accept: "image/avif,image/webp,image/png,image/jpeg,*/*" },
@@ -105,7 +105,7 @@ function makeSource([id, lang, baseUrl]: [string, string, string]): Source {
 
     getFilterList() {
       return [
-        { type: "select", id: "sort", name: "Sort by", options: [["Last Update", ""], ["Popularity", "hot"], ["Comment Count", "comment"], ["Latest Comments", "recent"]].map(([label, value]) => ({ label, value })), selected: 0 },
+        { type: "select", id: "sort", name: "Sort by", options: [["Last Update", ""], ["Popularity", "hot"], ["Comment Count", "comment"], ["Latest Comments", "recent"]].map(([label, value]) => ({ label, value })), selected: 0, listings: { popular: "hot", latest: "" } },
         { type: "separator", id: "s1" },
         { type: "header", id: "h1", name: "These filters will be ignored when text search is active!" },
         { type: "select", id: "category", name: "Category", options: categories.map(([label, value]) => ({ label, value })), selected: 0 },

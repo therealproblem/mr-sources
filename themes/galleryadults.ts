@@ -294,7 +294,7 @@ export function galleryAdults(options: GalleryAdultsOptions): Source {
     getFilterList() {
       const filters: Filter[] = []
       if (useIntermediateSearch) filters.push({ type: "header", id: "hint", name: "HINT: Separate search term with comma (,)" })
-      filters.push({ type: "select", id: "sort", name: "Sort By", options: sortOrders.map(([label, value]) => ({ label, value })), selected: 0 })
+      filters.push({ type: "select", id: "sort", name: "Sort By", options: sortOrders.map(([label, value]) => ({ label, value })), selected: 0, listings: supportsLatest ? { popular: "pp", latest: "lt" } : { popular: "pp" } })
       if (useIntermediateSearch || supportAdvancedSearch) {
         filters.push({ type: "separator", id: "s1" })
         filters.push({ type: "checkboxes", id: "categories", name: "Categories", options: categories.map(([label, value]) => ({ label, value })), checked: categories.map(([, uri]) => uri) })

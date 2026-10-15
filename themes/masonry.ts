@@ -73,7 +73,8 @@ export function masonry(info: SourceInfo): Source {
       return [
         { type: "header", id: "h1", name: "Filters ignored with text search" },
         { type: "separator", id: "s1" },
-        { type: "select", id: "sort", name: "Sort by", options: sorts.map(([label, value]) => ({ label, value })), selected: 0 },
+        // Popular is /archive/, which none of the sorts give.
+        { type: "select", id: "sort", name: "Sort by", options: sorts.map(([label, value]) => ({ label, value })), selected: 0, listings: { latest: "sort/newest" } },
       ]
     },
   }

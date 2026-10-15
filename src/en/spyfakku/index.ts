@@ -74,7 +74,7 @@ const releasedAt = (text: string | null | undefined) => (text ? Date.parse(`${te
 
 const source: Source = {
   info: {
-    id: "6202325652827735606", name: "SpyFakku", lang: "en", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
+    id: "6202325652827735606", name: "SpyFakku", lang: "en", version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/spyfakku/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "hentalk.pw", permits: 2, periodMs: 1000 }],
   },
@@ -152,7 +152,7 @@ const source: Source = {
   getFilterList(): Filter[] {
     const text = (id: string, name: string): Filter => ({ type: "text", id, name, value: "" })
     return [
-      { type: "sort", id: "sort", name: "Sort by", options: [["Title", "title"], ["Relevance", "relevance"], ["Date Added", "created_at"], ["Date Released", "released_at"], ["Pages", "pages"], ["Random", "random"]].map(([label, value]) => ({ label, value })), selected: 3, ascending: false },
+      { type: "sort", id: "sort", name: "Sort by", options: [["Title", "title"], ["Relevance", "relevance"], ["Date Added", "created_at"], ["Date Released", "released_at"], ["Pages", "pages"], ["Random", "random"]].map(([label, value]) => ({ label, value })), selected: 3, ascending: false, listings: { popular: "released_at", latest: "created_at" } },
       { type: "select", id: "limit", name: "Per page", options: ["6", "12", "24", "36", "48"].map((v) => ({ label: v, value: v })), selected: 2 },
       { type: "separator", id: "s1" },
       { type: "header", id: "h1", name: "Separate tags with commas (,)" },

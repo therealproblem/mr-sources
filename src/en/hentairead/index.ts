@@ -48,7 +48,7 @@ async function tagId(tag: string, type: string): Promise<number | undefined> {
 
 const source: Source = {
   info: {
-    id: "2299981010822511979", name: "HentaiRead", lang: "en", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
+    id: "2299981010822511979", name: "HentaiRead", lang: "en", version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/hentairead/res/mipmap-xhdpi/ic_launcher.png",
   },
 
@@ -136,7 +136,7 @@ const source: Source = {
   getFilterList(): Filter[] {
     const text = (id: string, name: string): Filter => ({ type: "text", id, name, value: "" })
     return [
-      { type: "sort", id: "sort", name: "Sort by", options: [["Latest", "new"], ["A-Z", "alphabet"], ["Rating", "rating"], ["Views", "views"]].map(([label, value]) => ({ label, value })), selected: 0, ascending: false },
+      { type: "sort", id: "sort", name: "Sort by", options: [["Latest", "new"], ["A-Z", "alphabet"], ["Rating", "rating"], ["Views", "views"]].map(([label, value]) => ({ label, value })), selected: 0, ascending: false, listings: { popular: "views", latest: "new" } },
       { type: "checkboxes", id: "types", name: "Types", options: [["Doujinshi", "4"], ["Manga", "52"], ["Artist CG", "4798"], ["Western", "36278"]].map(([label, value]) => ({ label, value })), checked: ["4", "52", "4798", "36278"] },
       { type: "separator", id: "s1" },
       { type: "header", id: "h1", name: "Separate tags with commas (,)" },

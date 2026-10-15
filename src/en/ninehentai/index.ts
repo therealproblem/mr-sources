@@ -36,7 +36,7 @@ async function tags(names: string, type: number): Promise<Tag[]> {
 
 const source: Source = {
   info: {
-    id: "7689490563697355048", name: "NineHentai", lang: "en", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
+    id: "7689490563697355048", name: "NineHentai", lang: "en", version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/ninehentai/res/mipmap-xhdpi/ic_launcher.png",
   },
 
@@ -109,7 +109,7 @@ const source: Source = {
     return [
       { type: "header", id: "h1", name: "Search by id with \"id:\" in front of query" },
       { type: "separator", id: "s1" },
-      { type: "select", id: "sort", name: "Sort by", options: ["Newest", "Popular Right now", "Most Fapped", "Most Viewed", "By Title"].map((label, i) => ({ label, value: String(i) })), selected: 0 },
+      { type: "select", id: "sort", name: "Sort by", options: ["Newest", "Popular Right now", "Most Fapped", "Most Viewed", "By Title"].map((label, i) => ({ label, value: String(i) })), selected: 0, listings: { popular: "1", latest: "0" } },
       text("min_pages", "Minimum Pages"), text("max_pages", "Maximum Pages"), text("included", "Included Tags"), text("excluded", "Excluded Tags"),
       text("artist", "Artist"), text("group", "Group"), text("parody", "Parody"), text("character", "Character"), text("category", "Category"),
     ]

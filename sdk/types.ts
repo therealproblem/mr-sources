@@ -99,15 +99,32 @@ export interface FilterOption {
   value: string
 }
 
-/** Mihon's filter kinds, as plain data. `id` is the extension's own key for each. */
+/**
+ * Which of a sort's options give the same list as `getPopularManga` and `getLatestUpdates`,
+ * by value. The app's Sort By then shows those options in place of its own Popular and
+ * Latest, so the same list isn't offered twice. Leave out one with no matching option, and
+ * give `{}` when neither has one: the app adds its own Popular (and Latest) for those.
+ */
+export interface Listings {
+  popular?: string
+  latest?: string
+}
+
+/**
+ * Mihon's filter kinds, as plain data. `id` is the extension's own key for each.
+ *
+ * The source's sort is the filter the app merges Popular and Latest into: the one with
+ * `listings`, else the first `sort`, else the first `select` named like "Sort by" or
+ * "Order by". The build script requires it to have `listings`.
+ */
 export type Filter =
   | { type: "header"; id: string; name: string }
   | { type: "separator"; id: string; name?: string }
   | { type: "text"; id: string; name: string; value: string }
-  | { type: "select"; id: string; name: string; options: FilterOption[]; selected: number }
+  | { type: "select"; id: string; name: string; options: FilterOption[]; selected: number; listings?: Listings }
   | { type: "checkboxes"; id: string; name: string; options: FilterOption[]; checked: string[] }
   | { type: "tristates"; id: string; name: string; options: FilterOption[]; included: string[]; excluded: string[] }
-  | { type: "sort"; id: string; name: string; options: FilterOption[]; selected?: number; ascending: boolean }
+  | { type: "sort"; id: string; name: string; options: FilterOption[]; selected?: number; ascending: boolean; listings?: Listings }
 
 export interface HTTPRequest {
   /** Absolute, or relative to `baseUrl`. */

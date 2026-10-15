@@ -11,7 +11,7 @@ export function filterList(sort?: string): Filter[] {
   const anyTrueFalse = options("Any", "True", "False")
 
   return [
-    { type: "select", id: "sort", name: "Sort", options: sortOptions, selected: Math.max(0, sortOptions.findIndex((o) => o.value === sort)) },
+    { type: "select", id: "sort", name: "Sort", options: sortOptions, selected: Math.max(0, sortOptions.findIndex((o) => o.value === sort)), listings: { popular: "Popularity", latest: "Latest Updates" } },
     { type: "select", id: "order", name: "Sort Order", options: options("Descending", "Ascending"), selected: 0 },
     { type: "select", id: "official", name: "Official Translation", options: anyTrueFalse, selected: 0 },
     { type: "select", id: "anime", name: "Anime Adaptation", options: anyTrueFalse, selected: 0 },

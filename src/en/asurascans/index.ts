@@ -66,7 +66,7 @@ const sorts: [string, string][] = [["Latest Update", "latest"], ["Popular", "pop
 
 const source: Source = {
   info: {
-    id: "6247824327199706550", name: "Asura Scans", lang: "en", version: "1.0.1", baseUrl, supportsLatest: true,
+    id: "6247824327199706550", name: "Asura Scans", lang: "en", version: "1.0.2", baseUrl, supportsLatest: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/asurascans/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "asurascans.com", permits: 2, periodMs: 2000 }, { host: "api.asurascans.com", permits: 2, periodMs: 2000 }],
   },
@@ -154,7 +154,7 @@ const source: Source = {
   getFilterList(): Filter[] {
     const select = (id: string, name: string, pairs: [string, string][]): Filter => ({ type: "select", id, name, options: pairs.map(([label, value]) => ({ label, value })), selected: 0 })
     return [
-      { type: "sort", id: "sort", name: "Sort By", options: sorts.map(([label, value]) => ({ label, value })), selected: 0, ascending: false },
+      { type: "sort", id: "sort", name: "Sort By", options: sorts.map(([label, value]) => ({ label, value })), selected: 0, ascending: false, listings: { popular: "popular", latest: "latest" } },
       select("status", "Status", [["All", ""], ["Ongoing", "ongoing"], ["Completed", "completed"], ["Hiatus", "hiatus"], ["Dropped", "dropped"], ["Axed", "axed"]]),
       select("type", "Type", [["All", ""], ["Manhwa", "manhwa"], ["Manhua", "manhua"], ["Mangatoon", "manga"]]),
       { type: "text", id: "min_chapters", name: "Min Chapters", value: "" },

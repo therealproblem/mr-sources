@@ -87,6 +87,14 @@ People switching from Mihon restore their backups into Honya. Each library entry
 
 `getFilterList()` returns Mihon's filter kinds as plain data: `header`, `separator`, `text`, `select`, `checkboxes`, `tristates` and `sort`. The app shows them, and `searchManga` receives the same list with the user's choices. See `src/en/weebcentral/filters.ts`.
 
+The app merges its Popular and Latest into the source's sort (a `sort` filter, or a `select` named like "Sort by"). So that the same list isn't offered twice, the sort says which of its options give `getPopularManga`'s and `getLatestUpdates`' lists, by value, and the app shows those options in their place:
+
+```ts
+{ type: "select", id: "sort", name: "Sort by", options, selected: 0, listings: { popular: "popular", latest: "" } }
+```
+
+Leave out one that no option matches; the app then adds its own. `listings: {}` says none do. The build fails on a sort without `listings`, so every source makes the call.
+
 ## Testing
 
 `npm test -- "<source name>"` (or a source ID, or `name/lang`) runs a built source through the app's own JavaScript runtime on your Mac, with `tester/`: popular, latest, details, chapters and pages, and checks that a cover and a page image download. `npm test -- "<source name>" manga <url> [<chapter url>]` checks a particular entry, such as one from a Mihon backup. It needs Xcode, and links to the app's Swift files, so it works in this repository.

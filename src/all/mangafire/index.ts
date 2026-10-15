@@ -69,7 +69,7 @@ function makeSource([id, lang]: [string, string]): Source {
       id,
       name: "MangaFire",
       lang,
-      version: "1.0.1",
+      version: "1.0.2",
       baseUrl,
       supportsLatest: true,
       nsfw: true,
@@ -252,7 +252,7 @@ function filterList(contentRating: string[]): Filter[] {
     { type: "text", id: "year_to", name: "Release year (To)", value: "" },
     { type: "text", id: "min_chap", name: "Minimum chapters", value: "" },
     { type: "separator", id: "s6" },
-    { type: "select", id: "sort", name: "Sort by", options: options(sorts), selected: 1 },
+    { type: "select", id: "sort", name: "Sort by", options: options(sorts), selected: 1, listings: { popular: "views_30d:desc", latest: "chapter_updated_at:desc" } },
   ]
 }
 

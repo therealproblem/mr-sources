@@ -14,7 +14,7 @@ const source: Source = {
     id: "2131019126180322627", // Same as Mihon: md5("weeb central/en/1")
     name: "Weeb Central",
     lang: "en",
-    version: "1.0.1",
+    version: "1.0.2",
     baseUrl,
     supportsLatest: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/weebcentral/res/mipmap-xhdpi/ic_launcher.png",

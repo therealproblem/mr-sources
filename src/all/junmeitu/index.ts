@@ -37,7 +37,7 @@ const sorts: [string, string][] = [["default", "index"], ["hot", "hot"]]
 
 const source: Source = {
   info: {
-    id: "4721197766605490540", name: "Junmeitu", lang: "all", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
+    id: "4721197766605490540", name: "Junmeitu", lang: "all", version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/junmeitu/res/mipmap-xhdpi/ic_launcher.png",
   },
 
@@ -134,7 +134,7 @@ const source: Source = {
       { type: "text", id: "model", name: "Model", value: "" },
       { type: "text", id: "group", name: "Group", value: "" },
       { type: "select", id: "category", name: "Category", options: categories.map(([label, value]) => ({ label, value })), selected: 0 },
-      { type: "select", id: "sort", name: "Sort", options: sorts.map(([label, value]) => ({ label, value })), selected: 0 },
+      { type: "select", id: "sort", name: "Sort", options: sorts.map(([label, value]) => ({ label, value })), selected: 0, listings: { popular: "hot", latest: "index" } },
     ]
   },
 }

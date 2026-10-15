@@ -29,7 +29,7 @@ function makeSource([id, lang]: [string, string]): Source {
 
   return {
     info: {
-      id, name: "Manga18.me", lang, version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
+      id, name: "Manga18.me", lang, version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/manga18me/res/mipmap-xhdpi/ic_launcher.png",
       imageHeaders: headers,
     },
@@ -94,7 +94,7 @@ function makeSource([id, lang]: [string, string]): Source {
       return [
         { type: "header", id: "note", name: "The filter is ignored when using text search." },
         select("genre", "Genre", genres),
-        select("sort", "Sort", [["Latest", "latest"], ["A-Z", "alphabet"], ["Rating", "rating"], ["Trending", "trending"]]),
+        { ...select("sort", "Sort", [["Latest", "latest"], ["A-Z", "alphabet"], ["Rating", "rating"], ["Trending", "trending"]]), listings: { popular: "trending", latest: "latest" } },
         { type: "checkboxes", id: "raw", name: "Raw", options: [{ label: "Raw", value: "on" }], checked: [] },
         { type: "checkboxes", id: "completed", name: "Completed", options: [{ label: "Completed", value: "on" }], checked: [] },
       ]

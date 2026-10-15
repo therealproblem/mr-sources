@@ -43,7 +43,7 @@ const textFilters: [string, string, string, string][] = [
 function makeSource([id, lang, searchLang]: [string, string, string]): Source {
   return {
     info: {
-      id, name: "3Hentai", lang, version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
+      id, name: "3Hentai", lang, version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/hentai3/res/mipmap-xhdpi/ic_launcher.png",
     },
 
@@ -114,7 +114,7 @@ function makeSource([id, lang, searchLang]: [string, string, string]): Source {
 
     getFilterList(): Filter[] {
       return [
-        { type: "select", id: "sort", name: "Sort by", options: [["Recent", ""], ["Popular: All Time", "popular"], ["Popular: Week", "popular-7d"], ["Popular: Today", "popular-24h"]].map(([label, value]) => ({ label, value })), selected: 0 },
+        { type: "select", id: "sort", name: "Sort by", options: [["Recent", ""], ["Popular: All Time", "popular"], ["Popular: Week", "popular-7d"], ["Popular: Today", "popular-24h"]].map(([label, value]) => ({ label, value })), selected: 0, listings: { popular: "popular", latest: "" } },
         { type: "separator", id: "s1" },
         { type: "header", id: "h1", name: "Separate tags with commas (,). Prepend with dash (-) to exclude." },
         { type: "header", id: "h2", name: "Use 'Male Tags' or 'Female Tags' for specific categories. 'Tags' searches all categories." },

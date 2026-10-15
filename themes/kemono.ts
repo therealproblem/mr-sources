@@ -178,7 +178,7 @@ export function kemono(info: SourceInfo, types: string[]): Source {
     getFilterList(): Filter[] {
       const sorts: [string, string][] = [["Popularity", "pop"], ["Date Indexed", "new"], ["Date Updated", "lat"], ["Alphabetical Order", "tit"], ["Service", "serv"], ["Date Favorited", "fav"]]
       return [
-        { type: "sort", id: "sort", name: "Sort by", options: sorts.map(([label, value]) => ({ label, value })), selected: 0, ascending: false },
+        { type: "sort", id: "sort", name: "Sort by", options: sorts.map(([label, value]) => ({ label, value })), selected: 0, ascending: false, listings: { popular: "pop", latest: "lat" } },
         { type: "tristates", id: "types", name: "Types", options: types.map((t) => ({ label: t, value: t.toLowerCase() })), included: [], excluded: [] },
         { type: "tristates", id: "favorites", name: "Favorites", options: [{ label: "Favorites Only", value: "fav" }], included: [], excluded: [] },
       ]

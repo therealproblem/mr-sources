@@ -100,7 +100,16 @@ function readInfos(code, entry) {
   if (sources.length === 0 || sources.some((source) => !source?.info)) throw new Error("no default export with `info`")
   const ids = sources.map((source) => String(source.info.id))
   if (new Set(ids).size !== ids.length) throw new Error("two sources share an id")
-  return sources.map((source) => checkSource(source))
+  const infos = sources.map((source) => checkSource(source))
+  // getFilterList may read the source's settings: as on a fresh install, there are none.
+  context.Honya = new Proxy({ prefs: { get: () => null, set() {} } }, {
+    get: (target, key) => {
+      if (key in target) return target[key]
+      throw new Error(`getFilterList uses Honya.${String(key)}; it should only read prefs`)
+    },
+  })
+  sources.forEach((source, index) => checkSortListings(source, infos[index]))
+  return infos
 }
 
 function checkSource(source) {
@@ -123,6 +132,37 @@ function checkSource(source) {
       "That's right only if the Mihon extension overrides its id; otherwise Mihon backups won't find this source.")
   }
   return info
+}
+
+/**
+ * The app merges its Popular and Latest into the source's sort, and needs the sort to say
+ * which of its options give those lists, or it offers each list twice (3Hentai's "Recent"
+ * beside Latest). Every source with a sort has to answer; `listings: {}` means none do.
+ */
+function checkSortListings(source, info) {
+  if (typeof source.getFilterList !== "function") return
+  const filters = source.getFilterList()
+  const sort = sortFilter(filters)
+  if (!sort) return
+  const values = (sort.options ?? []).map((option) => option.value)
+  if (!sort.listings) {
+    throw new Error(`${info.name}: its sort "${sort.name}" must say which options give getPopularManga's and getLatestUpdates' lists, ` +
+      `as listings: { popular, latest } with option values from ${values.map((v) => `"${v}"`).join(", ")}; listings: {} if none match`)
+  }
+  for (const listing of ["popular", "latest"]) {
+    const value = sort.listings[listing]
+    if (value === undefined) continue
+    if (!values.includes(value)) throw new Error(`${info.name}: listings.${listing} "${value}" isn't one of "${sort.name}"'s option values (${values.map((v) => `"${v}"`).join(", ")})`)
+  }
+  if (sort.listings.latest !== undefined && !info.supportsLatest) throw new Error(`${info.name}: listings.latest is set but supportsLatest isn't`)
+  if (sort.listings.popular !== undefined && sort.listings.popular === sort.listings.latest) throw new Error(`${info.name}: listings.popular and listings.latest are the same option`)
+}
+
+/** The filter the app takes for the source's sort (`sortIndex` in the app's BrowseModel.swift). */
+function sortFilter(filters) {
+  return filters.find((filter) => filter.listings)
+    ?? filters.find((filter) => filter.type === "sort")
+    ?? filters.find((filter) => filter.type === "select" && /sort|order/i.test(filter.name ?? ""))
 }
 
 /** Mihon's source ID: the first 8 bytes of MD5("<name lowercased>/<lang>/<versionId>"), sign bit cleared. */

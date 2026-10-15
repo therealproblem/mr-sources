@@ -13,7 +13,7 @@ const languages: [string, string][] = [
 
 export default languages.map(([id, lang]) => galleryAdults({
   info: {
-    id, name: "HentaiZap", lang, version: "1.0.1", baseUrl: "https://hentaizap.com", nsfw: true,
+    id, name: "HentaiZap", lang, version: "1.0.2", baseUrl: "https://hentaizap.com", nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/hentaizap/res/mipmap-xhdpi/ic_launcher.png",
   },
   mangaLang: languageSlugs[lang],

@@ -137,11 +137,11 @@ export function iken(info: SourceInfo, options: { apiUrl?: string; sortPagesByFi
     },
 
     getFilterList(): Filter[] {
-      const select = (id: string, name: string, pairs: [string, string][]): Filter => ({ type: "select", id, name, options: pairs.map(([label, value]) => ({ label, value })), selected: 0 })
+      const select = (id: string, name: string, pairs: [string, string][]): Extract<Filter, { type: "select" }> => ({ type: "select", id, name, options: pairs.map(([label, value]) => ({ label, value })), selected: 0 })
       return [
         select("seriesStatus", "Status", [["All", ""], ["Ongoing", "ONGOING"], ["Completed", "COMPLETED"], ["Cancelled", "CANCELLED"], ["Dropped", "DROPPED"], ["Coming Soon", "COMING_SOON"], ["Mass Released", "MASS_RELEASED"]]),
         select("seriesType", "Type", [["All", ""], ["Manga", "MANGA"], ["Manhua", "MANHUA"], ["Manhwa", "MANHWA"], ["Russian", "RUSSIAN"], ["Spanish", "SPANISH"]]),
-        select("orderBy", "Sort By", sortOptions),
+        { ...select("orderBy", "Sort By", sortOptions), listings: { popular: "totalViews", latest: "lastChapterAddedAt" } },
         select("orderDirection", "Sort Direction", [["Descending", "desc"], ["Ascending", "asc"]]),
       ]
     },

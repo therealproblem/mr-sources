@@ -203,7 +203,8 @@ export function madara(options: MadaraOptions): Source {
     },
 
     getFilterList() {
-      return [{ type: "select", id: "sort", name: "Order by", options: orderOptions.map(([label, value]) => ({ label, value })), selected: 0 }]
+      const has = (value: string) => orderOptions.some(([, v]) => v === value) ? value : undefined
+      return [{ type: "select", id: "sort", name: "Order by", options: orderOptions.map(([label, value]) => ({ label, value })), selected: 0, listings: { popular: has(options.popularOrder ?? "views"), latest: has(options.latestOrder ?? "latest") } }]
     },
   }
 }

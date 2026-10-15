@@ -11,7 +11,7 @@ const source: Source = {
     id: "7266624490370375187",
     name: "HentaiHere",
     lang: "en",
-    version: "1.0.1",
+    version: "1.0.2",
     baseUrl,
     supportsLatest: true,
     nsfw: true,
@@ -118,11 +118,11 @@ const categories: [string, string][] = [
 ]
 
 function filterList(): Filter[] {
-  const select = (id: string, name: string, options: [string, string][], selected = 0): Filter =>
+  const select = (id: string, name: string, options: [string, string][], selected = 0): Extract<Filter, { type: "select" }> =>
     ({ type: "select", id, name, options: options.map(([value, label]) => ({ value, label })), selected })
   return [
     { type: "header", id: "note", name: "Filters below are ignored for text search." },
-    select("sort", "Sort", sorts, 1),
+    { ...select("sort", "Sort", sorts, 1), listings: { popular: "most-viewed", latest: "newest" } },
     { type: "separator", id: "s1" },
     select("alphabet", "Starts With", alphabets),
     { type: "separator", id: "s2" },

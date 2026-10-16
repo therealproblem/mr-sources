@@ -47,8 +47,23 @@ export interface Source {
   /** Newest first, like Mihon. */
   getChapterList(manga: Manga): Promise<Chapter[]>
   getPageList(chapter: Chapter): Promise<Page[]>
-  /** Synchronous, asked for once. */
-  getFilterList?(): Filter[]
+  /**
+   * Synchronous. `data` is what `fetchFilterData` last returned, or undefined before the app
+   * has fetched it (and in apps older than host API 3), so return the filters that work
+   * without it then.
+   */
+  getFilterList?(data?: unknown): Filter[]
+  /**
+   * Mihon's `fetchFilterData`: asks the site for what the filters offer, such as the genres
+   * it lists. The app keeps the result (anything JSON can hold) for a day, per version of the
+   * source, and passes it to `getFilterList`. Host API 3.
+   */
+  fetchFilterData?(): Promise<unknown>
+  /**
+   * Mihon's `getMangaUrl`: the manga's page on the site, for the web view and sharing, when
+   * it isn't `baseUrl + manga.url` (a post ID kept as the URL, say). Synchronous. Host API 3.
+   */
+  getMangaUrl?(manga: Manga): string
 }
 
 export interface Manga {

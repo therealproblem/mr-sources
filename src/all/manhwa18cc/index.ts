@@ -12,9 +12,12 @@ const languages: [string, string][] = [["4841602236575491202", "en"], ["68646434
 
 export default languages.map(([id, lang]) => madara({
   info: {
-    id, name: "Manhwa18.cc", lang, version: "1.0.2", baseUrl, nsfw: true,
+    id, name: "Manhwa18.cc", lang, version: "1.1.0", baseUrl, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/manhwa18cc/res/mipmap-xhdpi/ic_launcher.png",
   },
+  ajax: false,
+  supportsPostId: false,
+  chapterDateFormat: { pattern: "dd MMM yyyy", locale: "en-US" },
   mangaSubString: lang === "ko" ? "raw" : "webtoons",
   archiveSelector: lang === "en" ? "div.manga-item:not(:has(h3 a[title$='Raw']))" : lang === "ko" ? "div.manga-item:has(h3 a[title$='Raw'])" : "div.manga-item",
   archiveUrlSelector: "div.manga-item div.data a",
@@ -30,4 +33,6 @@ export default languages.map(([id, lang]) => madara({
   chapterListSelector: "li.a-h",
   chapterDateSelector: "span.chapter-time",
   pageListParseSelector: "div.read-content img",
+  filterGenresSelector: ".header-bottom",
+  genreDirectory: "webtoon-genre",
 }))

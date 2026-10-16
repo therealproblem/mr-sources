@@ -3,7 +3,7 @@ import Foundation
 // Runs a built extension through the app's own JSRuntime (the Swift files beside this are links
 // into the app) and prints what each call returns, checking the images download.
 //
-//   honya-test <dist> <source id | name | name/lang> [run | manga <url> [chapter url] | search <query> | filters]
+//   honya-test <dist> <source id | name | name/lang> [run | manga <url> [chapter url] | search <query> [id=value…] | filters]
 //   honya-test <dist> list
 //   honya-test visit <url> [seconds]      load a page in WebKit and list its localStorage
 //   honya-test fetch <url> [Header: value…]   fetch through the app's HTTP client
@@ -70,8 +70,20 @@ func show(_ page: MangasPage) {
 func checkImage(_ request: URLRequest, label: String) async {
     _ = await step(label) {
         let (data, response) = try await URLSession.shared.data(for: request)
-        let http = response as! HTTPURLResponse
+        guard let http = response as? HTTPURLResponse else {
+            throw ExtensionError.result(source: manifest.name, function: "image", detail: "not an HTTP URL: \(request.url?.absoluteString.prefix(60) ?? "")")
+        }
         let type = http.value(forHTTPHeaderField: "Content-Type") ?? "?"
+        if let layout = ImageTiles.layout(in: request.url) {
+            let restored = ImageTiles.restore(data, for: request.url)
+            print("   tiles \(layout.columns)x\(layout.rows) put back: \(restored == data ? "FAILED" : "\(restored.count) bytes")")
+            if restored == data { throw ExtensionError.result(source: manifest.name, function: "image", detail: "tiles not put back") }
+            // SAVE_TILES=<path> keeps the served and restored images, to look at.
+            if let path = ProcessInfo.processInfo.environment["SAVE_TILES"] {
+                try? data.write(to: URL(fileURLWithPath: path + ".served.jpg"))
+                try? restored.write(to: URL(fileURLWithPath: path + ".restored.jpg"))
+            }
+        }
         let magic = data.prefix(4).map { String(format: "%02x", $0) }.joined()
         let isImage = ["ffd8ff", "89504e47", "52494646", "47494638", "0000"].contains { magic.hasPrefix($0) }
         print("   HTTP \(http.statusCode) \(type) \(data.count) bytes magic \(magic)")
@@ -90,7 +102,9 @@ func detailsAndChapters(_ manga: Manga, chapterURL: String?) async {
     guard let chapters = await step("chapters", { try await source.chapterList(manga) }) else { return }
     print("   \(chapters.count) chapters")
     for c in chapters.prefix(3) { print("   - \(c.name) | \(c.url) | #\(c.chapterNumber.map { String($0) } ?? "-") | \(c.dateUpload.map { "\($0)" } ?? "no date") | \(c.scanlator ?? "")") }
-    let chapter = chapterURL.flatMap { url in chapters.first { $0.url == url } ?? Chapter(url: url, name: "given") } ?? chapters.first
+    // The newest that isn't marked as needing a purchase (🔒) or a login (➡️), as Keiyoushi sources mark them.
+    let readable = chapters.first { !$0.name.hasPrefix("🔒") && !$0.name.hasPrefix("➡️") } ?? chapters.first
+    let chapter = chapterURL.flatMap { url in chapters.first { $0.url == url } ?? Chapter(url: url, name: "given") } ?? readable
     guard let chapter else { return }
     if let pages = await step("pages \(chapter.url)", { try await source.pageList(chapter) }) {
         print("   \(pages.count) pages")
@@ -99,16 +113,44 @@ func detailsAndChapters(_ manga: Manga, chapterURL: String?) async {
     }
 }
 
+/// The filters as the app shows them once the site's filter data (its genres, say) is fetched.
+func refreshedFilters() async -> [SourceFilter] {
+    let before = source.filterList()
+    // Fetch it fresh, not what an earlier run kept.
+    UserDefaults.standard.removeObject(forKey: "extensionFilterData.\(manifest.id)")
+    let start = Date()
+    let after = await source.refreshFilterList() ?? before
+    if after.count != before.count || after != before {
+        print("   filter data fetched [\(String(format: "%.1fs", Date().timeIntervalSince(start)))]: \(before.count) → \(after.count) filters")
+    }
+    return after
+}
+
 switch command {
 case "filters":
-    for f in source.filterList() { print("   \(f.id): \(f.name) \(f.kind)".prefix(200)) }
+    for f in await refreshedFilters() { print("   \(f.id): \(f.name) \(f.kind)".prefix(200)) }
 case "search":
+    // search <query> [<filter id>=<option value or text>…]: picks an option, checks a box,
+    // includes a tag or sets a text filter, after fetching the filters' data.
     let query = args.count > 4 ? args[4] : ""
-    if let page = await step("search \"\(query)\"", { try await source.searchManga(page: 1, query: query, filters: source.filterList()) }) { show(page) }
+    var filters = await refreshedFilters()
+    for setting in args.dropFirst(5) {
+        let parts = setting.split(separator: "=", maxSplits: 1).map(String.init)
+        guard parts.count == 2, let index = filters.firstIndex(where: { $0.id == parts[0] }) else { print("   no filter \(setting)"); continue }
+        switch filters[index].kind {
+        case .text: filters[index].kind = .text(parts[1])
+        case .select(let options, _): filters[index].kind = .select(options: options, selected: options.firstIndex { $0.value == parts[1] } ?? 0)
+        case .sort(let options, _, let ascending): filters[index].kind = .sort(options: options, selected: options.firstIndex { $0.value == parts[1] }, ascending: ascending)
+        case .checkboxes(let options, var checked): checked.insert(parts[1]); filters[index].kind = .checkboxes(options: options, checked: checked)
+        case .triStates(let options, var states): states[parts[1]] = .include; filters[index].kind = .triStates(options: options, states: states)
+        default: print("   can't set \(setting)")
+        }
+    }
+    if let page = await step("search \"\(query)\"", { try await source.searchManga(page: 1, query: query, filters: filters) }) { show(page) }
 case "manga":
     await detailsAndChapters(Manga(url: args[4], title: "?"), chapterURL: args.count > 5 ? args[5] : nil)
 default:
-    print("   \(source.filterList().count) filters")
+    print("   \(await refreshedFilters().count) filters")
     let popular = await step("popular p1", { try await source.popularManga(page: 1) })
     if let popular { show(popular) }
     if source.supportsLatest, let latest = await step("latest p1", { try await source.latestUpdates(page: 1) }) { show(latest) }

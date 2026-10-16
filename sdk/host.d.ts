@@ -1,6 +1,6 @@
 // What the app provides to extensions: the `Honya` global and `console`. Extensions run in
 // JavaScriptCore, not a browser or Node, so there's no fetch, DOM, URL, setTimeout or atob.
-// The app's side is `Core/Extensions/JSRuntime.swift`; host API version 1.
+// The app's side is `Core/Extensions/JSRuntime.swift`; host API version 4.
 
 import type { HTMLNode, HTTPRequest, HTTPResponse, PrefValue } from "./types"
 

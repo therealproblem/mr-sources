@@ -11,8 +11,22 @@ import path from "node:path"
 import { fileURLToPath } from "node:url"
 import vm from "node:vm"
 
-/** The host API these scripts are written against: `JSRuntime.apiVersion` in the app. */
-const API_VERSION = 2
+/**
+ * The host API the app provides (`JSRuntime.apiVersion`). Each source is listed with the
+ * oldest version it runs on, so older apps keep the sources that don't need what's new.
+ */
+const API_VERSION = 4
+
+/** What each host API version added that a source can use, newest first. */
+const apiAdditions = [
+  [4, (source, code) => code.includes("#honya-tiles=")],
+  [3, (source) => ["fetchFilterData", "getMangaUrl"].some((name) => typeof source[name] === "function")],
+]
+const BASE_API_VERSION = 2
+
+function requiredApiVersion(source, code) {
+  return apiAdditions.find(([, uses]) => uses(source, code))?.[0] ?? BASE_API_VERSION
+}
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 const dist = path.join(root, "dist")
@@ -69,6 +83,7 @@ async function buildSource({ folder, entry, key }) {
   })
   const code = result.outputFiles[0].text
   const infos = readInfos(code, entry)
+  if (infos.some((info) => info.apiVersion > API_VERSION)) throw new Error(`needs host API ${Math.max(...infos.map((info) => info.apiVersion))}; raise API_VERSION`)
 
   const file = `sources/${key}.js`
   await writeFile(path.join(dist, file), code)
@@ -83,7 +98,7 @@ async function buildSource({ folder, entry, key }) {
   const sha256 = createHash("sha256").update(code).digest("hex")
   console.log(`✓ ${infos[0].name} ${infos[0].version} (${infos.map((info) => info.lang).join(", ")}) → ${file}`)
   // Every source an extension exports shares its script; the app keeps the one it installs.
-  return infos.map((info) => ({ ...info, icon: info.icon ?? localIcon, apiVersion: API_VERSION, file, sha256 }))
+  return infos.map((info) => ({ ...info, icon: info.icon ?? localIcon, file, sha256 }))
 }
 
 /**
@@ -109,7 +124,7 @@ function readInfos(code, entry) {
     },
   })
   sources.forEach((source, index) => checkSortListings(source, infos[index]))
-  return infos
+  return infos.map((info, index) => ({ ...info, apiVersion: requiredApiVersion(sources[index], code) }))
 }
 
 function checkSource(source) {

@@ -195,3 +195,15 @@ export function imgAttr(element: HTMLNode): string {
   if (element.hasAttr("srcset")) return element.absUrl("srcset").split(" ")[0]
   return element.absUrl("src")
 }
+
+/**
+ * An image URL that asks the app to put the image's shuffled tiles back (host API 4), for
+ * sites that serve pages cut into a grid and mixed up. `order[i]` is the tile of the served
+ * image that belongs at tile `i` of the real one, both counted row by row from the top left.
+ * Tiles are the image's size divided by the grid, rounded down to `multiple` pixels; the
+ * leftover edges stay as they are. The app does this for reading and for downloads.
+ */
+export function tiledImageUrl(url: string, grid: { columns: number; rows: number; multiple?: number; order: number[] }): string {
+  const size = `${grid.columns}x${grid.rows}${grid.multiple && grid.multiple > 1 ? `/${grid.multiple}` : ""}`
+  return `${url.replace(/#.*$/, "")}#honya-tiles=${size}:${grid.order.join(",")}`
+}

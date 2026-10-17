@@ -2,7 +2,7 @@
 // https://github.com/keiyoushi/extensions-source/tree/main/src/all/manga18me
 // Licensed under the Apache License, Version 2.0.
 
-import { fetchHTML, queryString, relativeUrl, type Filter, type HTMLNode, type MangasPage, type Source } from "../../../sdk"
+import { fetchHTML, parseDate, queryString, relativeUrl, type Filter, type HTMLNode, type MangasPage, type Source } from "../../../sdk"
 
 const baseUrl = "https://manga18.me"
 const headers = { Referer: `${baseUrl}/` }
@@ -29,7 +29,7 @@ function makeSource([id, lang]: [string, string]): Source {
 
   return {
     info: {
-      id, name: "Manga18.me", lang, version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
+      id, name: "Manga18.me", lang, version: "1.0.3", baseUrl, supportsLatest: true, nsfw: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/manga18me/res/mipmap-xhdpi/ic_launcher.png",
       imageHeaders: headers,
     },
@@ -62,7 +62,7 @@ function makeSource([id, lang]: [string, string]): Source {
       if (alternative && alternative !== "Updating") {
         description += "Alternative Names:\n" + alternative.split(/[/;]/).map((alt) => `- ${alt.trim()}\n`).join("")
       }
-      const status = info?.selectFirst("div.post-content_item.wleft:contains(Status) div.summary-content")?.text()
+      const status = document.selectFirst("div.post_status div.post-content_item.wleft:contains(Status) div.summary-content")?.text()
       const artist = info?.selectFirst("div.href-content.artist-content > a")?.text()
       return {
         title: document.select("div.post-title.wleft > h1").map((h) => h.text()).join(" "),
@@ -70,16 +70,22 @@ function makeSource([id, lang]: [string, string]): Source {
         status: status === "Ongoing" ? "ongoing" : status === "Completed" ? "completed" : "unknown",
         author: artist && artist !== "Updating" ? artist : undefined,
         artist: artist && artist !== "Updating" ? artist : undefined,
-        genres: info?.select("div.href-content.genres-content > a[href*=/manga-list/]").map((a) => a.text()),
+        genres: info?.select("div.href-content.genres-content > a[href*=/genre/]").map((a) => a.text()),
         thumbnailUrl: document.selectFirst("div.summary_image > img")?.absUrl("src") || undefined,
       }
     },
 
     async getChapterList(manga) {
       const document = await get(baseUrl + manga.url)
+      // Chapters added in the last day or so show a "NEW" badge instead of a date. The page's
+      // schema.org dateModified is when the newest one went up.
+      const jsonLd = document.select("script[type=application/ld+json]").map((s) => s.data()).join("\n")
+      const modified = parseDate(/"dateModified":"([^"]+)"/.exec(jsonLd)?.[1])
       return document.select("ul.row-content-chapter.wleft .a-h.wleft").map((e) => {
         const link = e.selectFirst("a")
-        return { url: relativeUrl(link?.absUrl("href") ?? ""), name: link?.text() ?? "", dateUpload: parseDayMonthYear(e.selectFirst("span")?.text()) }
+        const time = e.selectFirst("span")
+        const dateUpload = parseDayMonthYear(time?.text()) ?? (time?.selectFirst("img[alt=NEW]") ? modified : undefined)
+        return { url: relativeUrl(link?.absUrl("href") ?? ""), name: link?.text() ?? "", dateUpload }
       })
     },
 

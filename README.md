@@ -2,7 +2,7 @@
 
 Honya comes with no sources. Users add **repositories** under Settings → Sources and install sources from them. A source is a small TypeScript extension, bundled to one JavaScript file that the app runs in JavaScriptCore. A repository is a folder of those files plus an `index.json` that lists them. Anyone can host one for free, for example on GitHub Pages or in a GitHub branch.
 
-This folder holds the SDK, a build script, and Weeb Central as the example source.
+This folder holds the SDK, a build script, and Public Domain Comics as the example source.
 
 ## Quick start
 
@@ -17,23 +17,21 @@ To try a change, rebuild, bump `version` in the source's `info`, then pull to re
 
 ## Writing a source
 
-Create `src/<lang>/<name>/index.ts` and default-export a `Source` (see [`sdk/types.ts`](sdk/types.ts)). [`src/en/weebcentral`](src/en/weebcentral) is a complete example, ported line for line from the Keiyoushi Kotlin extension.
+Create `src/<lang>/<name>/index.ts` and default-export a `Source` (see [`sdk/types.ts`](sdk/types.ts)). [`src/en/publicdomaincomics`](src/en/publicdomaincomics) is a complete example: a hand-picked list of public-domain comics, read through the Internet Archive's JSON APIs.
 
 ```ts
-import { fetchHTML, relativeUrl, type Source } from "../../../sdk"
+import { fetchJSON, type Source } from "../../../sdk"
 
 const source: Source = {
   info: {
-    id: "2131019126180322627",          // Mihon's ID; see below
-    name: "Weeb Central",
+    id: "6998882641562544524",          // Mihon's ID; see below
+    name: "Public Domain Comics",
     lang: "en",
     version: "1.0.0",
-    baseUrl: "https://weebcentral.com",
-    supportsLatest: true,
-    rateLimits: [{ host: "weebcentral.com", permits: 1, periodMs: 2000 }],
+    baseUrl: "https://archive.org",
   },
   async getPopularManga(page) { /* … */ },
-  async getLatestUpdates(page) { /* … */ },
+  async getLatestUpdates(page) { /* optional, with info.supportsLatest */ },
   async searchManga(page, query, filters) { /* … */ },
   async getMangaDetails(manga) { /* … */ },
   async getChapterList(manga) { /* newest first */ },
@@ -99,7 +97,7 @@ A Mihon backup also restores each entry's memo into `sourceData`, so keep Mihon'
 
 ### Filters
 
-`getFilterList()` returns Mihon's filter kinds as plain data: `header`, `separator`, `text`, `select`, `checkboxes`, `tristates` and `sort`. The app shows them, and `searchManga` receives the same list with the user's choices. See `src/en/weebcentral/filters.ts`.
+`getFilterList()` returns Mihon's filter kinds as plain data: `header`, `separator`, `text`, `select`, `checkboxes`, `tristates` and `sort`. The app shows them, and `searchManga` receives the same list with the user's choices. See `themes/madara.ts`.
 
 Filters that come from the site, like the genres it lists, work as Mihon's `fetchFilterData` does. The source's `fetchFilterData()` fetches them and returns anything JSON can hold; the app keeps that for a day (per version of the source) and passes it to `getFilterList(data)`. Until it has, and in apps older than host API 3, `data` is undefined, so `getFilterList` returns the filters that work without it. The app fetches it when the source's Browse screen opens and updates the filters once it arrives. See `themes/madara.ts`.
 

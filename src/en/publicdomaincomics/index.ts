@@ -19,6 +19,9 @@ interface Series {
   genres: string[]
   /** Internet Archive items, oldest first: each is a chapter. */
   books: { id: string; name: string; year: number }[]
+  /** The scan to use as the cover: the Archive's own thumbnail is small, and crops a landscape
+   * cover to its spine. */
+  cover: { book: string; page: number }
 }
 
 const catalogue: Series[] = [
@@ -28,6 +31,7 @@ const catalogue: Series[] = [
     description: "Every Sunday a small boy dreams his way into Slumberland, and every Sunday he wakes up falling out of bed. Winsor McCay's newspaper pages, from 1905 to 1914.",
     genres: ["Fantasy", "Newspaper Strip"],
     books: [{ id: "LittleNemo1905-1914ByWinsorMccay", name: "1905–1914", year: 1914 }],
+    cover: { book: "LittleNemo1905-1914ByWinsorMccay", page: 2 },
   },
   {
     title: "Buster Brown",
@@ -38,6 +42,7 @@ const catalogue: Series[] = [
       { id: "BusterBrownhisd00Outc", name: "Buster Brown, His Dog Tige and Their Troubles", year: 1904 },
       { id: "myresolutionsbus00outc", name: "My Resolutions", year: 1910 },
     ],
+    cover: { book: "myresolutionsbus00outc", page: 0 },
   },
   {
     title: "Foxy Grandpa",
@@ -48,6 +53,7 @@ const catalogue: Series[] = [
       { id: "foxy-grandpa-flip-flaps", name: "Flip Flaps", year: 1905 },
       { id: "foxy-grandpa-shows-the-boys-up-to-date-sports", name: "Shows the Boys Up-to-Date Sports", year: 1908 },
     ],
+    cover: { book: "foxy-grandpa-shows-the-boys-up-to-date-sports", page: 2 },
   },
   {
     title: "Bringing Up Father",
@@ -55,6 +61,7 @@ const catalogue: Series[] = [
     description: "Jiggs came into money but would still rather be at the corner bar with his old friends, much to the disgust of his wife Maggie.",
     genres: ["Comedy", "Newspaper Strip"],
     books: [{ id: "BringingUpFatherSeries1", name: "Series 1", year: 1919 }],
+    cover: { book: "BringingUpFatherSeries1", page: 0 },
   },
   {
     title: "Max and Maurice",
@@ -62,6 +69,7 @@ const catalogue: Series[] = [
     description: "Two boys play seven tricks on their village, each worse than the last, until the last one catches up with them. Wilhelm Busch's picture story of 1865, an ancestor of the comic strip, in an English edition of 1898.",
     genres: ["Comedy", "Picture Story"],
     books: [{ id: "maxmauricejuveni00busc", name: "A Juvenile History in Seven Tricks", year: 1898 }],
+    cover: { book: "maxmauricejuveni00busc", page: 0 },
   },
   {
     title: "Comic Cuts",
@@ -69,6 +77,7 @@ const catalogue: Series[] = [
     description: "A British weekly of jokes and comic pictures, sold for a halfpenny from 1890.",
     genres: ["Comedy", "Magazine"],
     books: [{ id: "ComicCuts01-1890", name: "No. 1", year: 1890 }],
+    cover: { book: "ComicCuts01-1890", page: 0 },
   },
 ]
 
@@ -81,7 +90,7 @@ function toManga(series: Series): Manga {
   return {
     url: seriesUrl(series),
     title: series.title,
-    thumbnailUrl: `${baseUrl}/services/img/${series.books[0].id}`,
+    thumbnailUrl: `${baseUrl}/download/${series.cover.book}/page/n${series.cover.page}_w600.jpg`,
     author: series.author,
     artist: series.author,
     description: `${series.description}\n\nIn the public domain. Scans from the Internet Archive.`,
@@ -107,7 +116,7 @@ const source: Source = {
     id: "6998882641562544524", // md5("public domain comics/en/1"), as Mihon would make it
     name: "Public Domain Comics",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl,
   },
 

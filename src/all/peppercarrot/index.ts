@@ -55,9 +55,10 @@ function episodeNumber(folder: string): number {
   return Number(/^ep(\d+)_/.exec(folder)?.[1] ?? 0)
 }
 
-/** "Potion of Flight" for "ep01_Potion-of-Flight". */
+/** "Potion of Flight" for "ep01_Potion-of-Flight". Folder names drop apostrophes, so a lone
+ * "s" is put back as a possessive ("Coriander-s-Invention"). */
 function episodeTitle(folder: string): string {
-  return folder.replace(/^ep\d+_/, "").replace(/-/g, " ")
+  return folder.replace(/^ep\d+_/, "").replace(/-s(?=-|$)/g, "’s").replace(/-/g, " ")
 }
 
 /** The credit line for the language's translators, if it isn't English, the original. */
@@ -72,8 +73,9 @@ function makeSource(language: Language): Source {
   const pepperCarrot: Manga = {
     url: `/${language.site}/webcomics/peppercarrot.html`,
     title: "Pepper&Carrot",
-    // The first page's art without its speech bubbles.
-    thumbnailUrl: `${files}/ep01_Potion-of-Flight/low-res/gfx-only/gfx_Pepper-and-Carrot_by-David-Revoy_E01P01.jpg`,
+    // Episode 24's cover art, without its title: Pepper reading by the Unity Tree. It's wide, and
+    // the app crops covers to the middle, which is her.
+    thumbnailUrl: `${files}/ep24_The-Unity-Tree/low-res/gfx-only/gfx_Pepper-and-Carrot_by-David-Revoy_E24.jpg`,
     author: "David Revoy",
     artist: "David Revoy",
     genres: ["Fantasy", "Comedy", "Webcomic"],
@@ -97,7 +99,7 @@ function makeSource(language: Language): Source {
       id: language.id,
       name: "Pepper&Carrot",
       lang: language.lang,
-      version: "1.1.0",
+      version: "1.2.1",
       baseUrl,
       icon: `${baseUrl}/core/img/favicon.png`,
     },

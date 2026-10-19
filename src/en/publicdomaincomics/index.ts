@@ -4,8 +4,9 @@
 //
 // The list is chosen by hand rather than searched. The Archive's own license and date fields are
 // filled in by uploaders, and a search on them turns up recent comics too. Each book here was
-// published in 1930 or earlier, so it's in the public domain in the United States, and was
-// scanned by a library or archive.
+// published in 1930 or earlier, by people who died before 1956, so it's in the public domain in
+// the United States and in countries that protect work for 70 years after its author's death.
+// Each was scanned by a library or archive.
 
 import { fetchJSON, type Chapter, type Manga, type MangasPage, type Source } from "../../../sdk"
 
@@ -56,6 +57,13 @@ const catalogue: Series[] = [
     books: [{ id: "BringingUpFatherSeries1", name: "Series 1", year: 1919 }],
   },
   {
+    title: "Max and Maurice",
+    author: "Wilhelm Busch",
+    description: "Two boys play seven tricks on their village, each worse than the last, until the last one catches up with them. Wilhelm Busch's picture story of 1865, an ancestor of the comic strip, in an English edition of 1898.",
+    genres: ["Comedy", "Picture Story"],
+    books: [{ id: "maxmauricejuveni00busc", name: "A Juvenile History in Seven Tricks", year: 1898 }],
+  },
+  {
     title: "Comic Cuts",
     author: "Alfred Harmsworth",
     description: "A British weekly of jokes and comic pictures, sold for a halfpenny from 1890.",
@@ -99,7 +107,7 @@ const source: Source = {
     id: "6998882641562544524", // md5("public domain comics/en/1"), as Mihon would make it
     name: "Public Domain Comics",
     lang: "en",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl,
   },
 

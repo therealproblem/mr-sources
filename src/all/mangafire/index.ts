@@ -1,6 +1,7 @@
-// Ported from the Keiyoushi "MangaFire" extension (v1.6.34):
+// Ported from the Keiyoushi "MangaFire" extension (v1.6.35):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/all/mangafire
 // Licensed under the Apache License, Version 2.0.
+// Not here: the web view captcha solver and its client hints, which the app's web view can't run.
 
 import { send, type Chapter, type Filter, type FilterOption, type Manga, type MangaStatus, type MangasPage, type Source } from "../../../sdk"
 import { signedUrl } from "./vrf"
@@ -69,7 +70,7 @@ function makeSource([id, lang]: [string, string]): Source {
       id,
       name: "MangaFire",
       lang,
-      version: "1.0.2",
+      version: "1.0.3",
       baseUrl,
       supportsLatest: true,
       nsfw: true,
@@ -78,18 +79,18 @@ function makeSource([id, lang]: [string, string]): Source {
     },
 
     getPopularManga(page) {
-      return titles([["order[views_30d]", "desc"], ["page", String(page)], ["limit", "50"], ...contentRating().map((r): [string, string] => ["content_rating[]", r])])
+      return titles([["order[views_30d]", "desc"], ["languages[]", langCode], ["page", String(page)], ["limit", "50"], ...contentRating().map((r): [string, string] => ["content_rating[]", r])])
     },
 
     getLatestUpdates(page) {
-      return titles([["order[chapter_updated_at]", "desc"], ["page", String(page)], ["limit", "50"], ...contentRating().map((r): [string, string] => ["content_rating[]", r])])
+      return titles([["order[chapter_updated_at]", "desc"], ["languages[]", langCode], ["page", String(page)], ["limit", "50"], ...contentRating().map((r): [string, string] => ["content_rating[]", r])])
     },
 
     async searchManga(page, query, filters) {
       if (filters.length === 0) filters = filterList(contentRating())
       const params: [string, string][] = []
       if (query.trim()) params.push(["keyword", query.trim()])
-      params.push(["page", String(page)], ["limit", "50"])
+      params.push(["languages[]", langCode], ["page", String(page)], ["limit", "50"])
 
       const author = filters.find((f) => f.id === "author")
       const authorQuery = author?.type === "text" ? author.value.trim() : ""

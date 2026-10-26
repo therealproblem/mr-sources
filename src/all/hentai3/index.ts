@@ -1,4 +1,4 @@
-// Ported from the Keiyoushi "3Hentai" extension (v1.6.5):
+// Ported from the Keiyoushi "3Hentai" extension (v1.6.6):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/all/hentai3
 // Licensed under the Apache License, Version 2.0.
 
@@ -9,12 +9,12 @@ const baseUrl = "https://3hentai.net"
 // [Mihon source ID, language, the site's language name]
 const languages: [string, string, string][] = [
   ["6915411826598362561", "all", ""], ["7819216870104067677", "en", "english"], ["2859097949969075077", "ja", "japanese"],
-  ["1633661983859923604", "ko", "korean"], ["6260479722543828095", "zh", "chinese"], ["8615096170305162493", "mo", "mongolian"],
+  ["1633661983859923604", "ko", "korean"], ["6260479722543828095", "zh", "chinese"],
   ["373755159908438683", "es", "spanish"], ["1132983959765816866", "pt", "Portuguese"], ["49558592523574241", "id", "indonesian"],
   ["7615826761003926053", "jv", "javanese"], ["3940534831604021485", "tl", "tagalog"], ["6096870058125388335", "vi", "vietnamese"],
   ["3039466073711396152", "th", "thai"], ["3523364768003208635", "my", "burmese"], ["359674482170560410", "tr", "turkish"],
   ["4917651850397277037", "ru", "russian"], ["3501213105339612791", "uk", "ukrainian"], ["7940950215101782907", "pl", "polish"],
-  ["685390685036083849", "fi", "finnish"], ["7057309244033446342", "de", "german"], ["419728421305339582", "it", "italian"],
+  ["7057309244033446342", "de", "german"], ["419728421305339582", "it", "italian"],
   ["4290439286788644779", "fr", "french"], ["7640863230103182507", "nl", "dutch"], ["3862668659803323645", "cs", "czech"],
   ["8643172240389130297", "hu", "hungarian"], ["2158865776377405902", "bg", "bulgarian"], ["8884989104958593922", "is", "icelandic"],
   ["5003216810967182175", "la", "latin"], ["1533969146563051444", "ar", "arabic"],
@@ -43,7 +43,7 @@ const textFilters: [string, string, string, string][] = [
 function makeSource([id, lang, searchLang]: [string, string, string]): Source {
   return {
     info: {
-      id, name: "3Hentai", lang, version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
+      id, name: "3Hentai", lang, version: "1.0.3", baseUrl, supportsLatest: true, nsfw: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/hentai3/res/mipmap-xhdpi/ic_launcher.png",
     },
 

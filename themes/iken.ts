@@ -67,17 +67,50 @@ function toChapter(c: ChapterDto, mangaSlug: string): Chapter {
   }
 }
 
-export function iken(info: SourceInfo, options: { apiUrl?: string; sortPagesByFilename?: boolean } = {}): Source {
+export function iken(info: SourceInfo, options: {
+  apiUrl?: string
+  sortPagesByFilename?: boolean
+  /** Hide novels that api/query lists under a comic series type, by the novel IDs api/posts gives. */
+  hideNovelsListedAsComics?: boolean
+} = {}): Source {
   const api = options.apiUrl ?? info.baseUrl.replace("https://", "https://api.")
   const showLocked = () => Honya.prefs.get("pref_show_locked_chapters") === true
 
+  let novelIds: { fetchedAt: number; ids: Promise<Set<number>> } | undefined
+  function hiddenNovelIds(): Promise<Set<number>> {
+    if (!novelIds || Date.now() - novelIds.fetchedAt > 36e5) {
+      const ids = (async () => {
+        const found = new Set<number>()
+        for (let page = 1; ; page++) {
+          const data = await fetchJSON<{ novelPosts: { id: number }[]; novelTotalCount: number }>(`${api}/api/posts?${queryString([["page", page], ["perPage", 100]])}`)
+          data.novelPosts.forEach((post) => found.add(post.id))
+          if (data.novelPosts.length === 0 || found.size >= data.novelTotalCount) return found
+        }
+      })()
+      novelIds = { fetchedAt: Date.now(), ids }
+      ids.catch(() => { if (novelIds?.ids === ids) novelIds = undefined })
+    }
+    return novelIds.ids
+  }
+
+  // Server pages skipped per query for holding only novels, so the next page carries on after them.
+  const skippedPages = new Map<string, number>()
+
   async function query(page: number, params: [string, string][]): Promise<MangasPage> {
-    // Novels are left out; a page of only novels moves on to the next.
-    for (let current = page; ; current++) {
+    const key = queryString(params)
+    let skipped = page === 1 ? 0 : skippedPages.get(key) ?? 0
+    const hidden = options.hideNovelsListedAsComics ? await hiddenNovelIds() : undefined
+    for (;;) {
+      const current = page + skipped
       const data = await fetchJSON<{ posts: PostDto[]; totalCount: number }>(`${api}/api/query?${queryString([["page", current], ["perPage", perPage], ...params])}`)
-      const mangas = data.posts.filter((p) => !isNovel(p)).map(toManga)
+      const mangas = data.posts.filter((p) => !isNovel(p) && !hidden?.has(p.id)).map(toManga)
       const hasNextPage = data.totalCount > current * perPage
-      if (mangas.length > 0 || !hasNextPage) return { mangas, hasNextPage }
+      if (mangas.length > 0 || !hasNextPage) {
+        if (hasNextPage && skipped > 0) skippedPages.set(key, skipped)
+        else skippedPages.delete(key)
+        return { mangas, hasNextPage }
+      }
+      skipped++
     }
   }
 

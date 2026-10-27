@@ -5,6 +5,6 @@
 import { iken } from "../../../themes/iken"
 
 export default iken({
-  id: "2559570015828016575", name: "Vortex Scans", lang: "en", version: "1.0.2", baseUrl: "https://vortexscans.org",
+  id: "2559570015828016575", name: "Vortex Scans", lang: "en", version: "1.0.3", baseUrl: "https://vortexscans.org",
   icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/vortexscans/res/mipmap-xhdpi/ic_launcher.png",
-})
+}, { hideNovelsListedAsComics: true })

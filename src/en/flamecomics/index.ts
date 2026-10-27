@@ -1,4 +1,4 @@
-// Ported from the Keiyoushi "Flame Comics" extension:
+// Ported from the Keiyoushi "Flame Comics" extension (v1.6.1):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/en/flamecomics
 // Licensed under the Apache License, Version 2.0.
 
@@ -19,7 +19,7 @@ interface SeriesDto {
   status: string
   series_id?: number | null
   last_edit: number
-  views?: number | null
+  popularityRank?: number | null
 }
 interface ChapterDto { chapter: number | string; title?: string | null; release_date: number; series_id: number; token: string }
 
@@ -52,22 +52,23 @@ const statuses: Record<string, MangaStatus> = { ongoing: "ongoing", dropped: "ca
 
 const source: Source = {
   info: {
-    id: "8531542650987673943", name: "Flame Comics", lang: "en", version: "1.0.1", baseUrl, supportsLatest: true,
+    id: "8531542650987673943", name: "Flame Comics", lang: "en", version: "1.0.2", baseUrl, supportsLatest: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/flamecomics/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "flamecomics.xyz", permits: 2, periodMs: 2000 }],
   },
 
   async getPopularManga() {
-    return list((await browse()).sort((a, b) => (b.views ?? 0) - (a.views ?? 0)))
+    const rank = (s: SeriesDto) => s.popularityRank ?? Number.MAX_SAFE_INTEGER
+    return list((await browse()).sort((a, b) => rank(a) - rank(b)))
   },
 
   async getLatestUpdates() {
-    return list((await nextData<{ latestEntries: { blocks: { series: SeriesDto[] }[] } }>("index.json")).latestEntries.blocks[0]?.series ?? [])
+    return list((await nextData<{ allSeries: SeriesDto[] }>("latest.json")).allSeries)
   },
 
   async searchManga(_, query) {
     const needle = normalize(query)
-    return list((await browse()).filter((s) => [s.title, ...(s.altTitles ?? [])].some((t) => normalize(t).includes(needle))))
+    return list((await browse()).filter((s) => normalize(s.title).includes(needle)))
   },
 
   async getMangaDetails(manga) {
@@ -80,7 +81,7 @@ const source: Source = {
       ...toManga(series),
       url: undefined,
       description: description || undefined,
-      genres: [series.type, ...(series.tags ?? [])],
+      genres: [...new Set([series.type, ...(series.tags ?? [])])],
       author: series.author?.join(", "),
       artist: series.artist?.join(", "),
       status: statuses[series.status.toLowerCase()] ?? "unknown",

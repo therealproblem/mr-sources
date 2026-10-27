@@ -9,7 +9,8 @@
 // of src/*/*/build.gradle.kts and src/*/*/src/** is enough). Generated folders start with
 // GENERATED_HEADER; the script rewrites those, removes the ones it no longer generates, and
 // never touches anything else. Sites listed in scripts/theme-sites.json under "skip" (ones
-// that fail `npm test`, say) aren't generated.
+// that fail `npm test`, say) aren't generated. One listed under "revisions" gets a fourth version
+// part, so apps offer an update when its file changes but upstream's versionCode didn't.
 
 import { createHash } from "node:crypto"
 import { execFileSync } from "node:child_process"
@@ -155,13 +156,14 @@ function generate({ lang, name, folder, gradle, theme, themeName }) {
     : undefined
   delete options.rateLimit
 
+  const revision = settings.revisions?.[`${lang}/${name}`]
   const sources = extension.sources.map((source) => {
     const sourceName = source.name ?? extension.name
     const info = {
       id: source.id ?? mihonSourceID(sourceName, source.lang, source.versionId ?? 1),
       name: sourceName,
       lang: source.lang,
-      version: `${theme.version}.${extension.versionCode}`,
+      version: `${theme.version}.${extension.versionCode}${revision ? `.${revision}` : ""}`,
       baseUrl: source.baseUrl,
       ...(extension.nsfw ? { nsfw: true } : {}),
       ...(icon ? { icon } : {}),
@@ -305,7 +307,7 @@ function parseMembers(body, theme) {
     // override val chapterDateFormat = DateTimeFormatter.ofPattern("…", Locale…)
     [/^override\s+val\s+(\w+)(?:\s*:\s*DateTimeFormatter)?\s*(?:=|by\s+lazy\s*\{)\s*DateTimeFormatter\.ofPattern\(\s*"([^"]+)"\s*(?:,\s*(Locale(?:\.forLanguageTag)?\([^)]*\)|Locale\.[A-Z_]+))?\s*\)\s*\}?/, (m) => {
       if (m[1] !== theme.dateFormat) throw new Error(`overrides ${m[1]}`)
-      members.chapterDateFormat = { pattern: m[2], locale: localeTag(m[3]) }
+      members.chapterDateFormat = { pattern: kotlinString(`"${m[2]}"`), locale: localeTag(m[3]) }
     }],
     // override fun OkHttpClient.Builder.configureClient() = rateLimit(2, 1.seconds) { … }
     [/^override\s+fun\s+OkHttpClient\.Builder\.configureClient\(\)\s*=\s*rateLimit\(\s*(\d+)\s*(?:,\s*(\d+)\.(seconds|milliseconds|minutes))?\s*\)(\s*\{[^{}]*\})?/, (m) => {

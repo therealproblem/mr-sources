@@ -33,6 +33,8 @@ export interface MangaThemesiaOptions {
   searchMangaSelector?: string
   searchMangaNextPageSelector?: string
   chapterListSelector?: string
+  /** Kotlin's `chapterFromElement` override: changes, or with undefined leaves out, each chapter parsed from its element. */
+  chapterFromElement?: (chapter: Chapter, element: HTMLNode) => Chapter | undefined
 }
 
 const selector = (template: string, words: string[]) => words.map((word) => template.replaceAll("%s", word)).join(", ")
@@ -196,7 +198,9 @@ export function mangathemesia(o: MangaThemesiaOptions): Source {
       const link = links.find((a) => a.hasAttr("href"))
       if (!link) return []
       const numbered = element.select(".lch a, .chapternum").map((e) => e.text()).join(" ").trim()
-      return [{ url: relativeUrl(link.absUrl("href")), name: numbered || links[0].text(), dateUpload: parseDate(element.selectFirst(".chapterdate")?.text()) }]
+      const chapter: Chapter = { url: relativeUrl(link.absUrl("href")), name: numbered || links[0].text(), dateUpload: parseDate(element.selectFirst(".chapterdate")?.text()) }
+      const adjusted = o.chapterFromElement ? o.chapterFromElement(chapter, element) : chapter
+      return adjusted ? [adjusted] : []
     })
     // The newest gets the series' "Updated On" date when chapters have none.
     if (list.length && list[0].dateUpload === undefined) {

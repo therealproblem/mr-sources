@@ -85,5 +85,8 @@
     "tr/sunsetmanga": "details: HTTP 404",
     "tr/tarotscans": "no manga to test",
     "tr/yaoimangaoku": "popular p1: HTTP 523"
+  },
+  "revisions": {
+    "ar/manga3asq": 1
   }
 }

@@ -1,8 +1,8 @@
-// Ported from the Keiyoushi "HentaiRead" extension:
+// Ported from the Keiyoushi "HentaiRead" extension (v1.6.1):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/en/hentairead
 // Licensed under the Apache License, Version 2.0.
 
-import { base64Decode, fetchHTML, fetchJSON, queryString, relativeUrl, utf8Decode, type Filter, type HTMLNode, type MangasPage, type Source } from "../../../sdk"
+import { base64Decode, fetchHTML, fetchJSON, queryString, relativeUrl, utf8Decode, type Chapter, type Filter, type HTMLNode, type Manga, type MangasPage, type Source } from "../../../sdk"
 
 const baseUrl = "https://hentairead.com"
 
@@ -46,9 +46,32 @@ async function tagId(tag: string, type: string): Promise<number | undefined> {
   return data.results.find((r) => r.text.toLowerCase() === tag.toLowerCase())?.id
 }
 
+function details(document: HTMLNode): Partial<Manga> {
+  const names = (path: string) => document.select(`a[href*=/${path}/] span:first-of-type`).map((s) => s.text()).join(", ")
+  const circles = names("circle")
+  const artists = names("artist")
+  let description = ""
+  for (const [label, path] of [["Characters", "characters"], ["Parodies", "parody"], ["Circles", "circle"], ["Convention", "convention"], ["Scanlators", "scanlator"]]) {
+    const value = names(path)
+    if (value) description += `${label}: ${capitalizeEach(value)}\n\n`
+  }
+  const alternatives = document.selectFirst(".manga-titles h2")?.text()
+  if (alternatives) description += `Alternative Titles: \n${alternatives.split("|").map((t) => `- ${t.trim()}`).join("\n")}\n\n`
+  description += `${document.select(".items-center:contains(pages:)").map((e) => e.text()).join(" ")}\n`
+  return {
+    title: document.selectFirst("h1")?.ownText(),
+    thumbnailUrl: document.selectFirst("meta[property=og:image]")?.attr("content") || undefined,
+    author: circles || artists || undefined,
+    artist: artists || circles || undefined,
+    genres: document.select("a[href*=/tag/] span:first-of-type").map((s) => s.text()),
+    description,
+    status: "completed",
+  }
+}
+
 const source: Source = {
   info: {
-    id: "2299981010822511979", name: "HentaiRead", lang: "en", version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
+    id: "2299981010822511979", name: "HentaiRead", lang: "en", version: "1.0.3", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/hentairead/res/mipmap-xhdpi/ic_launcher.png",
   },
 
@@ -91,33 +114,25 @@ const source: Source = {
   },
 
   async getMangaDetails(manga) {
-    const document = await fetchHTML(baseUrl + manga.url)
-    const names = (path: string) => document.select(`a[href*=/${path}/] span:first-of-type`).map((s) => s.text()).join(", ")
-    const circles = names("circle")
-    const artists = names("artist")
-    let description = ""
-    for (const [label, path] of [["Characters", "characters"], ["Parodies", "parody"], ["Circles", "circle"], ["Convention", "convention"], ["Scanlators", "scanlator"]]) {
-      const value = names(path)
-      if (value) description += `${label}: ${capitalizeEach(value)}\n\n`
-    }
-    const alternatives = document.selectFirst(".manga-titles h2")?.text()
-    if (alternatives) description += `Alternative Titles: \n${alternatives.split("|").map((t) => `- ${t.trim()}`).join("\n")}\n\n`
-    description += `${document.select(".items-center:contains(pages:)").map((e) => e.text()).join(" ")}\n`
-    return {
-      title: document.selectFirst("h1")?.ownText(),
-      thumbnailUrl: document.selectFirst("meta[property=og:image]")?.attr("content") || undefined,
-      author: circles || artists || undefined,
-      artist: artists || circles || undefined,
-      genres: document.select("a[href*=/tag/] span:first-of-type").map((s) => s.text()),
-      description,
-      status: "completed",
-    }
+    return details(await fetchHTML(baseUrl + manga.url))
   },
 
   async getChapterList(manga) {
-    const details = await this.getMangaDetails(manga)
-    const scanlator = details.description?.includes("Scanlators") ? details.description.split("Scanlators: ")[1]?.split("\n")[0] : undefined
-    return [{ url: manga.url, name: "Chapter", scanlator }]
+    const document = await fetchHTML(baseUrl + manga.url)
+    const description = details(document).description
+    const scanlator = description?.includes("Scanlators") ? description.split("Scanlators: ")[1]?.split("\n")[0] : undefined
+    const title = document.selectFirst("div.manga-titles h1")?.text() ?? ""
+    const chapter = (number: number, url: string, name: string): Chapter => ({ url, name: `${number} - ${name || title}`, chapterNumber: number, scanlator })
+    // An entry in a collection lists the collection's entries, each as its own chapter.
+    const collection = document.selectFirst("#mangaCollection a")?.absUrl("href")
+    if (!collection) return [chapter(1, manga.url, title)]
+    const chapters = (await fetchHTML(collection)).select("div.manga-item__wrapper").flatMap((element) => {
+      const link = element.selectFirst("a.manga-item__link")
+      const number = Number.parseFloat(element.selectFirst("div.collection-badge")?.text() ?? "")
+      // Absolute, as Mihon stores it.
+      return link ? [chapter(Number.isNaN(number) ? 1 : number, link.absUrl("href"), link.text())] : []
+    })
+    return chapters.sort((a, b) => (b.chapterNumber ?? 0) - (a.chapterNumber ?? 0))
   },
 
   async getPageList(chapter) {

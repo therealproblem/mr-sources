@@ -1,4 +1,4 @@
-// Ported from the Keiyoushi "Asura Scans" extension (v1.6.69):
+// Ported from the Keiyoushi "Asura Scans" extension (v1.6.70):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/en/asurascans
 // Licensed under the Apache License, Version 2.0.
 // Its genre and creator filters, which the Kotlin version fetches from the site, aren't here.

@@ -1,8 +1,8 @@
-// Ported from the Keiyoushi "HDoujin" extension:
+// Ported from the Keiyoushi "HDoujin" extension (v1.6.1):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/all/hdoujin
 // Licensed under the Apache License, Version 2.0.
 
-import { formBody, queryString, send, type Filter, type Manga, type MangasPage, type Source } from "../../../sdk"
+import { formBody, queryString, type Filter, type Manga, type MangasPage, type Source } from "../../../sdk"
 
 const baseUrl = "https://hdoujin.org"
 const apiUrl = "https://api.hdoujin.org/books"
@@ -34,13 +34,14 @@ interface MangaData { data: { "0": DataKey; "780"?: DataKey; "980"?: DataKey; "1
 
 const pref = <T>(key: string, fallback: T): T => (Honya.prefs.get(key) as T | null | undefined) ?? fallback
 
+/** An API call; listings and details get their clearance token from the home page. */
 async function json<T>(url: string): Promise<T> {
-  return JSON.parse((await send({ url, headers })).body) as T
+  return JSON.parse(await withClearance(url, `${baseUrl}/`)) as T
 }
 
 /**
- * Gallery data needs the clearance token the site's reader keeps in localStorage. Opening a
- * reader page in a hidden web view gets a new one.
+ * Every API call carries the clearance token the site keeps in localStorage. Opening one of
+ * its pages in a hidden web view gets a new one.
  */
 let clearance: string | null = null
 async function withClearance(url: string, readerUrl: string, post = false): Promise<string> {
@@ -135,7 +136,7 @@ function makeSource([id, lang]: [string, string]): Source {
 
   return {
     info: {
-      id, name: "HDoujin", lang, version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
+      id, name: "HDoujin", lang, version: "1.0.3", baseUrl, supportsLatest: true, nsfw: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/hdoujin/res/mipmap-xhdpi/ic_launcher.png",
       rateLimits: [{ host: "api.hdoujin.org", permits: 3, periodMs: 1000 }],
       imageHeaders: headers,

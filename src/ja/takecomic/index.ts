@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "5158991361251014104",
     name: "TakeComic",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://takecomic.jp",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/takecomic/res/mipmap-xhdpi/ic_launcher.png",
   },

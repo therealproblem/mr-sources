@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "645302785022492537",
     name: "KimiComi",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://kimicomi.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/kimicomi/res/mipmap-xhdpi/ic_launcher.png",
   },

@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "6455606609436338494",
     name: "Asacomi",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://asacomi.jp",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/asacomi/res/mipmap-xhdpi/ic_launcher.png",
   },

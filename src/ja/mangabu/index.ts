@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "1497299793762441095",
     name: "MangaBu",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://mangabu.jp",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/mangabu/res/mipmap-xhdpi/ic_launcher.png",
   },

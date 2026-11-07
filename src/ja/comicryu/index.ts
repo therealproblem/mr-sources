@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "1496675570830588004",
     name: "Comic Ryu",
     lang: "ja",
-    version: "1.0.2",
+    version: "1.1.2",
     baseUrl: "https://comic-ryu.jp",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/comicryu/res/mipmap-xhdpi/ic_launcher.png",

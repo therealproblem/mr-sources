@@ -6,6 +6,7 @@
     "ar/arabmanhwa": "no manga to test",
     "ar/manhatok": "no pages to test",
     "ar/murim": "popular p1: JSON Parse error: Unrecognized token '<'",
+    "ar/nijitranslations": "pages: its chapter links lead to admin-ajax.php",
     "ar/orcamanga": "chapters: Failed to parse from chapter API",
     "ar/paradisebl": "popular p1: HTTP 400",
     "cs/evilproduction": "popular p1: evil-manga.eu is still asking for verification. Try opening it in the web view.",
@@ -17,6 +18,7 @@
     "en/galaxymanga": "no manga to test",
     "en/gingertoon": "popular p2: HTTP 404",
     "en/hadesscans": "no manga to test",
+    "en/kaliscanorg": "popular p1: HTTP 406",
     "en/mahouirexnohentaikarte": "popular p1: HTTP 404",
     "en/manga18x": "popular p1: HTTP 403",
     "en/mangadia": "popular p1: HTTP 525",
@@ -27,6 +29,7 @@
     "en/manhwaget": "popular p1: A TLS error caused the secure connection to fail.",
     "en/manhwamanhua": "popular p1: The request timed out.",
     "en/manhwareads": "page image: Manhwa Reads isn't an image.",
+    "en/manhwatoon": "page image: HTTP 400",
     "en/milftoon": "popular p2: HTTP 404",
     "en/murimscan": "no pages to test",
     "en/razure": "no manga to test",
@@ -87,6 +90,15 @@
     "tr/yaoimangaoku": "popular p1: HTTP 523"
   },
   "revisions": {
-    "ar/manga3asq": 1
+    "ar/arbxcomix": 1,
+    "ar/arhentai": 1,
+    "ar/detectiveconanar": 1,
+    "ar/empirewebtoon": 1,
+    "ar/hizomanga": 1,
+    "ar/manga3asq": 2,
+    "ar/mangalink": 1,
+    "ar/mangalionz": 1,
+    "ar/mangaspark": 1,
+    "ar/mangastarz": 1
   }
 }

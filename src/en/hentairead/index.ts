@@ -1,10 +1,11 @@
-// Ported from the Keiyoushi "HentaiRead" extension (v1.6.1):
+// Ported from the Keiyoushi "HentaiRead" extension (v1.6.3):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/en/hentairead
 // Licensed under the Apache License, Version 2.0.
 
-import { base64Decode, fetchHTML, fetchJSON, queryString, relativeUrl, utf8Decode, type Chapter, type Filter, type HTMLNode, type Manga, type MangasPage, type Source } from "../../../sdk"
+import { base64Decode, fetchHTML, fetchJSON, javaDateParser, queryString, relativeUrl, utf8Decode, type Chapter, type Filter, type HTMLNode, type Manga, type MangasPage, type Source } from "../../../sdk"
 
 const baseUrl = "https://hentairead.com"
+const uploadedDate = javaDateParser("MMMM d, yyyy h:mm a", "en")
 
 function cover(img: HTMLNode): string {
   if (img.hasAttr("data-src")) return img.absUrl("data-src")
@@ -57,6 +58,8 @@ function details(document: HTMLNode): Partial<Manga> {
   }
   const alternatives = document.selectFirst(".manga-titles h2")?.text()
   if (alternatives) description += `Alternative Titles: \n${alternatives.split("|").map((t) => `- ${t.trim()}`).join("\n")}\n\n`
+  const uploaded = document.selectFirst(".text-primary:contains(uploaded:) + div")?.text()
+  if (uploaded) description += `Uploaded: ${uploaded}\n\n`
   description += `${document.select(".items-center:contains(pages:)").map((e) => e.text()).join(" ")}\n`
   return {
     title: document.selectFirst("h1")?.ownText(),
@@ -71,7 +74,7 @@ function details(document: HTMLNode): Partial<Manga> {
 
 const source: Source = {
   info: {
-    id: "2299981010822511979", name: "HentaiRead", lang: "en", version: "1.0.3", baseUrl, supportsLatest: true, nsfw: true,
+    id: "2299981010822511979", name: "HentaiRead", lang: "en", version: "1.0.4", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/hentairead/res/mipmap-xhdpi/ic_launcher.png",
   },
 
@@ -121,10 +124,13 @@ const source: Source = {
     const document = await fetchHTML(baseUrl + manga.url)
     const description = details(document).description
     const scanlator = description?.includes("Scanlators") ? description.split("Scanlators: ")[1]?.split("\n")[0] : undefined
+    // The entry's own date, on every chapter, as the Kotlin version does.
+    const dateUpload = description?.includes("Uploaded") ? uploadedDate(description.split("Uploaded: ")[1]?.split("\n")[0] ?? "") : undefined
+    const showCollections = Honya.prefs.get("pref_show_collections") !== false
     const title = document.selectFirst("div.manga-titles h1")?.text() ?? ""
-    const chapter = (number: number, url: string, name: string): Chapter => ({ url, name: `${number} - ${name || title}`, chapterNumber: number, scanlator })
+    const chapter = (number: number, url: string, name: string): Chapter => ({ url, name: showCollections ? `${number} - ${name || title}` : "Chapter", chapterNumber: number, scanlator, dateUpload })
     // An entry in a collection lists the collection's entries, each as its own chapter.
-    const collection = document.selectFirst("#mangaCollection a")?.absUrl("href")
+    const collection = showCollections ? document.selectFirst("#mangaCollection a")?.absUrl("href") : undefined
     if (!collection) return [chapter(1, manga.url, title)]
     const chapters = (await fetchHTML(collection)).select("div.manga-item__wrapper").flatMap((element) => {
       const link = element.selectFirst("a.manga-item__link")

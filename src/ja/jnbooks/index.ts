@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "2876739237900975302",
     name: "J-N Books",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://comic.j-nbooks.jp",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/jnbooks/res/mipmap-xhdpi/ic_launcher.png",
   },

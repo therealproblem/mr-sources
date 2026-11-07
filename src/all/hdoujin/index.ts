@@ -1,4 +1,4 @@
-// Ported from the Keiyoushi "HDoujin" extension (v1.6.1):
+// Ported from the Keiyoushi "HDoujin" extension (v1.6.3):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/all/hdoujin
 // Licensed under the Apache License, Version 2.0.
 
@@ -136,7 +136,7 @@ function makeSource([id, lang]: [string, string]): Source {
 
   return {
     info: {
-      id, name: "HDoujin", lang, version: "1.0.3", baseUrl, supportsLatest: true, nsfw: true,
+      id, name: "HDoujin", lang, version: "1.0.4", baseUrl, supportsLatest: true, nsfw: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/hdoujin/res/mipmap-xhdpi/ic_launcher.png",
       rateLimits: [{ host: "api.hdoujin.org", permits: 3, periodMs: 1000 }],
       imageHeaders: headers,
@@ -212,7 +212,7 @@ function makeSource([id, lang]: [string, string]): Source {
       if (dataId == null || publicKey == null) throw new Error("No Images Found")
       const quality = (["1600", "1280", "980", "780"] as const).find((q) => data[q]?.id === dataId) ?? "0"
       const images = JSON.parse(await withClearance(`${apiUrl}/data/${entryId}/${entryKey}/${dataId}/${publicKey}/${quality}`, readerUrl)) as { base: string; entries: { path: string }[] }
-      return images.entries.map((image) => ({ url: `${images.base}/${image.path}?w=${quality}` }))
+      return images.entries.map((image) => ({ url: images.base + image.path }))
     },
 
     getFilterList(): Filter[] {

@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "5820719158683766054",
     name: "HAYA Comic",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://hayacomic.jp",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/hayacomic/res/mipmap-xhdpi/ic_launcher.png",
   },

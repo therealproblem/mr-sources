@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "1860491637286237325",
     name: "Nami Comic",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://namicomic.jp",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/namicomic/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "6405758918736185117",
     name: "ArbxComix",
     lang: "ar",
-    version: "1.1.0",
+    version: "1.1.0.1",
     baseUrl: "https://arbxcomix.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/arbxcomix/res/mipmap-xhdpi/ic_launcher.png",

@@ -1,4 +1,4 @@
-// Ported from the Keiyoushi "HentaiNexus" extension (v1.6.20):
+// Ported from the Keiyoushi "HentaiNexus" extension (v1.6.22):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/en/hentainexus
 // Licensed under the Apache License, Version 2.0.
 
@@ -25,7 +25,8 @@ async function list(url: string) {
 function details(document: HTMLNode): Partial<Manga> {
   const table = document.selectFirst(".view-page-details")
   if (!table) throw new Error("The gallery page has changed.")
-  const people = [...table.select("td.viewcolumn:contains(Author) + td a"), ...table.select("td.viewcolumn:contains(Artist) + td a")].map((a) => a.ownText())
+  const names = (key: string) => table.select(`td.viewcolumn:contains(${key}) + td a`).map((a) => a.ownText()).join(", ")
+  const artist = names("Artist")
   const lines: string[] = []
   for (const key of ["Circle", "Event", "Magazine", "Parody", "Publisher", "Pages", "Favorites"]) {
     const cell = table.selectFirst(`td.viewcolumn:contains(${key}) + td`)
@@ -35,7 +36,8 @@ function details(document: HTMLNode): Partial<Manga> {
   const about = table.selectFirst("td.viewcolumn:contains(Description) + td")?.text()
   return {
     title: document.selectFirst("h1.title")?.text(),
-    author: [...new Set(people)].join(", ") || undefined,
+    author: names("Author") || names("Circle") || artist || undefined,
+    artist: artist || undefined,
     description: (lines.join("\n") + (about != null ? `\n\n${about}` : "")).trim(),
     genres: table.select("span.tag a").map((a) => a.text().replace(/\s*\([\d,]+\)$/, "")),
     status: "completed",
@@ -76,18 +78,6 @@ function decrypt(encoded: string): string {
   return out
 }
 
-/** Splits on commas outside double quotes. */
-function splitTerms(text: string): string[] {
-  const tokens: string[] = []
-  let current = ""
-  let quoted = false
-  for (const ch of text) {
-    if (ch === "\"") { quoted = !quoted; current += ch } else if (ch === "," && !quoted) { if (current.trim()) tokens.push(current.trim()); current = "" } else current += ch
-  }
-  if (current.trim()) tokens.push(current.trim())
-  return tokens
-}
-
 const advancedFilters: [string, string, string][] = [
   ["tags", "Tags", "tag"], ["artists", "Artists", "artist"], ["authors", "Authors", "author"], ["circles", "Circles", "circle"],
   ["events", "Events", "event"], ["parodies", "Parodies", "parody"], ["magazines", "Magazines", "magazine"], ["publishers", "Publishers", "publisher"],
@@ -95,7 +85,7 @@ const advancedFilters: [string, string, string][] = [
 
 const source: Source = {
   info: {
-    id: "7719798645438596394", name: "HentaiNexus", lang: "en", version: "1.0.1", baseUrl, supportsLatest: true, nsfw: true,
+    id: "7719798645438596394", name: "HentaiNexus", lang: "en", version: "1.0.2", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/hentainexus/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "hentainexus.com", permits: 1, periodMs: 1000 }],
   },
@@ -119,7 +109,11 @@ const source: Source = {
     const combined = advancedFilters.flatMap(([id, , key]) => {
       const filter = filters.find((f) => f.id === id)
       if (filter?.type !== "text") return []
-      return splitTerms(filter.value).map((token) => `${token.startsWith("-") ? "-" : ""}${key}:${token.replace(/^-/, "")} `)
+      // Each term quoted, so ones of several words need no quotes.
+      return filter.value.replace(/"/g, "").split(",").flatMap((term) => {
+        const text = term.trim().replace(/^-/, "").trim()
+        return text ? [`${term.trim().startsWith("-") ? "-" : ""}${key}:"${text}" `] : []
+      })
     }).join("")
     return list(`${baseUrl}${actualPage > 1 ? `/page/${actualPage}` : ""}?${queryString([["q", (combined + query).trim()]])}`)
   },
@@ -150,7 +144,7 @@ const source: Source = {
 
   getFilterList(): Filter[] {
     return [
-      { type: "header", id: "h1", name: "Separate items with commas (,). Prepend with dash (-) to exclude. Surround items with multiple words with double quotes (\")." },
+      { type: "header", id: "h1", name: "Separate items with commas (,). Prepend with dash (-) to exclude." },
       ...advancedFilters.map(([id, name]): Filter => ({ type: "text", id, name, value: "" })),
       { type: "separator", id: "s1" },
       { type: "text", id: "offset", name: "Offset results by # pages", value: "" },

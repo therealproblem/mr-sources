@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "2932724617903419016",
     name: "PiaComic",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://piacomic.jp",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/piacomic/res/mipmap-xhdpi/ic_launcher.png",

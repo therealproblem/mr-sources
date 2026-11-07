@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "3726193166490568923",
     name: "Bibibi Comic",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://bibibi-comic.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/bibibicomic/res/mipmap-xhdpi/ic_launcher.png",
   },

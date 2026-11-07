@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "6323380629311776595",
     name: "MangaBang Comics",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://comics.manga-bang.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/mangabang/res/mipmap-xhdpi/ic_launcher.png",
   },

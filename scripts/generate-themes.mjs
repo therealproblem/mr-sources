@@ -77,7 +77,7 @@ const themes = {
     dateFormat: "dateFormat",
   },
   comiciviewer: {
-    version: "1.0",
+    version: "1.1",
     classes: { ComiciViewer: {} },
     strings: [],
     functions: [],

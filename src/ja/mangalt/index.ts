@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "1153097454471755439",
     name: "Mangalt",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://mangalt.jp",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/mangalt/res/mipmap-xhdpi/ic_launcher.png",
   },

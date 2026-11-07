@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "6981500022236807277",
     name: "HERO'S Web",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://heros-web.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/herosweb/res/mipmap-xhdpi/ic_launcher.png",
   },

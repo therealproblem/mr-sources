@@ -11,7 +11,7 @@ export default madara({
     id: "2436176998646301840",
     name: "MangaSpark",
     lang: "ar",
-    version: "1.1.8",
+    version: "1.1.8.1",
     baseUrl: "https://sparkmanga.net",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/mangaspark/res/mipmap-xhdpi/ic_launcher.png",
   },

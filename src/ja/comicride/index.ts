@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "6786869574657969795",
     name: "Comic Ride",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://comicride.jp",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/comicride/res/mipmap-xhdpi/ic_launcher.png",
   },

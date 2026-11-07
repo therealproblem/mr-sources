@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "6820605856874807465",
     name: "Hana To Yume+",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://hanayume.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/hanayume/res/mipmap-xhdpi/ic_launcher.png",
   },

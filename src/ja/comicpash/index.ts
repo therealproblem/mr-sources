@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "6626616605316433619",
     name: "Comic Pash",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://comicpash.jp",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/comicpash/res/mipmap-xhdpi/ic_launcher.png",
   },

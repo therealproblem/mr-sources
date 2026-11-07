@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "7310112963091407823",
     name: "G-Comi",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://g-comi.jp",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/gcomi/res/mipmap-xhdpi/ic_launcher.png",

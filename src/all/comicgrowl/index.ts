@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "299423548273637501",
     name: "Comic Growl",
     lang: "all",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://comic-growl.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/comicgrowl/res/mipmap-xhdpi/ic_launcher.png",
   },

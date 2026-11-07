@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "58641447023846824",
     name: "Comirela",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://comirela.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/comirela/res/mipmap-xhdpi/ic_launcher.png",
   },

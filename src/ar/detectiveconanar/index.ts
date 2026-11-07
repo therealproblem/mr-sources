@@ -11,7 +11,7 @@ export default madara({
     id: "5702082694566979718",
     name: "شبكة كونان العربية",
     lang: "ar",
-    version: "1.1.3",
+    version: "1.1.3.1",
     baseUrl: "https://manga.detectiveconanar.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/detectiveconanar/res/mipmap-xhdpi/ic_launcher.png",
   },

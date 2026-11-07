@@ -11,7 +11,7 @@ export default madara({
     id: "2655166136445570124",
     name: "Empire Webtoon",
     lang: "ar",
-    version: "1.1.6",
+    version: "1.1.6.1",
     baseUrl: "https://webtoonempire-bl.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/empirewebtoon/res/mipmap-xhdpi/ic_launcher.png",

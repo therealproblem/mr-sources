@@ -11,7 +11,7 @@ export default madara({
     id: "3568795724496898351",
     name: "مانجا لينك",
     lang: "ar",
-    version: "1.1.5",
+    version: "1.1.5.1",
     baseUrl: "https://link-manga.net",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/mangalink/res/mipmap-xhdpi/ic_launcher.png",
   },

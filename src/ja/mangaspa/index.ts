@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "2566686121922544500",
     name: "Manga SPA",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://mangaspa.nikkan-spa.jp",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/mangaspa/res/mipmap-xhdpi/ic_launcher.png",

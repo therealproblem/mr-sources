@@ -11,7 +11,7 @@ export default madara({
     id: "4177563748162518441",
     name: "Hizo Manga",
     lang: "ar",
-    version: "1.1.1",
+    version: "1.1.1.1",
     baseUrl: "https://hizomanga.net",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/hizomanga/res/mipmap-xhdpi/ic_launcher.png",
   },

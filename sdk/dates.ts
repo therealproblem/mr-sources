@@ -97,13 +97,18 @@ const relativeWords: [RegExp, number][] = [
   [words("second", "segundo", "sec", "detik", "giây", "ثانية", "ثوان"), 1e3],
 ]
 
+// Arabic duals ("منذ يومين", two days ago) carry no number.
+const arabicDuals: [string, string][] = [
+  ["ثانيتين", "2 ثوان"], ["دقيقتين", "2 دقائق"], ["ساعتين", "2 ساعات"], ["يومين", "2 أيام"], ["أسبوعين", "2 أسابيع"], ["شهرين", "2 أشهر"], ["سنتين", "2 سنوات"],
+]
+
 /**
  * Madara's `parseChapterDate`: "today" and "yesterday", "3 days ago" and the like in the
  * languages Madara sites use, or else `parse(text)`.
  */
 export function parseRelativeOrAbsolute(text: string | undefined | null, parse: (text: string) => number | undefined, now = Date.now()): number | undefined {
   if (!text) return undefined
-  const lower = text.toLowerCase()
+  const lower = arabicDuals.reduce((t, [dual, plural]) => t.replace(dual, plural), text.toLowerCase())
   const startOfDay = new Date(now)
   startOfDay.setUTCHours(0, 0, 0, 0)
   if (["today", "hoje", "hoy"].some((w) => lower.startsWith(w))) return startOfDay.getTime()

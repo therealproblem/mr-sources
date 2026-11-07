@@ -4,6 +4,7 @@
 // header), or a Pages Router page's `__NEXT_DATA__` JSON. References between chunks (`$1`,
 // `$L2`, `$Q3:path`…) are resolved before the search.
 
+import { base64Decode, utf8Decode } from "./helpers"
 import type { HTMLNode } from "./types"
 
 type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue }
@@ -23,16 +24,23 @@ export function extractNextJsRsc<T = unknown>(body: string, predicate: (value: u
 export function extractNextJs<T = unknown>(document: HTMLNode, predicate: (value: unknown) => boolean): T | undefined {
   const chunks = new Map<string, string>()
   const models = new Map<string, JSONValue>()
-  const payloads: JSONValue[] = []
+  // Each push is a slice of one flight stream, cut anywhere (often mid-row), so they're joined
+  // before parsing: [1, text] pushes as text, [3, base64] ones as bytes, which may end mid-character.
+  let stream = ""
+  let bytes: number[] = []
+  const flush = () => { if (bytes.length) stream += utf8Decode(new Uint8Array(bytes)); bytes = [] }
   for (const script of document.select("script:not([src])")) {
     const data = script.data()
     if (!data.includes("self.__next_f.push")) continue
     const raw = /self\.__next_f\.push\(\s*(\[[\s\S]*\])\s*\)\s*;?\s*$/.exec(data)?.[1]
     try {
-      const content = (JSON.parse(raw ?? "null") as JSONValue[] | null)?.[1]
-      if (typeof content === "string") payloads.push(...rscPayloads(content, chunks, models))
+      const push = JSON.parse(raw ?? "null") as JSONValue[] | null
+      if (typeof push?.[1] !== "string") continue
+      if (push[0] === 1) { flush(); stream += push[1] } else if (push[0] === 3) for (const byte of base64Decode(push[1])) bytes.push(byte)
     } catch { /* not flight data */ }
   }
+  flush()
+  const payloads = rscPayloads(stream, chunks, models)
   if (payloads.length === 0) {
     try {
       const root = JSON.parse(document.selectFirst("script#__NEXT_DATA__")?.data() ?? "null") as { props?: { pageProps?: JSONValue } } | null

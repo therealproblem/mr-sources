@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "8826192789792786070",
     name: "MagKan",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://kansai.mag-garden.co.jp",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/magkan/res/mipmap-xhdpi/ic_launcher.png",
   },

@@ -11,7 +11,7 @@ export default madara({
     id: "1073624495230267708",
     name: "مانجا العاشق",
     lang: "ar",
-    version: "1.1.5.1",
+    version: "1.1.5.2",
     baseUrl: "https://3asq.online",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/manga3asq/res/mipmap-xhdpi/ic_launcher.png",
   },

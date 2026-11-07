@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "1887776535756811938",
     name: "Comic Room Base",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://comic-room-base.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/comicroombase/res/mipmap-xhdpi/ic_launcher.png",
   },

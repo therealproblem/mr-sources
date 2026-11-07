@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "1066937743995646358",
     name: "Manga Zegra",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://manga-zegra.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/mangazegra/res/mipmap-xhdpi/ic_launcher.png",
   },

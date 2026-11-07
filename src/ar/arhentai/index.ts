@@ -11,7 +11,7 @@ export default madara({
     id: "7652862112029693411",
     name: "آر هنتاي",
     lang: "ar",
-    version: "1.1.0",
+    version: "1.1.0.1",
     baseUrl: "https://arhentai.net",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/arhentai/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default comiciviewer({
     id: "8784054084293367959",
     name: "RimacomiPlus",
     lang: "ja",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://rimacomiplus.jp",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/rimacomiplus/res/mipmap-xhdpi/ic_launcher.png",
   },

@@ -1,0 +1,2586 @@
+{
+  "name": "Jo SFW Repo",
+  "sources": [
+    {
+      "id": "299423548273637501",
+      "name": "Comic Growl",
+      "lang": "all",
+      "version": "1.1.0",
+      "baseUrl": "https://comic-growl.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/comicgrowl/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/all.comicgrowl.js",
+      "sha256": "defb2bd550224453623107985aa6d843d85df98be3c5c1be3cc0353ce65b292d"
+    },
+    {
+      "id": "6404943692147160087",
+      "name": "MangaDex",
+      "lang": "all",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "4638673959522768501",
+      "name": "MangaDex",
+      "lang": "af",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "987803387023224960",
+      "name": "MangaDex",
+      "lang": "sq",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "3339599426223341161",
+      "name": "MangaDex",
+      "lang": "ar",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "9127464796236242233",
+      "name": "MangaDex",
+      "lang": "az",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "1553736397938752611",
+      "name": "MangaDex",
+      "lang": "eu",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "3601180820582582605",
+      "name": "MangaDex",
+      "lang": "be",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "4150470519566206911",
+      "name": "MangaDex",
+      "lang": "bn",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "5463447640980279236",
+      "name": "MangaDex",
+      "lang": "bg",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "1347402746269051958",
+      "name": "MangaDex",
+      "lang": "my",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "5860541308324630662",
+      "name": "MangaDex",
+      "lang": "ca",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "5148895169070562838",
+      "name": "MangaDex",
+      "lang": "zh-Hans",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "1493666528525752601",
+      "name": "MangaDex",
+      "lang": "zh-Hant",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "2072928884077964642",
+      "name": "MangaDex",
+      "lang": "cv",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "8548374501079910130",
+      "name": "MangaDex",
+      "lang": "hr",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "3578612018159256808",
+      "name": "MangaDex",
+      "lang": "cs",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "425785191804166217",
+      "name": "MangaDex",
+      "lang": "da",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "6750440049024086587",
+      "name": "MangaDex",
+      "lang": "nl",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "2499283573021220255",
+      "name": "MangaDex",
+      "lang": "en",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "2819252027406613931",
+      "name": "MangaDex",
+      "lang": "eo",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "8773024089257004344",
+      "name": "MangaDex",
+      "lang": "et",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "8578871918181236609",
+      "name": "MangaDex",
+      "lang": "fil",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "8254121249433835847",
+      "name": "MangaDex",
+      "lang": "fi",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "4505830566611664829",
+      "name": "MangaDex",
+      "lang": "fr",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "8952567078513962586",
+      "name": "MangaDex",
+      "lang": "ka",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "5098537545549490547",
+      "name": "MangaDex",
+      "lang": "de",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "3260701926561129943",
+      "name": "MangaDex",
+      "lang": "el",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "1424273154577029558",
+      "name": "MangaDex",
+      "lang": "he",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "6840513937945146538",
+      "name": "MangaDex",
+      "lang": "hi",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "4284949320785450865",
+      "name": "MangaDex",
+      "lang": "hu",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "3686775439235747344",
+      "name": "MangaDex",
+      "lang": "ga",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "3807502156582598786",
+      "name": "MangaDex",
+      "lang": "id",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "1952071260038453057",
+      "name": "MangaDex",
+      "lang": "it",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "1411768577036936240",
+      "name": "MangaDex",
+      "lang": "ja",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "1573550798452063564",
+      "name": "MangaDex",
+      "lang": "jv",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "8884149958776527952",
+      "name": "MangaDex",
+      "lang": "kk",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "3285208643537017688",
+      "name": "MangaDex",
+      "lang": "ko",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "764587568075398530",
+      "name": "MangaDex",
+      "lang": "la",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "737986167355114438",
+      "name": "MangaDex",
+      "lang": "lt",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "1471784905273036181",
+      "name": "MangaDex",
+      "lang": "ms",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "5967745367608513818",
+      "name": "MangaDex",
+      "lang": "mn",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "954368055061084457",
+      "name": "MangaDex",
+      "lang": "ne",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "4872213291993424667",
+      "name": "MangaDex",
+      "lang": "no",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "3781216447842245147",
+      "name": "MangaDex",
+      "lang": "fa",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "8033579885162383068",
+      "name": "MangaDex",
+      "lang": "pl",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "2655149515337070132",
+      "name": "MangaDex",
+      "lang": "pt-BR",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "5189216366882819742",
+      "name": "MangaDex",
+      "lang": "pt",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "4774459486579224459",
+      "name": "MangaDex",
+      "lang": "ro",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "2098905203823335614",
+      "name": "MangaDex",
+      "lang": "ru",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "3507378005483435886",
+      "name": "MangaDex",
+      "lang": "sr",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "2875503798326600410",
+      "name": "MangaDex",
+      "lang": "sk",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "4938773340256184018",
+      "name": "MangaDex",
+      "lang": "es-419",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "6400665728063187402",
+      "name": "MangaDex",
+      "lang": "es",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "1145824452519314725",
+      "name": "MangaDex",
+      "lang": "sv",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "4273071356706429527",
+      "name": "MangaDex",
+      "lang": "ta",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "6886894829142702925",
+      "name": "MangaDex",
+      "lang": "te",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "1713554459881080228",
+      "name": "MangaDex",
+      "lang": "th",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "3846770256925560569",
+      "name": "MangaDex",
+      "lang": "tr",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "5779037855201976894",
+      "name": "MangaDex",
+      "lang": "uk",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "72800122520214493",
+      "name": "MangaDex",
+      "lang": "ur",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "2838715564514827672",
+      "name": "MangaDex",
+      "lang": "uz",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "9194073792736219759",
+      "name": "MangaDex",
+      "lang": "vi",
+      "version": "1.0.2",
+      "baseUrl": "https://mangadex.org",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "api.mangadex.org",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/all.mangadex.js",
+      "sha256": "2d993f38c25595419e3894849637d7456a889120a94b07834ffbd79ec9aeeb6d"
+    },
+    {
+      "id": "3717103867132681399",
+      "name": "Pepper&Carrot",
+      "lang": "en",
+      "version": "1.2.1",
+      "baseUrl": "https://www.peppercarrot.com",
+      "icon": "https://www.peppercarrot.com/core/img/favicon.png",
+      "apiVersion": 2,
+      "file": "sources/all.peppercarrot.js",
+      "sha256": "5bdf350422323df41295168bf270e4499e35e00429a532cc669d8bb2aba66c84"
+    },
+    {
+      "id": "6165881221950830721",
+      "name": "Pepper&Carrot",
+      "lang": "ja",
+      "version": "1.2.1",
+      "baseUrl": "https://www.peppercarrot.com",
+      "icon": "https://www.peppercarrot.com/core/img/favicon.png",
+      "apiVersion": 2,
+      "file": "sources/all.peppercarrot.js",
+      "sha256": "5bdf350422323df41295168bf270e4499e35e00429a532cc669d8bb2aba66c84"
+    },
+    {
+      "id": "4651823155460600022",
+      "name": "Pepper&Carrot",
+      "lang": "zh",
+      "version": "1.2.1",
+      "baseUrl": "https://www.peppercarrot.com",
+      "icon": "https://www.peppercarrot.com/core/img/favicon.png",
+      "apiVersion": 2,
+      "file": "sources/all.peppercarrot.js",
+      "sha256": "5bdf350422323df41295168bf270e4499e35e00429a532cc669d8bb2aba66c84"
+    },
+    {
+      "id": "7113735609798927379",
+      "name": "Pepper&Carrot",
+      "lang": "ko",
+      "version": "1.2.1",
+      "baseUrl": "https://www.peppercarrot.com",
+      "icon": "https://www.peppercarrot.com/core/img/favicon.png",
+      "apiVersion": 2,
+      "file": "sources/all.peppercarrot.js",
+      "sha256": "5bdf350422323df41295168bf270e4499e35e00429a532cc669d8bb2aba66c84"
+    },
+    {
+      "id": "377155379521692942",
+      "name": "Pepper&Carrot",
+      "lang": "es",
+      "version": "1.2.1",
+      "baseUrl": "https://www.peppercarrot.com",
+      "icon": "https://www.peppercarrot.com/core/img/favicon.png",
+      "apiVersion": 2,
+      "file": "sources/all.peppercarrot.js",
+      "sha256": "5bdf350422323df41295168bf270e4499e35e00429a532cc669d8bb2aba66c84"
+    },
+    {
+      "id": "2425121988128812194",
+      "name": "Pepper&Carrot",
+      "lang": "fr",
+      "version": "1.2.1",
+      "baseUrl": "https://www.peppercarrot.com",
+      "icon": "https://www.peppercarrot.com/core/img/favicon.png",
+      "apiVersion": 2,
+      "file": "sources/all.peppercarrot.js",
+      "sha256": "5bdf350422323df41295168bf270e4499e35e00429a532cc669d8bb2aba66c84"
+    },
+    {
+      "id": "699545521251015363",
+      "name": "Pepper&Carrot",
+      "lang": "de",
+      "version": "1.2.1",
+      "baseUrl": "https://www.peppercarrot.com",
+      "icon": "https://www.peppercarrot.com/core/img/favicon.png",
+      "apiVersion": 2,
+      "file": "sources/all.peppercarrot.js",
+      "sha256": "5bdf350422323df41295168bf270e4499e35e00429a532cc669d8bb2aba66c84"
+    },
+    {
+      "id": "5426603323503143528",
+      "name": "Pepper&Carrot",
+      "lang": "id",
+      "version": "1.2.1",
+      "baseUrl": "https://www.peppercarrot.com",
+      "icon": "https://www.peppercarrot.com/core/img/favicon.png",
+      "apiVersion": 2,
+      "file": "sources/all.peppercarrot.js",
+      "sha256": "5bdf350422323df41295168bf270e4499e35e00429a532cc669d8bb2aba66c84"
+    },
+    {
+      "id": "260846947757439928",
+      "name": "Pepper&Carrot",
+      "lang": "pt-BR",
+      "version": "1.2.1",
+      "baseUrl": "https://www.peppercarrot.com",
+      "icon": "https://www.peppercarrot.com/core/img/favicon.png",
+      "apiVersion": 2,
+      "file": "sources/all.peppercarrot.js",
+      "sha256": "5bdf350422323df41295168bf270e4499e35e00429a532cc669d8bb2aba66c84"
+    },
+    {
+      "id": "8782613666392461545",
+      "name": "Pepper&Carrot",
+      "lang": "vi",
+      "version": "1.2.1",
+      "baseUrl": "https://www.peppercarrot.com",
+      "icon": "https://www.peppercarrot.com/core/img/favicon.png",
+      "apiVersion": 2,
+      "file": "sources/all.peppercarrot.js",
+      "sha256": "5bdf350422323df41295168bf270e4499e35e00429a532cc669d8bb2aba66c84"
+    },
+    {
+      "id": "1797554907736656784",
+      "name": "Pepper&Carrot",
+      "lang": "it",
+      "version": "1.2.1",
+      "baseUrl": "https://www.peppercarrot.com",
+      "icon": "https://www.peppercarrot.com/core/img/favicon.png",
+      "apiVersion": 2,
+      "file": "sources/all.peppercarrot.js",
+      "sha256": "5bdf350422323df41295168bf270e4499e35e00429a532cc669d8bb2aba66c84"
+    },
+    {
+      "id": "2401372991067169719",
+      "name": "Pepper&Carrot",
+      "lang": "ru",
+      "version": "1.2.1",
+      "baseUrl": "https://www.peppercarrot.com",
+      "icon": "https://www.peppercarrot.com/core/img/favicon.png",
+      "apiVersion": 2,
+      "file": "sources/all.peppercarrot.js",
+      "sha256": "5bdf350422323df41295168bf270e4499e35e00429a532cc669d8bb2aba66c84"
+    },
+    {
+      "id": "5702082694566979718",
+      "name": "شبكة كونان العربية",
+      "lang": "ar",
+      "version": "1.1.3.1",
+      "baseUrl": "https://manga.detectiveconanar.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/detectiveconanar/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/ar.detectiveconanar.js",
+      "sha256": "37aaa66cd7045f3cc8a9a201204a5e012f07dc4464ee73e5ff2284af7652ca2d"
+    },
+    {
+      "id": "4177563748162518441",
+      "name": "Hizo Manga",
+      "lang": "ar",
+      "version": "1.1.1.1",
+      "baseUrl": "https://hizomanga.net",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/hizomanga/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/ar.hizomanga.js",
+      "sha256": "479fc28410553709b9ce815e67542bec5a61256e6650a841a56db4e897ae4521"
+    },
+    {
+      "id": "323105186892383931",
+      "name": "Loner Translations",
+      "lang": "ar",
+      "version": "1.1.0",
+      "baseUrl": "https://loner-tl.blogspot.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/lonertranslations/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 2,
+      "file": "sources/ar.lonertranslations.js",
+      "sha256": "ad6c840415cb825cc9e21724e21d9aecf5af93abe79126651a9498fd6d7b2385"
+    },
+    {
+      "id": "1073624495230267708",
+      "name": "مانجا العاشق",
+      "lang": "ar",
+      "version": "1.1.5.2",
+      "baseUrl": "https://3asq.online",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/manga3asq/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/ar.manga3asq.js",
+      "sha256": "16163d9ea215c1f0603a2e934d5e285906283c2ea6c52f70f7866c2037e33fab"
+    },
+    {
+      "id": "3568795724496898351",
+      "name": "مانجا لينك",
+      "lang": "ar",
+      "version": "1.1.5.1",
+      "baseUrl": "https://link-manga.net",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/mangalink/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/ar.mangalink.js",
+      "sha256": "6ba00da214f7531c98113d729742bc5d5c3067ba657e42a45a8fb341d8cac5a1"
+    },
+    {
+      "id": "2589550143244611118",
+      "name": "MangaLionz",
+      "lang": "ar",
+      "version": "1.1.5.1",
+      "baseUrl": "https://manga-lionz.org",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/mangalionz/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/ar.mangalionz.js",
+      "sha256": "6c4ada5dbf5c0e3b6d1a350ba138a962b148bb2c72166cd870e510b1e55772f8"
+    },
+    {
+      "id": "2436176998646301840",
+      "name": "MangaSpark",
+      "lang": "ar",
+      "version": "1.1.8.1",
+      "baseUrl": "https://sparkmanga.net",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/mangaspark/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/ar.mangaspark.js",
+      "sha256": "1fff695150c320857a8f8df1e5154c03b735cefc570c433dd0f39e0dffab9d5e"
+    },
+    {
+      "id": "6058166507489091982",
+      "name": "Manga Starz",
+      "lang": "ar",
+      "version": "1.1.10.1",
+      "baseUrl": "https://starzmanga.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/mangastarz/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/ar.mangastarz.js",
+      "sha256": "f20501e5b59816b460c560a946ebe73fae915a747d674ad61f3f7739d8032138"
+    },
+    {
+      "id": "6170348197605244575",
+      "name": "XSano Manga",
+      "lang": "ar",
+      "version": "1.1.0",
+      "baseUrl": "https://www.xsano-manga.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/xsanomanga/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": false,
+      "apiVersion": 2,
+      "file": "sources/ar.xsanomanga.js",
+      "sha256": "d15d90d413067b84c227e38f8c551894415546b487b1d25d1a2624e92592491a"
+    },
+    {
+      "id": "8513894820944573933",
+      "name": "Akaza Scans",
+      "lang": "en",
+      "version": "1.0.0",
+      "baseUrl": "https://akazascans.org",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/akazascans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.akazascans.js",
+      "sha256": "b283fc843d0635dce63030b191b9c2d78fd1d7b94b00f40f902f0ac65235995e"
+    },
+    {
+      "id": "1931493862544259486",
+      "name": "Aster Scans",
+      "lang": "en",
+      "version": "1.0.0",
+      "baseUrl": "https://asterscans.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/asterscans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.asterscans.js",
+      "sha256": "fde61d6619c2d4b645d877ad436535bb3a357440ae7a4062fe41b44139fd9a6e"
+    },
+    {
+      "id": "6247824327199706550",
+      "name": "Asura Scans",
+      "lang": "en",
+      "version": "1.0.2",
+      "baseUrl": "https://asurascans.com",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/asurascans/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "asurascans.com",
+          "permits": 2,
+          "periodMs": 2000
+        },
+        {
+          "host": "api.asurascans.com",
+          "permits": 2,
+          "periodMs": 2000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/en.asurascans.js",
+      "sha256": "eeaf2d50f41d9fceec822963828499fa2de3a1f6c652f73f95fe2de9375ee46d"
+    },
+    {
+      "id": "7909401032149692930",
+      "name": "Borat Scans",
+      "lang": "en",
+      "version": "1.1.0",
+      "baseUrl": "https://boratscans.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/boratscans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.boratscans.js",
+      "sha256": "57e171f65b2ca7ec1c500b2184cf7ecf7c9df228c8757d612a16fc38b82faa3c"
+    },
+    {
+      "id": "6573506892686767219",
+      "name": "DragonTea",
+      "lang": "en",
+      "version": "1.1.5",
+      "baseUrl": "https://dragontea.ink",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/dragontea/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "dragontea.ink",
+          "permits": 1,
+          "periodMs": 1000
+        }
+      ],
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.dragontea.js",
+      "sha256": "bc927b24066065785809569d6337910f7594b58481563cd2e919618127055ec0"
+    },
+    {
+      "id": "1124131000360667434",
+      "name": "Scythe Scans",
+      "lang": "en",
+      "version": "1.0.10",
+      "baseUrl": "https://scythescans.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/erosscans/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "scythescans.com",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.erosscans.js",
+      "sha256": "814dd18a6aff39952cd0740aba8858e32ce73d574e83fe509a30711e927b2365"
+    },
+    {
+      "id": "8531542650987673943",
+      "name": "Flame Comics",
+      "lang": "en",
+      "version": "1.0.2",
+      "baseUrl": "https://flamecomics.xyz",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/flamecomics/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "flamecomics.xyz",
+          "permits": 2,
+          "periodMs": 2000
+        }
+      ],
+      "apiVersion": 2,
+      "file": "sources/en.flamecomics.js",
+      "sha256": "19665bd5dc7fe9c1a058757025a678990bda41907c9ad4c6fedaf3ae108c084d"
+    },
+    {
+      "id": "5246625723235112128",
+      "name": "GakaMangas",
+      "lang": "en",
+      "version": "1.1.0",
+      "baseUrl": "https://gakamangas.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/gakamangas/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.gakamangas.js",
+      "sha256": "9b3c6edc1720daf6dc794460509bd4c2278943bb60a59033602ff44a7e6e3eef"
+    },
+    {
+      "id": "6311653253665366075",
+      "name": "Hive Scans",
+      "lang": "en",
+      "version": "1.0.3",
+      "baseUrl": "https://hivetoons.org",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/hivescans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 2,
+      "file": "sources/en.hivescans.js",
+      "sha256": "55dacdcd4f84482b8e2d7b272e3c6c184979526b3cfa46ed17b6c563983d1b33"
+    },
+    {
+      "id": "7925933833035450162",
+      "name": "Lagoon Scans",
+      "lang": "en",
+      "version": "1.0.0",
+      "baseUrl": "https://lagoonscans.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/lagoonscans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.lagoonscans.js",
+      "sha256": "bfe5c2d75f6d55776f25628e823330f60e67e8e508d097be00fae56a5d0730d2"
+    },
+    {
+      "id": "8802607595629671202",
+      "name": "LHTranslation",
+      "lang": "en",
+      "version": "1.1.1",
+      "baseUrl": "https://lhtranslation.net",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/lhtranslation/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.lhtranslation.js",
+      "sha256": "7cf5fbbb7c7211a4bed188d9a8d6327b381b1ecc34497974767aaf2006dca862"
+    },
+    {
+      "id": "3971812949560196318",
+      "name": "Lovesjane Scans",
+      "lang": "en",
+      "version": "1.1.1",
+      "baseUrl": "https://lovesjane.site",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/lovesjanescans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.lovesjanescans.js",
+      "sha256": "fd1af3d24a9712c73558a5c5a55c855ceab9b4659f98cadc25c4e77fcfccad4c"
+    },
+    {
+      "id": "5229341270935044914",
+      "name": "Manga Eclipse",
+      "lang": "en",
+      "version": "1.1.0",
+      "baseUrl": "https://mangaeclipse.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangaeclipse/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.mangaeclipse.js",
+      "sha256": "0ed3144ec8392f4a451eba54cfb7fbe5c5b60112dc579c76844445adfe55638a"
+    },
+    {
+      "id": "6484561431658238800",
+      "name": "MangaFox",
+      "lang": "en",
+      "version": "1.0.0",
+      "baseUrl": "https://fanfox.net",
+      "supportsLatest": true,
+      "rateLimits": [
+        {
+          "host": "fanfox.net",
+          "permits": 1,
+          "periodMs": 1000
+        },
+        {
+          "host": "m.fanfox.net",
+          "permits": 1,
+          "periodMs": 1000
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangafox/res/mipmap-xhdpi/ic_launcher.png",
+      "apiVersion": 2,
+      "file": "sources/en.mangafox.js",
+      "sha256": "c259e2bf8ca89626d376f3f8b3ab2fb88bd430ec43e42bf03ce4f01b1fd5f88e"
+    },
+    {
+      "supportsLatest": true,
+      "id": "2528986671771677900",
+      "name": "Mangakakalot",
+      "lang": "en",
+      "version": "1.0.1",
+      "baseUrl": "https://www.kakamanga.com",
+      "rateLimits": [
+        {
+          "host": "www.kakamanga.com",
+          "permits": 2,
+          "periodMs": 1000
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangakakalot/res/mipmap-xhdpi/ic_launcher.png",
+      "apiVersion": 2,
+      "file": "sources/en.mangakakalot.js",
+      "sha256": "fc309d3c4b4865bec5668822c3783fc27775fa1e1c356764c998689ee69df1b8"
+    },
+    {
+      "supportsLatest": true,
+      "id": "1024627298672457456",
+      "name": "Manganato",
+      "lang": "en",
+      "version": "1.0.0",
+      "baseUrl": "https://www.natomanga.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/manganelo/res/mipmap-xhdpi/ic_launcher.png",
+      "apiVersion": 2,
+      "file": "sources/en.manganato.js",
+      "sha256": "76fa0cff81dc3d547586e389360c932bc0dfc2df39ada0b27efb922d645100cb"
+    },
+    {
+      "id": "8448310129093543312",
+      "name": "MangaPill",
+      "lang": "en",
+      "version": "1.0.0",
+      "baseUrl": "https://mangapill.com",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangapill/res/mipmap-xhdpi/ic_launcher.png",
+      "apiVersion": 2,
+      "file": "sources/en.mangapill.js",
+      "sha256": "9466036cf37f9ba901b929a6e137e6382ee7671a6fdff1274ba12769c3c3ddf5"
+    },
+    {
+      "id": "3606721916149050760",
+      "name": "Mangasushi",
+      "lang": "en",
+      "version": "1.1.3",
+      "baseUrl": "https://mangasushi.org",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangasushi/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.mangasushi.js",
+      "sha256": "a1db9619b00b24aa97b9c373faa74a497477511c48a4fde17d9867b2dcdbd6da"
+    },
+    {
+      "id": "1983630122600815139",
+      "name": "Manga Trend",
+      "lang": "en",
+      "version": "1.0.0",
+      "baseUrl": "https://mangatrend.org",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangatrend/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.mangatrend.js",
+      "sha256": "5c70418cf552272f69bb5cbd11a68a9176980b6581cddd12c744710e843a271c"
+    },
+    {
+      "id": "7638481723868333116",
+      "name": "ManhuaHot",
+      "lang": "en",
+      "version": "1.1.0",
+      "baseUrl": "https://manhuahot.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/manhuahot/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.manhuahot.js",
+      "sha256": "a5a7bf40e6604b848c11725579e6b8db3b2d377e141ab116ed320b9317c8af57"
+    },
+    {
+      "id": "9030178752551947945",
+      "name": "Manhua Plus",
+      "lang": "en",
+      "version": "1.1.9",
+      "baseUrl": "https://manhuaplus.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/manhuaplus/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.manhuaplus.js",
+      "sha256": "67e1b96c1fedb3dd0d4316ce4faec430844b3be6a4bafc8fdf65f0f823810321"
+    },
+    {
+      "id": "4005973248538140146",
+      "name": "ManhuaUS",
+      "lang": "en",
+      "version": "1.1.5",
+      "baseUrl": "https://manhuaus.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/manhuaus/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.manhuaus.js",
+      "sha256": "1000b8e428d38b802368d96778b381bffffe9f6680a810e23eaa853da5ca3924"
+    },
+    {
+      "id": "6998882641562544524",
+      "name": "Public Domain Comics",
+      "lang": "en",
+      "version": "1.2.0",
+      "baseUrl": "https://archive.org",
+      "apiVersion": 2,
+      "file": "sources/en.publicdomaincomics.js",
+      "sha256": "3b70c92be191045db0bc587e75620f857b7d038c1888dafc1bfb338b0786361d"
+    },
+    {
+      "id": "263040414613624318",
+      "name": "Rackus",
+      "lang": "en",
+      "version": "1.0.7",
+      "baseUrl": "https://rackusreads.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/rackus/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.rackus.js",
+      "sha256": "376b2b113122e880567f999c891c2bc1152e2e989b335fb47dd6cad0497dd712"
+    },
+    {
+      "id": "5756634909776784131",
+      "name": "Sleepy Translations",
+      "lang": "en",
+      "version": "1.1.1",
+      "baseUrl": "https://sleepytranslations.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/sleepytranslations/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.sleepytranslations.js",
+      "sha256": "5e19e175959571aebb4b8981ba4b157ad6696c7e5c86efe2f40a1493ab4a7ad3"
+    },
+    {
+      "id": "1435116756378369709",
+      "name": "TCB Scans",
+      "lang": "en",
+      "version": "1.0.1",
+      "baseUrl": "https://tcbonepiecechapters.com",
+      "supportsLatest": false,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/tcbscans/res/mipmap-xhdpi/ic_launcher.png",
+      "apiVersion": 2,
+      "file": "sources/en.tcbscans.js",
+      "sha256": "69294d84c916cee7e1d93014032eb7b7343c45fdbc568c84b88115fa326ae75a"
+    },
+    {
+      "id": "6032516943051342273",
+      "name": "TritiniaScans",
+      "lang": "en",
+      "version": "1.1.4",
+      "baseUrl": "https://tritinia.org",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/tritiniascans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.tritiniascans.js",
+      "sha256": "84a43ba1c3c5ab740b363656991b2cefe36156eb9bdf7110cf973d9a688f005d"
+    },
+    {
+      "id": "9079184529211162476",
+      "name": "Violet Scans",
+      "lang": "en",
+      "version": "1.0.6",
+      "baseUrl": "https://violetmanga.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/violetscans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.violetscans.js",
+      "sha256": "3dd304e11f7e02833b5842a6de9e00e44c379c6fb36e4de2a0cbf97d30417947"
+    },
+    {
+      "id": "2559570015828016575",
+      "name": "Vortex Scans",
+      "lang": "en",
+      "version": "1.0.3",
+      "baseUrl": "https://vortexscans.org",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/vortexscans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 2,
+      "file": "sources/en.vortexscans.js",
+      "sha256": "688ad7c8eaf9e1c1a90d117dded682321d855984153fb743e2542921a70bbf7d"
+    },
+    {
+      "id": "2131019126180322627",
+      "name": "Weeb Central",
+      "lang": "en",
+      "version": "1.0.3",
+      "baseUrl": "https://weebcentral.com",
+      "supportsLatest": true,
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/weebcentral/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "weebcentral.com",
+          "permits": 1,
+          "periodMs": 2000
+        }
+      ],
+      "imageHeaders": {
+        "Accept": "image/avif,image/webp,*/*"
+      },
+      "apiVersion": 2,
+      "file": "sources/en.weebcentral.js",
+      "sha256": "7fa7dbc55410840cb3c7af33741746e1d8640864537429efded12f18f2ea4e0f"
+    },
+    {
+      "id": "6540843430852844328",
+      "name": "WuxiaWorld",
+      "lang": "en",
+      "version": "1.1.1",
+      "baseUrl": "https://wuxiaworld.site",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/wuxiaworld/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/en.wuxiaworld.js",
+      "sha256": "5d67f652bce8a89a16858f76c940f822d7b79a337059046ee4efe13282096cb2"
+    },
+    {
+      "id": "1814471239661920836",
+      "name": "Cerberus Series",
+      "lang": "es",
+      "version": "1.0.1",
+      "baseUrl": "https://legionscans.com/wp",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/cerberusseries/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/es.cerberusseries.js",
+      "sha256": "1a96071fa335f7b114b1f9513cd17ab0ddc5266ec433a680d448e12dc2b9381f"
+    },
+    {
+      "id": "1626637101814976364",
+      "name": "Dat-Gar Scan",
+      "lang": "es",
+      "version": "1.1.1",
+      "baseUrl": "https://datgarscanlation.blogspot.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/datgarscanlation/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "datgarscanlation.blogspot.com",
+          "permits": 2,
+          "periodMs": 1000
+        }
+      ],
+      "supportsLatest": false,
+      "apiVersion": 2,
+      "file": "sources/es.datgarscanlation.js",
+      "sha256": "63544923a6ead7d97392ef38220c1a0537c46c3cfd594fd43194c5115d34a935"
+    },
+    {
+      "id": "5594696691862732725",
+      "name": "InfraFandub",
+      "lang": "es",
+      "version": "1.1.4",
+      "baseUrl": "https://infrafandub.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/infrafandub/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "infrafandub.com",
+          "permits": 2,
+          "periodMs": 1000
+        }
+      ],
+      "supportsLatest": false,
+      "apiVersion": 3,
+      "file": "sources/es.infrafandub.js",
+      "sha256": "7b975ebbe2a20e7c290a5adb1984d0a7643363b0fc37b79f2357634501a407f5"
+    },
+    {
+      "id": "609477585841458199",
+      "name": "Inventario Oculto",
+      "lang": "es",
+      "version": "1.1.0",
+      "baseUrl": "https://inventariooculto.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/inventariooculto/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/es.inventariooculto.js",
+      "sha256": "8c197ca8aca9da39682cc46833a9aae8c4cdfb1416d9b30fcf496ca96c46e71d"
+    },
+    {
+      "id": "475788948976592183",
+      "name": "Kazoku Den",
+      "lang": "es",
+      "version": "1.1.0",
+      "baseUrl": "https://www.kazokuden.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/kazokuden/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/es.kazokuden.js",
+      "sha256": "3565464f5085c92fe1ff946f017ad387ea57a1e7c7a349f89a6ef6781d23f1ef"
+    },
+    {
+      "id": "5937472249278743372",
+      "name": "Marmota",
+      "lang": "es",
+      "version": "1.1.0",
+      "baseUrl": "https://marmota.me",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/marmota/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/es.marmota.js",
+      "sha256": "e422aafb8c9cd99b78650767590eaef722345661e366664eab5e3a5962466b91"
+    },
+    {
+      "id": "5862188113261788590",
+      "name": "Monopoly Scan",
+      "lang": "es",
+      "version": "1.1.0",
+      "baseUrl": "https://monopolymanhua.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/monopolyscan/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/es.monopolyscan.js",
+      "sha256": "a229d4c2f684d3fd87fdf7c84b254cf1fa77fba28e8b6b2b6700e878f2cbf2c7"
+    },
+    {
+      "id": "1348827658894665970",
+      "name": "Ragnarok Scanlation",
+      "lang": "es",
+      "version": "1.1.3",
+      "baseUrl": "https://ragnarokscanlation.org",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/ragnarokscanlation/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/es.ragnarokscanlation.js",
+      "sha256": "10601ada61c54c506d7de356ae9b075ad84515ced139b3bf84cd157ff7b93303"
+    },
+    {
+      "id": "1527666187989988991",
+      "name": "Rakuen Translations",
+      "lang": "es",
+      "version": "1.0.0",
+      "baseUrl": "https://rakuentranslations.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/rakuentranslations/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/es.rakuentranslations.js",
+      "sha256": "ab81d4ce87dd461aefb7970204a7a0437a631fa1b8a0552fed6892756dddb465"
+    },
+    {
+      "id": "6130972683394103021",
+      "name": "UnderTranslations",
+      "lang": "es",
+      "version": "1.0.0",
+      "baseUrl": "https://undertranslations.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/undertranslations/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/es.undertranslations.js",
+      "sha256": "f9bde93d0c3b01625ecc55a08a0c20d1e986fe6e304a37071ceb49f126f7a961"
+    },
+    {
+      "id": "831567442922111170",
+      "name": "Izanami Scans",
+      "lang": "id",
+      "version": "1.0.1",
+      "baseUrl": "https://izanamiscans.my.id",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/id/izanamiscans/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "izanamiscans.my.id",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/id.izanamiscans.js",
+      "sha256": "f4fd4e2b8e45c772a144eb48e98c346e112a53c635d94cdbb2cab664e42e06ef"
+    },
+    {
+      "id": "5213948951740602020",
+      "name": "KlikManga",
+      "lang": "id",
+      "version": "1.1.5",
+      "baseUrl": "https://klikmanga.org",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/id/klikmanga/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/id.klikmanga.js",
+      "sha256": "796bdfb59aae22087648470f1e5b50a19ae77300681500b6de24f8e0180120f3"
+    },
+    {
+      "id": "3545985978448263801",
+      "name": "Kuro Manga",
+      "lang": "id",
+      "version": "1.0.1",
+      "baseUrl": "https://kuromanga.id",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/id/kuromanga/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/id.kuromanga.js",
+      "sha256": "fb1b613af7b692adc30d17942d465d009dfaaae2f4bab557c1f89de9d9cfe8b6"
+    },
+    {
+      "id": "1601772753251290758",
+      "name": "LepoyTL",
+      "lang": "id",
+      "version": "1.1.2",
+      "baseUrl": "https://www.lepoytl.my.id",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/id/lepoytl/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 2,
+      "file": "sources/id.lepoytl.js",
+      "sha256": "272421d48160625911e4fe21259bc0c74ee9be93a389c9fab511e290076e519d"
+    },
+    {
+      "id": "3111049819536223391",
+      "name": "Manhwa List",
+      "lang": "id",
+      "version": "1.0.8",
+      "baseUrl": "https://m1.manhwalist.my.id",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/id/manhwalistid/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "m1.manhwalist.my.id",
+          "permits": 3,
+          "periodMs": 1000
+        }
+      ],
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/id.manhwalistid.js",
+      "sha256": "7bd8664494a7309608076bec509be3019f59db095d8b0b42f361e6e49630429a"
+    },
+    {
+      "id": "1031213229391436059",
+      "name": "IsekaiKomik",
+      "lang": "id",
+      "version": "1.0.2",
+      "baseUrl": "https://ch1.isekaikomik.site",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/id/manhwalistorg/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/id.manhwalistorg.js",
+      "sha256": "364b078a0c625e542d50221d69cd7fb88f1d8e0687d963a73dfa78d8657f4743"
+    },
+    {
+      "id": "2636071300407720294",
+      "name": "Noromax",
+      "lang": "id",
+      "version": "1.0.5",
+      "baseUrl": "https://noromax02.my.id",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/id/noromax/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/id.noromax.js",
+      "sha256": "d6d9392a44638efd39d8b63ec7e411b6c5c057257605c19ae99f881810047c69"
+    },
+    {
+      "id": "7106013231844823613",
+      "name": "ShiyuraSub",
+      "lang": "id",
+      "version": "1.1.1",
+      "baseUrl": "https://shiyurasub.blogspot.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/id/shiyurasub/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": false,
+      "apiVersion": 2,
+      "file": "sources/id.shiyurasub.js",
+      "sha256": "05c39d569bdac5f4aebc7fad7b08d1abfeb7344b54bdf1b8c39c8937d1908b9b"
+    },
+    {
+      "id": "8234656044798917709",
+      "name": "AnimeShinigami",
+      "lang": "it",
+      "version": "1.1.0",
+      "baseUrl": "https://www.animeshinigami.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/it/animeshinigami/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/it.animeshinigami.js",
+      "sha256": "280f0b73cf1f37c1bf1e9cbca59bfb2b7f5d7a5eaa5ec7edf85c90b07cd5be82"
+    },
+    {
+      "id": "7733551911826034167",
+      "name": "Shinobi Scans",
+      "lang": "it",
+      "version": "1.1.0",
+      "baseUrl": "https://shinobiscans.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/it/shinobiscans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/it.shinobiscans.js",
+      "sha256": "6be3df1fa5fd2c3ffab8e189d9e0d757cbe40a2aeae68a57cf0c267a305b28b5"
+    },
+    {
+      "id": "6455606609436338494",
+      "name": "Asacomi",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://asacomi.jp",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/asacomi/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.asacomi.js",
+      "sha256": "74d6554ccd593a1475d02345ba78665c2ac229070eb7ca8eedb15ab66843edc3"
+    },
+    {
+      "id": "3726193166490568923",
+      "name": "Bibibi Comic",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://bibibi-comic.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/bibibicomic/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.bibibicomic.js",
+      "sha256": "c9671f441a24a5cdbad620ce143d4b05ab6edfd23d4d0de37ddf3ed71e14e3f0"
+    },
+    {
+      "id": "6626616605316433619",
+      "name": "Comic Pash",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://comicpash.jp",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/comicpash/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.comicpash.js",
+      "sha256": "9124ad2cb71e97204fc2b89429f77de0a1ce6e17aa6de0a8d3e694ccc032ce60"
+    },
+    {
+      "id": "6786869574657969795",
+      "name": "Comic Ride",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://comicride.jp",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/comicride/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.comicride.js",
+      "sha256": "5e31e6f9de8962a5e5f7b3b7a412d91eef287029889bc303278625fb8095de8f"
+    },
+    {
+      "id": "1887776535756811938",
+      "name": "Comic Room Base",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://comic-room-base.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/comicroombase/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.comicroombase.js",
+      "sha256": "12b085e439ccae9114840ad7ab95dd09a018448624c9d96c0462a9bb4639a220"
+    },
+    {
+      "id": "58641447023846824",
+      "name": "Comirela",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://comirela.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/comirela/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.comirela.js",
+      "sha256": "7f7e869977988cfb49caea0f2730011bec51390e43413e3c54e4676f3b3d18e8"
+    },
+    {
+      "id": "6820605856874807465",
+      "name": "Hana To Yume+",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://hanayume.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/hanayume/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.hanayume.js",
+      "sha256": "0f4ba55141123a52848f73df3e3d598548fe0e50cdfaa3712f471b9de132b77e"
+    },
+    {
+      "id": "5820719158683766054",
+      "name": "HAYA Comic",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://hayacomic.jp",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/hayacomic/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.hayacomic.js",
+      "sha256": "7d0987908e360738a5bdfba03e26fcc6e575c39dfa9d4fc8c3f6df6b372dd80d"
+    },
+    {
+      "id": "6981500022236807277",
+      "name": "HERO'S Web",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://heros-web.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/herosweb/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.herosweb.js",
+      "sha256": "d54664bdbe5e7bccce66485a3e7a52dd5348e24002a912608cd32277f8911e0d"
+    },
+    {
+      "id": "2876739237900975302",
+      "name": "J-N Books",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://comic.j-nbooks.jp",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/jnbooks/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.jnbooks.js",
+      "sha256": "5792ca052ac4b09b7a8d4bb80e5eb2edc53b7453cd4b5689d65152ca8af48708"
+    },
+    {
+      "id": "645302785022492537",
+      "name": "KimiComi",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://kimicomi.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/kimicomi/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.kimicomi.js",
+      "sha256": "5a4c65e12a561a6c02c448d9c53269afee26e343a46b8eafb232241649705219"
+    },
+    {
+      "id": "8826192789792786070",
+      "name": "MagKan",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://kansai.mag-garden.co.jp",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/magkan/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.magkan.js",
+      "sha256": "b664ea382fc71d7a1507fe7ab4d20ce0a61a029d62ab507e9994af72be00b9c4"
+    },
+    {
+      "id": "6323380629311776595",
+      "name": "MangaBang Comics",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://comics.manga-bang.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/mangabang/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.mangabang.js",
+      "sha256": "055222563522020687f59c7ec4f4b7b94c689fff4b2f55baab8c01db421026fc"
+    },
+    {
+      "id": "1497299793762441095",
+      "name": "MangaBu",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://mangabu.jp",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/mangabu/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.mangabu.js",
+      "sha256": "6375b2420011fe6028a9bdd753692396911efd5d1e8109152999caade2d135a0"
+    },
+    {
+      "id": "1153097454471755439",
+      "name": "Mangalt",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://mangalt.jp",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/mangalt/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.mangalt.js",
+      "sha256": "453d713a15932260a7aee788fb446205c424fccb8357f8c1c36e664c78fb722f"
+    },
+    {
+      "id": "1066937743995646358",
+      "name": "Manga Zegra",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://manga-zegra.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/mangazegra/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.mangazegra.js",
+      "sha256": "356839466b408571bbea1423a3982ff8f152aa61b899d0039fc9a38859611d32"
+    },
+    {
+      "id": "9122203163319944007",
+      "name": "Public Domain Manga",
+      "lang": "ja",
+      "version": "1.0.0",
+      "baseUrl": "https://dl.ndl.go.jp",
+      "apiVersion": 2,
+      "file": "sources/ja.publicdomainmanga.js",
+      "sha256": "d6308c806ce009cb76fa08539ea354334d7cfd16965a3b20fcdd5a8256592430"
+    },
+    {
+      "id": "8784054084293367959",
+      "name": "RimacomiPlus",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://rimacomiplus.jp",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/rimacomiplus/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.rimacomiplus.js",
+      "sha256": "c31d276bea2ca3d0d34bc366ff2748da5cc9d11f9a7fda01966694605add23b3"
+    },
+    {
+      "id": "5158991361251014104",
+      "name": "TakeComic",
+      "lang": "ja",
+      "version": "1.1.0",
+      "baseUrl": "https://takecomic.jp",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ja/takecomic/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 4,
+      "file": "sources/ja.takecomic.js",
+      "sha256": "3cb79fbf08786367f75b25665e2b750e36b29511a766d187355b4aaa71554a40"
+    },
+    {
+      "id": "2962682340286299668",
+      "name": "Boruto Explorer",
+      "lang": "pt-BR",
+      "version": "1.1.2",
+      "baseUrl": "https://leitor.borutoexplorer.com.br",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/borutoexplorer/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "leitor.borutoexplorer.com.br",
+          "permits": 1,
+          "periodMs": 2000
+        }
+      ],
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/pt.borutoexplorer.js",
+      "sha256": "864830b51c0a26a5d3510a2774c357bab0107a2394f6575047394d14296128b6"
+    },
+    {
+      "id": "5738568067614123099",
+      "name": "Duo Scans",
+      "lang": "pt-BR",
+      "version": "1.1.0",
+      "baseUrl": "https://duoscanlators.blogspot.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/duoscans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 2,
+      "file": "sources/pt.duoscans.js",
+      "sha256": "4c498875ea5ca322850a21818a7b3c7c81d039a426f699f37b36f955917a3b30"
+    },
+    {
+      "id": "5221484950287110636",
+      "name": "Kami Sama Explorer",
+      "lang": "pt-BR",
+      "version": "1.1.3",
+      "baseUrl": "https://leitor.kamisama.com.br",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/kamisamaexplorer/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "leitor.kamisama.com.br",
+          "permits": 1,
+          "periodMs": 2000
+        }
+      ],
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/pt.kamisamaexplorer.js",
+      "sha256": "2cd921367c5af014c0fda44a239677453c73df790c122be67b2ad66fde089ace"
+    },
+    {
+      "id": "11864058740306611",
+      "name": "Ler 999",
+      "lang": "pt-BR",
+      "version": "1.1.1",
+      "baseUrl": "https://ler999.blogspot.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/ler999/res/mipmap-xhdpi/ic_launcher.png",
+      "rateLimits": [
+        {
+          "host": "ler999.blogspot.com",
+          "permits": 1,
+          "periodMs": 2000
+        }
+      ],
+      "supportsLatest": true,
+      "apiVersion": 2,
+      "file": "sources/pt.ler999.js",
+      "sha256": "c15132890e6c86335eabf90d38a9c07fa062480cdd1d9f5694b0d4b7e52b3494"
+    },
+    {
+      "id": "834994810873638550",
+      "name": "SingManga",
+      "lang": "th",
+      "version": "1.0.0",
+      "baseUrl": "https://www.sing-manga.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/th/singmanga/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/th.singmanga.js",
+      "sha256": "0a20b9e7deed62ab11c1bc08f1c99625e09379915020ffef7a850bc959ab0dcd"
+    },
+    {
+      "id": "8011699941614610362",
+      "name": "Anikiga",
+      "lang": "tr",
+      "version": "1.1.0",
+      "baseUrl": "https://anikiga.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/anikiga/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/tr.anikiga.js",
+      "sha256": "3881b0b3903980870c51f9a7bfa8494e5d94eb597ac5eb87ce2b60a2847f6e13"
+    },
+    {
+      "id": "4357416108470845594",
+      "name": "DiamondFansub",
+      "lang": "tr",
+      "version": "1.1.2",
+      "baseUrl": "https://diamondfansub.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/diamondfansub/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/tr.diamondfansub.js",
+      "sha256": "7586c480083e6cd4c0f8883b3a4d50905b72003e658ec0096893b5b79ff9fc90"
+    },
+    {
+      "id": "3266930735690843593",
+      "name": "gafeland",
+      "lang": "tr",
+      "version": "1.0.0",
+      "baseUrl": "https://gafeland.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/gafeland/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/tr.gafeland.js",
+      "sha256": "aaa756cbd02399c2ed8da0ef52dc72494f470ee77c7311145f8625167b59eba8"
+    },
+    {
+      "id": "1475942648540931708",
+      "name": "Koreli Scans",
+      "lang": "tr",
+      "version": "1.0.20",
+      "baseUrl": "https://www.nabicix.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/koreliscans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/tr.koreliscans.js",
+      "sha256": "7832151a676282392d7bea48faaff609c1bd6d9f6aa20df35aed547ba7c9f941"
+    },
+    {
+      "id": "2783611133798677654",
+      "name": "Nirvana Manga",
+      "lang": "tr",
+      "version": "1.0.0",
+      "baseUrl": "https://nirvanamanga.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/nirvanamanga/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/tr.nirvanamanga.js",
+      "sha256": "9b09925fadc66893df54c19b6c3d1e4fa2e55ba2acb8f6d0567fa104f706494f"
+    },
+    {
+      "id": "1993924607457500259",
+      "name": "Serein Scan",
+      "lang": "tr",
+      "version": "1.0.0",
+      "baseUrl": "https://sereinscan.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/sereinscan/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/tr.sereinscan.js",
+      "sha256": "09eabaa656910d195c0df3edb9b90a3ded644d1fa5d2eadf47b928a8fc0ec205"
+    },
+    {
+      "id": "3852979672050614736",
+      "name": "Shadow Çeviri",
+      "lang": "tr",
+      "version": "1.1.1",
+      "baseUrl": "https://shadowceviri.blogspot.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/shadowceviri/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 2,
+      "file": "sources/tr.shadowceviri.js",
+      "sha256": "6c194bebb64c86f64887e2dc926e3cfdce93b50ef52aa84b77dabc942d90f055"
+    },
+    {
+      "id": "876756264275379458",
+      "name": "Shijie Scans",
+      "lang": "tr",
+      "version": "1.0.1",
+      "baseUrl": "https://shijiescans.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/shijiescans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/tr.shijiescans.js",
+      "sha256": "39025311001a9363991771992b4f7cb7697a2562364158bd2d355621f1650655"
+    },
+    {
+      "id": "1479830960881750685",
+      "name": "Tortuga Ceviri",
+      "lang": "tr",
+      "version": "1.1.2",
+      "baseUrl": "https://tortugaceviri.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/tortugaceviri/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/tr.tortugaceviri.js",
+      "sha256": "5c335e2f03979a4cc0f68f815e7a83a93005c4a5e732c7bf21dcd459f9328511"
+    },
+    {
+      "id": "1213201447439140959",
+      "name": "Türkçe Manga Oku",
+      "lang": "tr",
+      "version": "1.1.1",
+      "baseUrl": "https://trmangaoku.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/turkcemangaoku/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/tr.turkcemangaoku.js",
+      "sha256": "b4875cdcec43508906d3170631b49cf1bcf05af419052700d8dbef1f5964b921"
+    },
+    {
+      "id": "8902732421830627437",
+      "name": "Webtoon Hatti",
+      "lang": "tr",
+      "version": "1.1.7",
+      "baseUrl": "https://webtoonhatti.club",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/webtoonhatti/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/tr.webtoonhatti.js",
+      "sha256": "6e81f8fd7cd11b109d7de3abbac2a55d4461d6c721dd48ba911b4747fbb767af"
+    },
+    {
+      "id": "1669762383546832433",
+      "name": "Zenith Scans",
+      "lang": "tr",
+      "version": "1.0.0",
+      "baseUrl": "https://zenithscans.com",
+      "icon": "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/zenithscans/res/mipmap-xhdpi/ic_launcher.png",
+      "supportsLatest": true,
+      "apiVersion": 3,
+      "file": "sources/tr.zenithscans.js",
+      "sha256": "ea2291aceb97195d5f6ae9d7acc737312993d5d899eb0db2f647b2885d4afd1d"
+    }
+  ]
+}

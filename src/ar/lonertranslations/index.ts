@@ -11,7 +11,7 @@ export default zeistmanga({
     id: "323105186892383931",
     name: "Loner Translations",
     lang: "ar",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://loner-tl.blogspot.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/lonertranslations/res/mipmap-xhdpi/ic_launcher.png",
   },

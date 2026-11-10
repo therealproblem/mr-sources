@@ -1,4 +1,4 @@
-// Ported from the Keiyoushi "MangaDex" extension:
+// Ported from the Keiyoushi "MangaDex" extension (v1.6.3):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/all/mangadex
 // Licensed under the Apache License, Version 2.0.
 //
@@ -44,6 +44,7 @@ const linkPrefixes: Record<string, string> = { manga: "id:", title: "id:", chapt
 
 // [Mihon source ID, language]
 const languages: [string, string][] = [
+  ["6404943692147160087", "all"],
   ["4638673959522768501", "af"],
   ["987803387023224960", "sq"],
   ["3339599426223341161", "ar"],
@@ -138,6 +139,7 @@ interface ChapterAttributes {
   readableAt: string
   externalUrl?: string | null
   isUnavailable?: boolean
+  translatedLanguage?: string
 }
 type MangaEntity = Entity<MangaAttributes>
 type ChapterEntity = Entity<ChapterAttributes>
@@ -172,7 +174,10 @@ const hasNext = (list: Collection<unknown>) => list.offset + list.limit < Math.m
 
 function makeSource([id, lang]: [string, string]): Source {
   const dexLang = dexLanguages[lang] ?? lang
-  const pref = <T>(key: string, fallback: T): T => (Honya.prefs.get(`${key}_${dexLang}`) as T | null | undefined) ?? fallback
+  const allLanguages = dexLang === "all"
+  /** The parameter limiting results to this source's language; none for all languages. */
+  const translated = (name: string): Params => (allLanguages ? [] : [[name, dexLang]])
+  const pref =<T>(key: string, fallback: T): T => (Honya.prefs.get(`${key}_${dexLang}`) as T | null | undefined) ?? fallback
   const contentRating = () => {
     const ratings = pref<string[]>("contentRating", safeRatings).filter((rating) => safeRatings.includes(rating))
     return ratings.length > 0 ? ratings : safeRatings
@@ -198,7 +203,7 @@ function makeSource([id, lang]: [string, string]): Source {
     const chapters = await collection<ChapterEntity>("/chapter", [
       ["offset", latestChapterLimit * (page - 1)],
       ["limit", latestChapterLimit],
-      ["translatedLanguage[]", dexLang],
+      ...translated("translatedLanguage[]"),
       ["order[publishAt]", "desc"],
       ["includeFutureUpdates", "0"],
       ["includeFuturePublishAt", "0"],
@@ -297,9 +302,10 @@ function makeSource([id, lang]: [string, string]): Source {
     if (pref("altTitlesInDesc", false)) {
       const romanized = romanizedLanguages[attributes.originalLanguage ?? ""] ?? ""
       const altTitles = (attributes.altTitles ?? []).map(localized)
-        .filter((title) => title[dexLang] != null || title[romanized] != null)
-        .flatMap((title) => (Object.values(title).length === 1 ? Object.values(title) : []))
-        .filter((title) => title)
+        .filter((title) => allLanguages || title[dexLang] != null || title[romanized] != null)
+        .flatMap((title) => (Object.keys(title).length === 1 ? Object.entries(title) : []))
+        .filter(([, title]) => title)
+        .map(([code, title]) => (allLanguages ? `[${code}] ${title}` : title))
       if (altTitles.length > 0) description.push(unescapeEntities(`Alternative titles:\n${altTitles.map((title) => `• ${title}`).join("\n")}`))
     }
     if (pref("finalChapterInDesc", true)) {
@@ -322,7 +328,7 @@ function makeSource([id, lang]: [string, string]): Source {
       id,
       name: "MangaDex",
       lang,
-      version: "1.0.1",
+      version: "1.0.2",
       baseUrl,
       supportsLatest: true,
       icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/mangadex/res/mipmap-xhdpi/ic_launcher.png",
@@ -336,7 +342,8 @@ function makeSource([id, lang]: [string, string]): Source {
       const startOfDay = Math.floor(Date.now() / 864e5) * 864e5
       return mangasPage([
         ["order[followedCount]", "desc"],
-        ["availableTranslatedLanguage[]", dexLang],
+        ["hasAvailableChapters", "true"],
+        ...translated("availableTranslatedLanguage[]"),
         ["limit", mangaLimit],
         ["offset", mangaLimit * (page - 1)],
         ["includes[]", "cover_art"],
@@ -410,7 +417,7 @@ function makeSource([id, lang]: [string, string]): Source {
       const [details, volumes] = await Promise.all([
         api<{ data: MangaEntity }>(`/manga/${mangaId}`, [["includes[]", "cover_art"], ["includes[]", "author"], ["includes[]", "artist"]]),
         // The chapters in this language, to tell a finished title from one whose last chapter is out.
-        api<{ volumes?: Aggregate }>(`/manga/${mangaId}/aggregate`, [["translatedLanguage[]", dexLang]]).then((a) => a.volumes ?? [], () => []),
+        api<{ volumes?: Aggregate }>(`/manga/${mangaId}/aggregate`, translated("translatedLanguage[]")).then((a) => a.volumes ?? [], () => []),
       ])
       refuseExplicit(details.data)
       const firstCover = (await firstVolumeCovers([details.data])).get(details.data.id)
@@ -426,11 +433,10 @@ function makeSource([id, lang]: [string, string]): Source {
         ["includes[]", "user"],
         ["limit", 500],
         ["offset", offset],
-        ["translatedLanguage[]", dexLang],
+        ...translated("translatedLanguage[]"),
         ["order[volume]", "desc"],
         ["order[chapter]", "desc"],
         ["includeFuturePublishAt", "0"],
-        ["includeEmptyPages", "0"],
         ...many("contentRating[]", safeRatings),
         ...many("excludedGroups[]", uuids("blockedGroups")),
         ...many("excludedUploaders[]", uuids("blockedUploader")),
@@ -448,7 +454,7 @@ function makeSource([id, lang]: [string, string]): Source {
       return [first, ...rest]
         .flatMap((list) => list.data)
         .filter((chapter) => !isInvalid(chapter.attributes!))
-        .map(toChapter)
+        .map((chapter) => toChapter(chapter, allLanguages))
     },
 
     // Pages
@@ -513,7 +519,8 @@ function isInvalid(attributes: ChapterAttributes): boolean {
   return attributes.externalUrl != null && (attributes.pages === 0 || (attributes.pages === 1 && attributes.updatedAt !== attributes.readableAt))
 }
 
-function toChapter(chapter: ChapterEntity): Chapter {
+/** `withLanguage`: the all-languages source starts the scanlator with "[en] ". */
+function toChapter(chapter: ChapterEntity, withLanguage: boolean): Chapter {
   const attributes = chapter.attributes!
   const relationships = chapter.relationships ?? []
   const groups = relationships
@@ -536,7 +543,7 @@ function toChapter(chapter: ChapterEntity): Chapter {
     url: `/chapter/${chapter.id}`,
     name: unescapeEntities(name.join(" ")),
     dateUpload: parseDate(attributes.publishAt),
-    scanlator: (attributes.isUnavailable ? "UNAVAILABLE - " : "") + scanlator,
+    scanlator: (withLanguage ? `[${attributes.translatedLanguage}] ` : "") + (attributes.isUnavailable ? "UNAVAILABLE - " : "") + scanlator,
   }
 }
 

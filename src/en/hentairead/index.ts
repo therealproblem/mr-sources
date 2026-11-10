@@ -1,8 +1,8 @@
-// Ported from the Keiyoushi "HentaiRead" extension (v1.6.3):
+// Ported from the Keiyoushi "HentaiRead" extension (v1.6.4):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/en/hentairead
 // Licensed under the Apache License, Version 2.0.
 
-import { base64Decode, fetchHTML, fetchJSON, javaDateParser, queryString, relativeUrl, utf8Decode, type Chapter, type Filter, type HTMLNode, type Manga, type MangasPage, type Source } from "../../../sdk"
+import { absoluteUrl, base64Decode, fetchHTML, fetchJSON, javaDateParser, queryString, relativeUrl, utf8Decode, type Chapter, type Filter, type HTMLNode, type Manga, type MangasPage, type Source } from "../../../sdk"
 
 const baseUrl = "https://hentairead.com"
 const uploadedDate = javaDateParser("MMMM d, yyyy h:mm a", "en")
@@ -10,7 +10,8 @@ const uploadedDate = javaDateParser("MMMM d, yyyy h:mm a", "en")
 function cover(img: HTMLNode): string {
   if (img.hasAttr("data-src")) return img.absUrl("data-src")
   if (img.hasAttr("data-lazy-src")) return img.absUrl("data-lazy-src")
-  if (img.hasAttr("srcset")) return img.absUrl("srcset").split(" ")[0].replace(/,$/, "")
+  // Not absUrl("srcset"): the app's percent-encodes the spaces between candidates.
+  if (img.hasAttr("srcset")) return absoluteUrl(img.attr("srcset").trim().split(/\s+/)[0].replace(/,$/, ""), baseUrl)
   if (img.hasAttr("data-cfsrc")) return img.absUrl("data-cfsrc")
   return img.absUrl("src")
 }
@@ -74,7 +75,7 @@ function details(document: HTMLNode): Partial<Manga> {
 
 const source: Source = {
   info: {
-    id: "2299981010822511979", name: "HentaiRead", lang: "en", version: "1.0.4", baseUrl, supportsLatest: true, nsfw: true,
+    id: "2299981010822511979", name: "HentaiRead", lang: "en", version: "1.0.5", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/hentairead/res/mipmap-xhdpi/ic_launcher.png",
   },
 
@@ -129,10 +130,10 @@ const source: Source = {
     const showCollections = Honya.prefs.get("pref_show_collections") !== false
     const title = document.selectFirst("div.manga-titles h1")?.text() ?? ""
     const chapter = (number: number, url: string, name: string): Chapter => ({ url, name: showCollections ? `${number} - ${name || title}` : "Chapter", chapterNumber: number, scanlator, dateUpload })
-    // An entry in a collection lists the collection's entries, each as its own chapter.
-    const collection = showCollections ? document.selectFirst("#mangaCollection a")?.absUrl("href") : undefined
+    // An entry in a collection lists the collection's entries on its page, each as its own chapter.
+    const collection = showCollections ? document.selectFirst("div.collection-listing > div") : undefined
     if (!collection) return [chapter(1, manga.url, title)]
-    const chapters = (await fetchHTML(collection)).select("div.manga-item__wrapper").flatMap((element) => {
+    const chapters = collection.select("div.manga-item").flatMap((element) => {
       const link = element.selectFirst("a.manga-item__link")
       const number = Number.parseFloat(element.selectFirst("div.collection-badge")?.text() ?? "")
       // Absolute, as Mihon stores it.

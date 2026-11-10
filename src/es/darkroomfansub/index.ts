@@ -11,7 +11,7 @@ export default zeistmanga({
     id: "2769673412724723872",
     name: "Dark Room Fansub",
     lang: "es",
-    version: "1.0.2",
+    version: "1.1.2",
     baseUrl: "https://lector-darkroomfansub.blogspot.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/darkroomfansub/res/mipmap-xhdpi/ic_launcher.png",

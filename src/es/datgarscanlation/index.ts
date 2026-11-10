@@ -11,7 +11,7 @@ export default zeistmanga({
     id: "1626637101814976364",
     name: "Dat-Gar Scan",
     lang: "es",
-    version: "1.0.1",
+    version: "1.1.1",
     baseUrl: "https://datgarscanlation.blogspot.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/datgarscanlation/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "datgarscanlation.blogspot.com", permits: 2, periodMs: 1000 }],

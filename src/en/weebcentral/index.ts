@@ -1,4 +1,4 @@
-// Ported from the Keiyoushi "Weeb Central" extension (v1.6.25):
+// Ported from the Keiyoushi "Weeb Central" extension (v1.6.27):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/en/weebcentral
 // Licensed under the Apache License, Version 2.0.
 
@@ -14,7 +14,7 @@ const source: Source = {
     id: "2131019126180322627", // Same as Mihon: md5("weeb central/en/1")
     name: "Weeb Central",
     lang: "en",
-    version: "1.0.2",
+    version: "1.0.3",
     baseUrl,
     supportsLatest: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/weebcentral/res/mipmap-xhdpi/ic_launcher.png",
@@ -65,7 +65,7 @@ const source: Source = {
       author: info.select("ul > li:has(strong:contains(Author)) > span > a").map((a) => a.text()).join(", "),
       genres: info.select("ul > li:has(strong:contains(Tag),strong:contains(Type)) a").map((a) => a.text()),
       status: parseStatus(info.selectFirst("ul > li:has(strong:contains(Status)) > a")?.text()),
-      title: body.selectFirst("h1")?.text(),
+      title: cleanTitle(body.selectFirst("h1")?.text()),
       description: description(body, document),
     }
   },
@@ -118,6 +118,12 @@ function cover(element: HTMLNode): string | undefined {
   const srcset = element.selectFirst("source")?.attr("srcset")
   if (srcset) return srcset.replaceAll("small", "normal")
   return element.selectFirst("img")?.attr("abs:src") || undefined
+}
+
+/** Mihon's "Clean title" setting, restored from a backup: drops a trailing (…) or […]. */
+function cleanTitle(title: string | undefined): string | undefined {
+  if (title == null) return undefined
+  return (Honya.prefs.get("pref_clean_title") === true ? title.replace(/(\([^()]*\)|\[[^[\]]*\])\s*$/, "") : title).trim()
 }
 
 function parseStatus(text: string | undefined): MangaStatus {

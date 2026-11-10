@@ -58,7 +58,8 @@ export function queryParams(filters: Filter[], dexLang: string): [string, string
       case "checkboxes": {
         const checked = filter.options.map((o) => o.value).filter((value) => filter.checked.includes(value))
         if (filter.id === "hasAvailableChapters") {
-          if (checked.length > 0) params.push(["hasAvailableChapters", "true"], ["availableTranslatedLanguage[]", dexLang])
+          if (checked.length > 0) params.push(["hasAvailableChapters", "true"])
+          if (checked.length > 0 && dexLang !== "all") params.push(["availableTranslatedLanguage[]", dexLang])
         } else if (filter.id === "originalLanguage") {
           // MangaDex files Chinese manhua under both zh and zh-hk.
           for (const lang of checked) {

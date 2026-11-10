@@ -11,7 +11,7 @@ export default zeistmanga({
     id: "6170348197605244575",
     name: "XSano Manga",
     lang: "ar",
-    version: "1.0.0",
+    version: "1.1.0",
     baseUrl: "https://www.xsano-manga.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/xsanomanga/res/mipmap-xhdpi/ic_launcher.png",
   },

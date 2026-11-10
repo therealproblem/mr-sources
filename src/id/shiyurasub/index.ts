@@ -11,7 +11,7 @@ export default zeistmanga({
     id: "7106013231844823613",
     name: "ShiyuraSub",
     lang: "id",
-    version: "1.0.1",
+    version: "1.1.1",
     baseUrl: "https://shiyurasub.blogspot.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/id/shiyurasub/res/mipmap-xhdpi/ic_launcher.png",
   },

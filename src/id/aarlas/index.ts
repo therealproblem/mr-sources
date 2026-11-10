@@ -11,7 +11,7 @@ export default zeistmanga({
     id: "6495978594979776478",
     name: "Aarlas",
     lang: "id",
-    version: "1.0.3",
+    version: "1.1.3",
     baseUrl: "https://www.arlas.online",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/id/aarlas/res/mipmap-xhdpi/ic_launcher.png",

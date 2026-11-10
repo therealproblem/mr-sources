@@ -9,10 +9,11 @@ import { fetchJSON, fetchPage, javaDateParser, mapLimit, queryString, relativeUr
 export interface ZeistMangaOptions {
   info: SourceInfo
   supportsLatest?: boolean
-  /** The Blogger label series are posted under. */
-  mangaCategory?: string
+  /** The Blogger labels series are posted under: listings show posts with any of them. */
+  includedCategories?: string[]
   /** The label chapters are posted under. */
   chapterCategory?: string
+  /** Labels whose posts listings leave out. */
   excludedCategories?: string[]
   popularMangaSelector?: string
   popularMangaSelectorTitle?: string
@@ -88,9 +89,9 @@ export function zeistmanga(o: ZeistMangaOptions): Source {
   const { info } = o
   const baseUrl = info.baseUrl.replace(/\/$/, "")
   const supportsLatest = o.supportsLatest ?? true
-  const mangaCategory = o.mangaCategory ?? "Series"
   const chapterCategory = o.chapterCategory ?? "Chapter"
-  const excluded = o.excludedCategories ?? ["Anime", "Novel", "Novela"]
+  const included = o.includedCategories ?? ["Series", "Manga", "Manhwa", "Manhua", "Doujinshi", "Web Novel (JP)", "Web Novel (KR)", "Web Novel (CN)"]
+  const excluded = o.excludedCategories ?? ["Anime", "Novel", "Novela", chapterCategory]
   const supportsChapterFeed = o.supportsChapterFeed ?? true
   const useNewChapterFeed = o.useNewChapterFeed ?? false
   const useOldChapterFeed = o.useOldChapterFeed ?? false
@@ -118,6 +119,12 @@ export function zeistmanga(o: ZeistMangaOptions): Source {
   const feedUrl = (labels: string[], params: [string, string | number][] = []) =>
     `${baseUrl}/feeds/posts/default/-/${labels.map(encodeURIComponent).join("/")}?${queryString([["alt", "json"], ...params])}`
 
+  /** Blogger's search over every post: any included label, no excluded one, then `terms`. */
+  const listUrl = (params: [string, string | number][], terms = "") => {
+    const q = `{${included.map((l) => `label:"${l}" `).join("")}}${excluded.map((l) => `-label:"${l.trim()}" `).join("")}${terms}`.trim()
+    return `${baseUrl}/feeds/posts/default/?${queryString([["alt", "json"], ...params, ["q", q]])}`
+  }
+
   const alternate = (entry: Entry) => entry.link?.find((l) => l.rel === "alternate")?.href ?? ""
   const withoutBase = (url: string) => url.startsWith(baseUrl) ? url.slice(baseUrl.length) : relativeUrl(url)
 
@@ -130,7 +137,6 @@ export function zeistmanga(o: ZeistMangaOptions): Source {
 
   function feedPage(feed: Feed): MangasPage {
     const mangas = (feed.feed?.entry ?? [])
-      .filter((e) => e.category?.some((c) => c.term === mangaCategory) && !e.category.some((c) => excluded.includes(c.term)))
       .flatMap((e): Manga[] => e.title ? [{ url: withoutBase(alternate(e)), title: e.title.$t, thumbnailUrl: thumbnail(e) }] : [])
     if (mangas.length === maxMangaResults + 1) return { mangas: mangas.slice(0, -1), hasNextPage: true }
     return { mangas, hasNextPage: false }
@@ -139,7 +145,7 @@ export function zeistmanga(o: ZeistMangaOptions): Source {
   const startIndex = (page: number) => maxMangaResults * (page - 1) + 1
 
   async function latest(page: number): Promise<MangasPage> {
-    return feedPage(await fetchJSON<Feed>(feedUrl([mangaCategory], [["orderby", "published"], ["max-results", maxMangaResults + 1], ["start-index", startIndex(page)]])))
+    return feedPage(await fetchJSON<Feed>(listUrl([["orderby", "published"], ["max-results", maxMangaResults + 1], ["start-index", startIndex(page)]])))
   }
 
   function parseDate(text: string | undefined): number | undefined {
@@ -257,16 +263,16 @@ export function zeistmanga(o: ZeistMangaOptions): Source {
     getLatestUpdates: latest,
 
     async searchManga(page, query, filters) {
-      if (query.trim()) {
-        const url = feedUrl([mangaCategory], [["max-results", maxMangaResults + 1], ["start-index", startIndex(page)]])
-        return feedPage(await fetchJSON<Feed>(`${url}&q=label:${mangaCategory}+${encodeURIComponent(query)}`))
+      let terms = query.trim()
+      if (!terms) {
+        const labels: string[] = []
+        for (const filter of filters) {
+          if (filter.type === "select" && ["status", "type", "language"].includes(filter.id)) labels.push(filter.options[filter.selected]?.value ?? "")
+          if (filter.type === "checkboxes" && filter.id === "genres") labels.push(...filter.checked)
+        }
+        terms = labels.map((l) => l.trim()).filter(Boolean).map((l) => `label:"${l}"`).join(" ")
       }
-      const labels = [mangaCategory]
-      for (const filter of filters) {
-        if (filter.type === "select" && ["status", "type", "language"].includes(filter.id)) labels.push(filter.options[filter.selected]?.value ?? "")
-        if (filter.type === "checkboxes" && filter.id === "genres") labels.push(...filter.checked)
-      }
-      return feedPage(await fetchJSON<Feed>(feedUrl(labels)))
+      return feedPage(await fetchJSON<Feed>(listUrl([["max-results", maxMangaResults + 1], ["start-index", startIndex(page)]], terms)))
     },
 
     async getMangaDetails(manga) {

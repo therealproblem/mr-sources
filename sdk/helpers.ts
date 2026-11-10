@@ -192,7 +192,12 @@ export function imgAttr(element: HTMLNode): string {
   if (element.hasAttr("data-cfsrc")) return element.absUrl("data-cfsrc")
   if (element.hasAttr("data-src")) return element.absUrl("data-src")
   if (element.hasAttr("data-lazy-src")) return element.absUrl("data-lazy-src")
-  if (element.hasAttr("srcset")) return element.absUrl("srcset").split(" ")[0]
+  if (element.hasAttr("srcset")) {
+    // Not absUrl("srcset").split(" "): the app's absUrl percent-encodes the spaces between candidates.
+    const first = element.attr("srcset").trim().split(/\s+/)[0].replace(/,$/, "")
+    if (/^https?:\/\//i.test(first)) return first
+    return element.absUrl("srcset").split(/%20|\s/)[0].replace(/,$/, "")
+  }
   return element.absUrl("src")
 }
 

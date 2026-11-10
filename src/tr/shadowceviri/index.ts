@@ -11,7 +11,7 @@ export default zeistmanga({
     id: "3852979672050614736",
     name: "Shadow Çeviri",
     lang: "tr",
-    version: "1.0.1",
+    version: "1.1.1",
     baseUrl: "https://shadowceviri.blogspot.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/shadowceviri/res/mipmap-xhdpi/ic_launcher.png",
   },

@@ -58,10 +58,10 @@ const themes = {
     dateFormat: "dateFormat",
   },
   zeistmanga: {
-    version: "1.0",
+    version: "1.1",
     classes: { ZeistManga: {} },
     strings: [
-      "mangaCategory", "chapterCategory", "popularMangaSelector", "popularMangaSelectorTitle", "popularMangaSelectorUrl",
+      "chapterCategory", "popularMangaSelector", "popularMangaSelectorTitle", "popularMangaSelectorUrl",
       "mangaDetailsSelector", "mangaDetailsSelectorThumbnail", "mangaDetailsSelectorDescription", "mangaDetailsSelectorGenres",
       "mangaDetailsSelectorAuthor", "mangaDetailsSelectorArtist", "mangaDetailsSelectorAltName", "mangaDetailsSelectorStatus",
       "mangaDetailsSelectorInfo", "mangaDetailsSelectorInfoTitle", "mangaDetailsSelectorInfoDescription", "scriptSelector", "pageListSelector",

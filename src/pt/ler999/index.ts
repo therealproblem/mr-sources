@@ -11,7 +11,7 @@ export default zeistmanga({
     id: "11864058740306611",
     name: "Ler 999",
     lang: "pt-BR",
-    version: "1.0.1",
+    version: "1.1.1",
     baseUrl: "https://ler999.blogspot.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/ler999/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "ler999.blogspot.com", permits: 1, periodMs: 2000 }],

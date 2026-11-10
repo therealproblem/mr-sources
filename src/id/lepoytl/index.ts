@@ -11,7 +11,7 @@ export default zeistmanga({
     id: "1601772753251290758",
     name: "LepoyTL",
     lang: "id",
-    version: "1.0.2",
+    version: "1.1.2",
     baseUrl: "https://www.lepoytl.my.id",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/id/lepoytl/res/mipmap-xhdpi/ic_launcher.png",
   },

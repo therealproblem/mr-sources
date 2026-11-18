@@ -11,7 +11,7 @@ export default zeistmanga({
     id: "5738568067614123099",
     name: "Duo Scans",
     lang: "pt-BR",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://duoscanlators.blogspot.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/duoscans/res/mipmap-xhdpi/ic_launcher.png",
   },

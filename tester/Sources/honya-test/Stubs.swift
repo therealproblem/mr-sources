@@ -7,7 +7,7 @@ import WebKit
 actor CloudflareCoordinator {
     static let shared = CloudflareCoordinator()
 
-    func solve(_ url: URL) async throws {
+    func solve(_ url: URL, for sourceName: String?) async throws {
         try await Task { @MainActor in try await Self.silentSolve(url) }.value
     }
 

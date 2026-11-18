@@ -4,7 +4,7 @@
 // feeds, details and pages from the site's HTML. Options are named after the Kotlin members a
 // site overrides. Not here: related manga.
 
-import { fetchJSON, fetchPage, javaDateParser, mapLimit, queryString, relativeUrl, type Chapter, type Filter, type HTMLNode, type Manga, type MangaStatus, type MangasPage, type Source, type SourceInfo } from "../sdk"
+import { fetchJSON, fetchPage, javaDateParser, queryString, relativeUrl, type Chapter, type Filter, type HTMLNode, type Manga, type MangaStatus, type MangasPage, type Source, type SourceInfo } from "../sdk"
 
 export interface ZeistMangaOptions {
   info: SourceInfo
@@ -56,7 +56,6 @@ interface Entry {
 interface Feed {
   feed?: {
     "openSearch$totalResults"?: { $t: string }
-    "openSearch$itemsPerPage"?: { $t: string }
     entry?: Entry[]
   }
 }
@@ -65,7 +64,6 @@ interface FeedUrl { url: string; old: boolean; new: boolean; category: string }
 
 const maxMangaResults = 20
 const maxChapterResults = 150
-const chapterChunk = 50
 
 const statusWords: [MangaStatus, string[]][] = [
   ["ongoing", ["ongoing", "en curso", "en emisión", "em lançamento", "activo", "ativo", "lançando", "مستمر", "مستمرة"]],
@@ -198,18 +196,17 @@ export function zeistmanga(o: ZeistMangaOptions): Source {
   }
 
   async function chapters(url: string): Promise<Chapter[]> {
-    const page = (start: number, max: number) => {
-      const withoutPaging = url.replace(/([?&])(start-index|max-results)=[^&]*&?/g, "$1").replace(/[?&]$/, "")
-      return fetchJSON<Feed>(`${withoutPaging}${withoutPaging.includes("?") ? "&" : "?"}start-index=${start}&max-results=${max}`)
+    const withoutPaging = url.replace(/([?&])(start-index|max-results)=[^&]*&?/g, "$1").replace(/[?&]$/, "")
+    const entries: Entry[] = []
+    // Blogger ends a page at 150 posts or about 2 MB of post content, so each page starts where the last one stopped.
+    for (;;) {
+      const { feed } = await fetchJSON<Feed>(`${withoutPaging}${withoutPaging.includes("?") ? "&" : "?"}start-index=${entries.length + 1}&max-results=${maxChapterResults}`)
+      if (!feed) throw new Error("Failed to parse from chapter API")
+      const page = feed.entry ?? []
+      entries.push(...page)
+      if (page.length === 0 || entries.length >= (Number(feed["openSearch$totalResults"]?.$t) || 0)) break
     }
-    const first = await page(1, maxChapterResults)
-    if (!first.feed?.entry) throw new Error("Failed to parse from chapter API")
-    const total = Number(first.feed["openSearch$totalResults"]?.$t) || maxChapterResults
-    const perPage = Number(first.feed["openSearch$itemsPerPage"]?.$t) || chapterChunk
-    const starts: number[] = []
-    for (let start = first.feed.entry.length; start < total; start += perPage) starts.push(start + 1)
-    const rest = await mapLimit(starts, 4, async (start) => (await page(start, perPage)).feed?.entry ?? [])
-    return [...first.feed.entry, ...rest.flat()]
+    return entries
       .filter((e) => e.category?.some((c) => c.term === chapterCategory))
       .map((e): Chapter => {
         const updated = e.updated?.$t.trim(), published = e.published?.$t.trim()

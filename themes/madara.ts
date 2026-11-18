@@ -47,6 +47,14 @@ export interface MadaraOptions {
   chapterDateFormat?: { pattern: string; locale?: string }
   /** Instead of `chapterDateFormat`. */
   parseDate?: (text: string) => number | undefined
+  /** Kotlin's `updatingRegex`: author, artist and alternative names that stand for none yet. */
+  updatingRegex?: RegExp
+  /** Kotlin's `Document.mangaId()`: a series page's post ID, for sites that keep it elsewhere. */
+  mangaId?: (document: HTMLNode) => string | undefined
+  /** Kotlin's `parseDetails` override: changes the details the theme read from the series page. */
+  details?: (document: HTMLNode, details: Partial<Manga>) => Partial<Manga>
+  /** Kotlin's `fetchChapters` override; `parse` is the theme's chapter list parsing. */
+  fetchChapters?: (mangaPath: string, id: string, parse: (document: HTMLNode) => Chapter[]) => Promise<Chapter[]>
 
   // Madara (AJAX)
   pageSize?: number
@@ -85,7 +93,6 @@ const statuses: [MangaStatus, string[]][] = [
   ["cancelled", ["canceled", "cancelled", "cancelado", "iptal edildi", "đã hủy", "ملغي", "abandonné", "заброшено", "annulé", "cancelada"]],
 ]
 const toStatus = (text: string): MangaStatus => statuses.find(([, words]) => words.some((w) => text.toLowerCase().includes(w)))?.[0] ?? "unknown"
-const isUpdating = (text: string) => /Updating|Atualizando/i.test(text)
 
 /** The image URL in the first lazy-load attribute set, or the largest in a srcset. */
 function imageFromElement(img: HTMLNode): string | undefined {
@@ -139,6 +146,8 @@ export function madara(options_: MadaraOptions): Source {
   const dateFormat = o.chapterDateFormat ?? { pattern: "MMMM d, yyyy", locale: "en" }
   const formatParser = javaDateParser(dateFormat.pattern, dateFormat.locale ?? "en")
   const parseDate = o.parseDate ?? ((text: string) => formatParser(text) ?? (/^en\b/.test(dateFormat.locale ?? "en") ? parseEnglishDate(text) : undefined))
+  const updating = o.updatingRegex ?? /Updating|Atualizando/i
+  const isUpdating = (text: string) => updating.test(text)
 
   // MARK: Requests
 
@@ -171,6 +180,7 @@ export function madara(options_: MadaraOptions): Source {
   const memoPath = (manga: Manga) => memoOf(manga).path
 
   function documentMangaId(document: HTMLNode): string | undefined {
+    if (o.mangaId) return o.mangaId(document)
     return document.selectFirst("[id^=manga-chapters-holder]")?.attr("data-id")
       || document.selectFirst("input.rating-post-id")?.attr("value")
       || document.selectFirst("a[data-post]")?.attr("data-post")
@@ -413,6 +423,7 @@ export function madara(options_: MadaraOptions): Source {
   }
 
   async function fetchChapters(mangaPath: string, id: string, mangaPage?: HTMLNode): Promise<Chapter[]> {
+    if (o.fetchChapters) return o.fetchChapters(mangaPath, id, (document) => parseChapterList(document, mangaPath))
     const ajaxUrl = `${baseUrl}${mangaPath.replace(/\/$/, "")}/ajax/chapters/`
     switch (chapterMode) {
       case "MangaPage":
@@ -524,7 +535,8 @@ export function madara(options_: MadaraOptions): Source {
     async getMangaDetails(manga) {
       const { document, url } = await detailsDocument(manga)
       const id = supportsPostId ? mangaId(manga) ?? documentMangaId(document) : undefined
-      return details(document, url, id)
+      const parsed = details(document, url, id)
+      return o.details ? o.details(document, parsed) : parsed
     },
 
     async getChapterList(manga) {

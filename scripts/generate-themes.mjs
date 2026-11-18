@@ -58,7 +58,7 @@ const themes = {
     dateFormat: "dateFormat",
   },
   zeistmanga: {
-    version: "1.1",
+    version: "1.2",
     classes: { ZeistManga: {} },
     strings: [
       "chapterCategory", "popularMangaSelector", "popularMangaSelectorTitle", "popularMangaSelectorUrl",

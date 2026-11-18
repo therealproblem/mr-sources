@@ -1,4 +1,4 @@
-// Ported from the Keiyoushi "ManhuaTop" extension (v1.6.57):
+// Ported from the Keiyoushi "ManhuaTop" extension (v1.6.59):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/en/manhuatop
 // Licensed under the Apache License, Version 2.0.
 // The site left Madara for its own JSON API. Not here: related manga, which the app doesn't offer.
@@ -83,7 +83,7 @@ async function chapterPage(path: string, page: number): Promise<{ items: Chapter
 
 const source: Source = {
   info: {
-    id: "1903782575226230108", name: "ManhuaTop", lang: "en", version: "1.2.0", baseUrl, supportsLatest: true, nsfw: true,
+    id: "1903782575226230108", name: "ManhuaTop", lang: "en", version: "1.2.1", baseUrl, supportsLatest: true, nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/manhuatop/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "manhuatop.org", permits: 2, periodMs: 1000 }],
   },
@@ -144,13 +144,8 @@ const source: Source = {
 
   async getPageList(chapter) {
     const path = encodedPath(chapterUrl(chapter).slice(baseUrl.length))
-    const images: string[] = []
-    for (let page = 1; ; page++) {
-      const data = await api<{ images: { url: string }[]; hasMore: boolean }>("reader", page > 1 ? `${path}?content_page=${page}` : path, "content")
-      images.push(...data.images.map((image) => image.url))
-      if (!data.hasMore) break
-    }
-    return images.map((url) => ({ url }))
+    const data = await api<{ images: { url: string }[] }>("reader", path, "content")
+    return data.images.map((image) => ({ url: image.url }))
   },
 
   getFilterList(data) {

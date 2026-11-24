@@ -11,7 +11,7 @@ export default madara({
     id: "6718273076571980404",
     name: "Yaoihub",
     lang: "en",
-    version: "1.1.3",
+    version: "1.2.3",
     baseUrl: "https://yaoihub.org",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/yaoihub/res/mipmap-xhdpi/ic_launcher.png",

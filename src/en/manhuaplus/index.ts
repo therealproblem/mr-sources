@@ -11,7 +11,7 @@ export default madara({
     id: "9030178752551947945",
     name: "Manhua Plus",
     lang: "en",
-    version: "1.1.9",
+    version: "1.2.8",
     baseUrl: "https://manhuaplus.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/manhuaplus/res/mipmap-xhdpi/ic_launcher.png",
   },

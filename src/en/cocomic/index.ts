@@ -14,7 +14,7 @@ const source = madara({
     id: "3544369893051520689",
     name: "Cocomic",
     lang: "en",
-    version: "1.1.3",
+    version: "1.2.3",
     baseUrl,
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/cocomic/res/mipmap-xhdpi/ic_launcher.png",

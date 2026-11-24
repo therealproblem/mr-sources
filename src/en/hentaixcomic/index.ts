@@ -11,7 +11,7 @@ export default madara({
     id: "7664311260874726882",
     name: "HentaiXComic",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://hentaixcomic.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/hentaixcomic/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "8477380026777524321",
     name: "Minda Fansub",
     lang: "tr",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl: "https://mindafansub.nl",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/mindafansub/res/mipmap-xhdpi/ic_launcher.png",

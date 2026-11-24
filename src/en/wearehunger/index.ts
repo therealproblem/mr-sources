@@ -11,7 +11,7 @@ export default madara({
     id: "58992897252080929",
     name: "KokoMangas",
     lang: "en",
-    version: "1.1.2",
+    version: "1.2.2",
     baseUrl: "https://kokomangas.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/wearehunger/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "4005973248538140146",
     name: "ManhuaUS",
     lang: "en",
-    version: "1.1.5",
+    version: "1.2.5",
     baseUrl: "https://manhuaus.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/manhuaus/res/mipmap-xhdpi/ic_launcher.png",
   },

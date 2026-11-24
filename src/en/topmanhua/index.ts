@@ -11,7 +11,7 @@ export default madara({
     id: "368848319592333339",
     name: "Top Manhua",
     lang: "en",
-    version: "1.1.7",
+    version: "1.2.7",
     baseUrl: "https://mangatop.org",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/topmanhua/res/mipmap-xhdpi/ic_launcher.png",

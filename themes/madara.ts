@@ -266,9 +266,8 @@ export function madara(options_: MadaraOptions): Source {
     return { mangas, hasNextPage: mangas.length === pageSize }
   }
 
-  function ajaxSearchFields(query: string, filters: Filter[]): [string, string][] {
+  function ajaxSearchFields(filters: Filter[]): [string, string][] {
     const fields: [string, string][] = []
-    if (query.trim()) fields.push(["vars[s]", query])
     let meta = filterNonMangaItems ? 1 : 0
     let taxonomy = 0
     const genres = filters.flatMap((f) => f.id === "genres" && f.type === "checkboxes" ? f.checked : [])
@@ -301,7 +300,7 @@ export function madara(options_: MadaraOptions): Source {
         fields.push([`vars[meta_query][${meta}][key]`, "manga_adult_content"], [`vars[meta_query][${meta}][compare]`, filter.selected === 1 ? "not exists" : "exists"])
         meta++
       } else if (filter.id === "genreCondition" && filter.type === "select" && filter.selected === 1 && genres.length) {
-        fields.push([`vars[tax_query][${taxonomy}][operation]`, "AND"])
+        fields.push([`vars[tax_query][${taxonomy}][operator]`, "AND"])
       } else if (filter.id === "genres" && genres.length) {
         fields.push([`vars[tax_query][${taxonomy}][taxonomy]`, "wp-manga-genre"], [`vars[tax_query][${taxonomy}][field]`, "slug"])
         genres.forEach((slug, i) => fields.push([`vars[tax_query][${taxonomy}][terms][${i}]`, slug]))
@@ -379,9 +378,11 @@ export function madara(options_: MadaraOptions): Source {
     const names = (selector: string) => document.select(selector).map((e) => e.text()).filter((t) => !isUpdating(t)).join(", ") || undefined
     const descriptionElement = document.selectFirst(o.mangaDetailsSelectorDescription ?? "div.description-summary div.summary__content, div.summary_content div.post-content_item > h5 + div, div.summary_content div.manga-excerpt")
     const paragraphs = descriptionElement?.select("p") ?? []
+    // shortcut: paragraphs stay plain text (Kotlin keeps their bold/italic/links as Markdown); port toMarkdown if a site needs it.
     let description = paragraphs.length ? paragraphs.map((p) => p.text()).join("\n\n") : descriptionElement?.text()
-    const alternative = document.selectFirst(o.altNameSelector ?? ".post-content_item:contains(Alt) .summary-content")?.ownText()
-    if (alternative && !isUpdating(alternative)) description = [description, `Alternative Names: ${alternative}`].filter(Boolean).join("\n\n")
+    const title = document.selectFirst(o.mangaDetailsSelectorTitle ?? "div.post-title h3, div.post-title h1, #manga-title > h1")?.ownText() || undefined
+    const alternative = document.selectFirst(o.altNameSelector ?? ".post-content_item:contains(Alt) .summary-content")?.ownText().trim()
+    if (alternative && alternative !== title && !isUpdating(alternative)) description = [description, `**Alternative Names:**\n- ${alternative}`].filter(Boolean).join("\n\n")
     const thumbnail = document.selectFirst(o.mangaDetailsSelectorThumbnail ?? "div.summary_image img")
     const statusElements = document.select(o.mangaDetailsSelectorStatus ?? "div.summary-content, div.summary-heading:contains(Status) + div")
     const routes = genreRoutes(document.select(o.mangaDetailsSelectorGenre ?? "div.genres-content a"))
@@ -395,7 +396,7 @@ export function madara(options_: MadaraOptions): Source {
     if (routes.length) memo.genres = routes
     if (id) memo.id = id
     return {
-      title: document.selectFirst(o.mangaDetailsSelectorTitle ?? "div.post-title h3, div.post-title h1, #manga-title > h1")?.ownText() || undefined,
+      title,
       author: names(o.mangaDetailsSelectorAuthor ?? "div.author-content > a, div.manga-authors > a"),
       artist: names(o.mangaDetailsSelectorArtist ?? "div.artist-content > a"),
       description,
@@ -522,8 +523,21 @@ export function madara(options_: MadaraOptions): Source {
       return ajax ? ajaxList(page, sortBy("_latest_update")) : archivePage(page, o.latestOrder ?? "latest")
     },
 
-    searchManga(page, query, filters) {
-      if (ajax) return ajaxList(page, ajaxSearchFields(query, filters))
+    async searchManga(page, query, filters) {
+      if (ajax) {
+        const fields = ajaxSearchFields(filters)
+        if (!query.trim()) return ajaxList(page, fields)
+        // WordPress search skips alternative names, which WP Manga keeps in post meta.
+        const pages = await Promise.all([
+          ajaxList(page, [...fields, ["vars[s]", query]]),
+          ajaxList(page, [
+            ...fields, ["vars[meta_query][alternative][key]", "_wp_manga_alternative"],
+            ["vars[meta_query][alternative][value]", query], ["vars[meta_query][alternative][compare]", "LIKE"],
+          ]),
+        ])
+        const seen = new Set<string>()
+        return { mangas: pages.flatMap((p) => p.mangas).filter((m) => !seen.has(m.url) && seen.add(m.url)), hasNextPage: pages.some((p) => p.hasNextPage) }
+      }
       const sort = filters.find((f) => f.id === "sort")
       const order = sort?.type === "select" ? sort.options[sort.selected]?.value ?? "" : ""
       const genre = filters.find((f) => f.id === "genre")

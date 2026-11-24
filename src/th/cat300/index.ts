@@ -11,7 +11,7 @@ export default madara({
     id: "6055828959180481405",
     name: "Cat300",
     lang: "th",
-    version: "1.1.3",
+    version: "1.2.3",
     baseUrl: "https://cat-300.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/th/cat300/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "3749607867432167357",
     name: "Doujinx-H",
     lang: "th",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://doujinx-h.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/th/doujinxh/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "9083257818102461515",
     name: "Yaoi Flix",
     lang: "tr",
-    version: "1.1.6",
+    version: "1.2.6",
     baseUrl: "https://yaoiflix.fit",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/yaoiflix/res/mipmap-xhdpi/ic_launcher.png",

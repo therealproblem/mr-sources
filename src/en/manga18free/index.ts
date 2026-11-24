@@ -11,7 +11,7 @@ export default madara({
     id: "4446818596127611511",
     name: "Manga18Free",
     lang: "en",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl: "https://manga18free.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/manga18free/res/mipmap-xhdpi/ic_launcher.png",

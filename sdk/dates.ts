@@ -94,7 +94,7 @@ const relativeWords: [RegExp, number][] = [
   [words("day", "día", "dia", "jour", "hari", "gün", "ngày", "giorni", "أيام", "天"), 864e5],
   [words("hour", "hora", "heure", "jam", "saat", "giờ", "ore", "ساعة", "ساعات", "小时"), 36e5],
   [words("minute", "minuto", "min", "menit", "dakika", "phút", "دقيقة", "دقائق"), 6e4],
-  [words("second", "segundo", "sec", "detik", "giây", "ثانية", "ثوان"), 1e3],
+  [words("second", "segundo", "sec", "detik", "saniye", "giây", "ثانية", "ثوان"), 1e3],
 ]
 
 // Arabic duals ("منذ يومين", two days ago) carry no number.

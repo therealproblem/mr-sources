@@ -11,7 +11,7 @@ export default madara({
     id: "1213201447439140959",
     name: "Türkçe Manga Oku",
     lang: "tr",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl: "https://trmangaoku.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/turkcemangaoku/res/mipmap-xhdpi/ic_launcher.png",
   },

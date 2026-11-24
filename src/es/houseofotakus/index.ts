@@ -11,7 +11,7 @@ export default madara({
     id: "1968531533450563052",
     name: "House Of Otakus",
     lang: "es",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://houseofotakusv2.xyz",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/houseofotakus/res/mipmap-xhdpi/ic_launcher.png",

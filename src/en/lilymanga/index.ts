@@ -11,7 +11,7 @@ export default madara({
     id: "4480996639887718467",
     name: "Lily Manga",
     lang: "en",
-    version: "1.1.7",
+    version: "1.2.7",
     baseUrl: "https://lilymanga.net",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/lilymanga/res/mipmap-xhdpi/ic_launcher.png",

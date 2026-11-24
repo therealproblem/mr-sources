@@ -11,7 +11,7 @@ export default madara({
     id: "5937472249278743372",
     name: "Marmota",
     lang: "es",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://marmota.me",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/marmota/res/mipmap-xhdpi/ic_launcher.png",
   },

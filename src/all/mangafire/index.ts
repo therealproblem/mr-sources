@@ -1,4 +1,4 @@
-// Ported from the Keiyoushi "MangaFire" extension (v1.6.35):
+// Ported from the Keiyoushi "MangaFire" extension (v1.6.40):
 // https://github.com/keiyoushi/extensions-source/tree/main/src/all/mangafire
 // Licensed under the Apache License, Version 2.0.
 // Not here: the web view captcha solver and its client hints, which the app's web view can't run.
@@ -31,9 +31,15 @@ interface MangaDetailsDto extends MangaDto {
   artists?: { title: string }[]
   genres?: { title: string }[]
   themes?: { title: string }[]
+  demographics?: { title: string }[]
+  year?: number
+  rating?: number
+  ratingCount?: number
+  altTitles?: string[]
+  links?: Record<string, string>
 }
 interface ChapterDto { id: number; number: number; name?: string; createdAt?: number; type?: string }
-interface VolumeDto { id: number; number: number; name?: string; chapterCount: number; language: string }
+interface VolumeDto { id: number; number: number; name?: string; language: string }
 
 /** GETs a signed API URL, explaining the captcha MangaFire sometimes asks for. */
 async function api<T>(path: string, params: [string, string][] = []): Promise<T> {
@@ -70,7 +76,7 @@ function makeSource([id, lang]: [string, string]): Source {
       id,
       name: "MangaFire",
       lang,
-      version: "1.0.3",
+      version: "1.0.4",
       baseUrl,
       supportsLatest: true,
       nsfw: true,
@@ -111,20 +117,13 @@ function makeSource([id, lang]: [string, string]): Source {
 
     async getChapterList(manga) {
       const id = hid(manga.url)
-      let showVolumes = pref("show_as_volumes", false)
-      let chapters: Chapter[] = []
-      if (showVolumes) {
-        const volumes = (await api<ApiResponse<VolumeDto>>(`/api/titles/${id}/volumes`)).items ?? []
-        if (volumes.length > 0) {
-          chapters = volumes.filter((v) => v.language === langCode).map((v) => volumeChapter(v, manga.url))
-        } else {
-          showVolumes = false
-        }
+      if (pref("show_as_volumes", false)) {
+        // Titles without volumes in this language fall back to chapters.
+        const volumes = ((await api<ApiResponse<VolumeDto>>(`/api/titles/${id}/volumes`)).items ?? []).filter((v) => v.language === langCode)
+        if (volumes.length > 0) return volumes.map((v) => volumeChapter(v, manga.url))
       }
-      if (!showVolumes) {
-        chapters = (await allChapters(id)).map((c) => toChapter(c, manga.url, langCode))
-      }
-      if (!showVolumes && pref("merge_chapters", false)) {
+      let chapters = (await allChapters(id)).map((c) => toChapter(c, manga.url, langCode))
+      if (pref("merge_chapters", false)) {
         const preferOfficial = pref("prefer_official", true)
         const isOfficial = (c: Chapter) => c.scanlator?.toLowerCase() === "official"
         const seen = new Set<number | undefined>()
@@ -182,36 +181,42 @@ function toDetails(dto: MangaDetailsDto): Partial<Manga> {
     thumbnailUrl: dto.poster?.large ?? dto.poster?.medium ?? dto.poster?.small,
     author: dto.authors?.map((a) => a.title).join(", "),
     artist: dto.artists?.map((a) => a.title).join(", "),
-    description: dto.synopsisHtml ? Honya.parseHTML(`<body>${dto.synopsisHtml}</body>`).text() : undefined,
+    description: description(dto),
     genres: [
       ...(dto.type ? [dto.type.charAt(0).toUpperCase() + dto.type.slice(1)] : []),
       ...(dto.genres ?? []).map((g) => g.title),
+      ...(dto.demographics ?? []).map((d) => d.title),
       ...(dto.themes ?? []).map((t) => t.title),
     ],
     status: statuses[dto.status?.toLowerCase() ?? ""] ?? "unknown",
   }
 }
 
-const chapterNumberPattern = /(?<=\b(?:ch(?:\.|apter)?|ep(?:\.|isode)?)\s?)\d+(?:\.\d+)?/i
+const linkNames: Record<string, string> = { mal: "MyAnimeList", al: "AniList", mu: "MangaUpdates", md: "MangaDex", mb: "MangaBaka" }
+
+/** As Kotlin's MarkdownDescription lays it out: rating and year, synopsis, other names, links. */
+function description(dto: MangaDetailsDto): string | undefined {
+  const halves = Math.min(10, Math.max(0, Math.ceil((dto.rating ?? 0) - 0.5)))
+  const stars = "★".repeat(halves >> 1) + "✬".repeat(halves % 2) + "☆".repeat(5 - ((halves + 1) >> 1))
+  const rating = dto.rating != null && (dto.ratingCount ?? 0) > 0 ? `${stars} ${Math.round(dto.rating * 100) / 100} (${dto.ratingCount})` : ""
+  const list = (label: string, items: string[]) => items.length ? `**${label}:**\n${items.map((item) => `- ${item}`).join("\n")}` : ""
+  const links = Object.entries(dto.links ?? {}).flatMap(([key, url]) => linkNames[key] && url ? [`[${linkNames[key]}](${url.replace(/ /g, "%20").replace(/\(/g, "%28").replace(/\)/g, "%29")})`] : [])
+  return [
+    [rating, dto.year].filter(Boolean).join("\n"),
+    dto.synopsisHtml ? Honya.parseHTML(`<body>${dto.synopsisHtml}</body>`).text() : "",
+    list("Alternative Names", [...new Set((dto.altTitles ?? []).map((t) => t.trim()).filter(Boolean))]),
+    list("Links", links),
+  ].filter(Boolean).join("\n\n") || undefined
+}
 
 function toChapter(dto: ChapterDto, mangaUrl: string, langCode: string): Chapter {
   const number = String(dto.number)
-  let chapterNumber = dto.number
-  let name = `Ch. ${number}`
-  if (dto.name?.trim()) {
-    const extracted = Number(chapterNumberPattern.exec(dto.name)?.[0])
-    if (Number.isFinite(extracted) && chapterNumberPattern.test(dto.name)) {
-      chapterNumber = extracted
-      name = dto.name
-    } else {
-      name = `Ch. ${number} - ${dto.name}`
-    }
-  }
   return {
     url: `${mangaUrl}/${dto.id}-chapter-${number}-${langCode}`,
-    name,
-    chapterNumber,
-    scanlator: dto.type ?? "Unknown",
+    // The site's number, not one read from the chapter's name.
+    name: dto.name?.trim() ? `Ch. ${number} - ${dto.name}` : `Ch. ${number}`,
+    chapterNumber: dto.number,
+    scanlator: dto.type,
     dateUpload: dto.createdAt ? dto.createdAt * 1000 : undefined,
   }
 }
@@ -221,7 +226,6 @@ function volumeChapter(dto: VolumeDto, mangaUrl: string): Chapter {
     url: `${mangaUrl}/volume/${dto.id}`,
     name: `Vol. ${dto.number}${dto.name?.trim() ? ` - ${dto.name}` : ""}`,
     chapterNumber: dto.number,
-    scanlator: `${dto.chapterCount} chapters`,
   }
 }
 

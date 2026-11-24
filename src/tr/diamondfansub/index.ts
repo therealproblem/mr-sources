@@ -11,7 +11,7 @@ export default madara({
     id: "4357416108470845594",
     name: "DiamondFansub",
     lang: "tr",
-    version: "1.1.2",
+    version: "1.2.2",
     baseUrl: "https://diamondfansub.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/diamondfansub/res/mipmap-xhdpi/ic_launcher.png",
   },

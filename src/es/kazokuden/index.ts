@@ -11,7 +11,7 @@ export default madara({
     id: "475788948976592183",
     name: "Kazoku Den",
     lang: "es",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://www.kazokuden.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/kazokuden/res/mipmap-xhdpi/ic_launcher.png",
   },

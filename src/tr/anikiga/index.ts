@@ -11,7 +11,7 @@ export default madara({
     id: "8011699941614610362",
     name: "Anikiga",
     lang: "tr",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://anikiga.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/anikiga/res/mipmap-xhdpi/ic_launcher.png",
   },

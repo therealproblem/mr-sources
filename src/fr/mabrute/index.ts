@@ -11,7 +11,7 @@ export default madara({
     id: "597251646967446227",
     name: "Ma Brute",
     lang: "fr",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://mabrute.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/fr/mabrute/res/mipmap-xhdpi/ic_launcher.png",

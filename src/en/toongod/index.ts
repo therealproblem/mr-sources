@@ -11,7 +11,7 @@ export default madara({
     id: "2054192099319007885",
     name: "ToonGod",
     lang: "en",
-    version: "1.1.5",
+    version: "1.2.5",
     baseUrl: "https://www.toongod.org",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/toongod/res/mipmap-xhdpi/ic_launcher.png",

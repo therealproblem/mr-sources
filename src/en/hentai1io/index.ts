@@ -11,7 +11,7 @@ export default madara({
     id: "8561426018751869351",
     name: "Hentai1.io",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://hentai1.io",
     nsfw: true,
   },

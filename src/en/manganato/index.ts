@@ -6,8 +6,11 @@ import { mangabox } from "../../../themes/mangabox"
 
 const source = mangabox({
   // Mihon's ID override for this source.
-  id: "1024627298672457456", name: "Manganato", lang: "en", version: "1.0.0", baseUrl: "https://www.natomanga.com",
+  id: "1024627298672457456", name: "Manganato", lang: "en", version: "1.0.1", baseUrl: "https://www.natomanga.com",
   icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/manganelo/res/mipmap-xhdpi/ic_launcher.png",
+}, {
+  // Upstream marks natomanga.com as the new layout, but on 2026-11-24 it still served the old one.
+  legacy: true,
 })
 
 const legacyDomains = ["https://chapmanganato.to/", "https://manganato.com/", "https://readmanganato.com/"]

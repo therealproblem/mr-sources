@@ -11,7 +11,7 @@ export default madara({
     id: "7171061492842070313",
     name: "Roads Team",
     lang: "vi",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://nhaduong.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/vi/roadsteam/res/mipmap-xhdpi/ic_launcher.png",

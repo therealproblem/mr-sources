@@ -11,7 +11,7 @@ export default madara({
     id: "20045885295638720",
     name: "Petrotechsociety",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://www.petrotechsociety.org",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/petrotechsociety/res/mipmap-xhdpi/ic_launcher.png",

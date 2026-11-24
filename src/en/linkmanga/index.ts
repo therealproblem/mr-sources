@@ -11,7 +11,7 @@ export default madara({
     id: "8622937201319058235",
     name: "LinkManga",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://linkmanga.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/linkmanga/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "5257426184455231951",
     name: "Amuy",
     lang: "pt-BR",
-    version: "1.1.3",
+    version: "1.2.3",
     baseUrl: "https://apenasmaisumyaoi.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/amuy/res/mipmap-xhdpi/ic_launcher.png",

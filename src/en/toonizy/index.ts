@@ -11,7 +11,7 @@ export default madara({
     id: "5404499323728358840",
     name: "Toonizy",
     lang: "en",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl: "https://toonizy.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/toonizy/res/mipmap-xhdpi/ic_launcher.png",

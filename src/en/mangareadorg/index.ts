@@ -11,7 +11,7 @@ export default madara({
     id: "2681651342533848540",
     name: "MangaRead.org",
     lang: "en",
-    version: "1.1.3",
+    version: "1.2.3",
     baseUrl: "https://www.mangaread.org",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangareadorg/res/mipmap-xhdpi/ic_launcher.png",

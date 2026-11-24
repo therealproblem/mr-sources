@@ -11,7 +11,7 @@ export default madara({
     id: "3868891550336834170",
     name: "ManhwaHub.to",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://manhwahub.to",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/manhwahubto/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "1615599506055429686",
     name: "Pantheon Scan",
     lang: "fr",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl: "https://pantheon-scan.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/fr/pantheonscan/res/mipmap-xhdpi/ic_launcher.png",

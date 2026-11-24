@@ -11,7 +11,7 @@ export default madara({
     id: "4265503553734005106",
     name: "MangaPark.tv (unoriginal)",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://mangapark.tv",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangaparktv/res/mipmap-xhdpi/ic_launcher.png",

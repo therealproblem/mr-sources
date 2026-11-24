@@ -11,7 +11,7 @@ export default madara({
     id: "6540843430852844328",
     name: "WuxiaWorld",
     lang: "en",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl: "https://wuxiaworld.site",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/wuxiaworld/res/mipmap-xhdpi/ic_launcher.png",
   },

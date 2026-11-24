@@ -11,7 +11,7 @@ export default madara({
     id: "8234656044798917709",
     name: "AnimeShinigami",
     lang: "it",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://www.animeshinigami.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/it/animeshinigami/res/mipmap-xhdpi/ic_launcher.png",
   },

@@ -11,7 +11,7 @@ export default madara({
     id: "5501311187877950699",
     name: "Nocturne Summer",
     lang: "pt-BR",
-    version: "1.1.2",
+    version: "1.2.2",
     baseUrl: "https://nocfsb.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/nocturnesummer/res/mipmap-xhdpi/ic_launcher.png",

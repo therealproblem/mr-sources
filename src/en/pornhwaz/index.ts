@@ -11,7 +11,7 @@ export default madara({
     id: "2311025425739352818",
     name: "Pornhwaz",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://www.pornhwaz.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/pornhwaz/res/mipmap-xhdpi/ic_launcher.png",

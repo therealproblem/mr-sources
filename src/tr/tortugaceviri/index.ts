@@ -11,7 +11,7 @@ export default madara({
     id: "1479830960881750685",
     name: "Tortuga Ceviri",
     lang: "tr",
-    version: "1.1.2",
+    version: "1.2.2",
     baseUrl: "https://tortugaceviri.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/tortugaceviri/res/mipmap-xhdpi/ic_launcher.png",
   },

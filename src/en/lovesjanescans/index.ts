@@ -11,7 +11,7 @@ export default madara({
     id: "3971812949560196318",
     name: "Lovesjane Scans",
     lang: "en",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl: "https://lovesjane.site",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/lovesjanescans/res/mipmap-xhdpi/ic_launcher.png",
   },

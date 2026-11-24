@@ -11,7 +11,7 @@ export default madara({
     id: "4360984402391235039",
     name: "Doujin-Lc",
     lang: "th",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://doujin-lc.net",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/th/doujinlc/res/mipmap-xhdpi/ic_launcher.png",

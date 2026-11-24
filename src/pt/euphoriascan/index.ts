@@ -11,7 +11,7 @@ export default madara({
     id: "6045078216682014867",
     name: "Euphoria Scan",
     lang: "pt-BR",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://euphoriascan.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/euphoriascan/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "5594696691862732725",
     name: "InfraFandub",
     lang: "es",
-    version: "1.1.4",
+    version: "1.2.4",
     baseUrl: "https://infrafandub.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/infrafandub/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "infrafandub.com", permits: 2, periodMs: 1000 }],

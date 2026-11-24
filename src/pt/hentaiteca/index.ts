@@ -11,7 +11,7 @@ export default madara({
     id: "5744105605190975461",
     name: "Hentai Teca",
     lang: "pt-BR",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://hentaiteca.online",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/hentaiteca/res/mipmap-xhdpi/ic_launcher.png",

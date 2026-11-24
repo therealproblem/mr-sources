@@ -13,7 +13,7 @@ const options = {
     id: "5617855959190673282",
     name: "Manhwa-raw",
     lang: "all",
-    version: "1.1.3",
+    version: "1.2.3",
     baseUrl,
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/all/manhwadashraw/res/mipmap-xhdpi/ic_launcher.png",

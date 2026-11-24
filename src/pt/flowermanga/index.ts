@@ -11,7 +11,7 @@ export default madara({
     id: "2421010180391442293",
     name: "FlowerManga.net",
     lang: "pt-BR",
-    version: "1.1.4",
+    version: "1.2.4",
     baseUrl: "https://flowermangas.net",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/flowermanga/res/mipmap-xhdpi/ic_launcher.png",

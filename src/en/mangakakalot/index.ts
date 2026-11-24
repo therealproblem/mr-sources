@@ -7,8 +7,9 @@ import { mangabox } from "../../../themes/mangabox"
 const titleToSlug = (title: string) => title.toLowerCase().replace(/[^a-z0-9\s-]/g, "").trim().replace(/[\s-]+/g, "-").replace(/^-+|-+$/g, "")
 
 export default mangabox({
-  id: "2528986671771677900", name: "Mangakakalot", lang: "en", version: "1.0.1", baseUrl: "https://www.kakamanga.com",
-  rateLimits: [{ host: "www.kakamanga.com", permits: 2, periodMs: 1000 }],
+  // Upstream's katamanga.com redirects here, and Cloudflare can't be cleared through the redirect.
+  id: "2528986671771677900", name: "Mangakakalot", lang: "en", version: "1.0.2", baseUrl: "https://www.mangagoku.com",
+  rateLimits: [{ host: "www.mangagoku.com", permits: 2, periodMs: 1000 }],
   icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangakakalot/res/mipmap-xhdpi/ic_launcher.png",
 }, {
   // Old entries kept ids like "ab12345" where the site now wants the title's slug.

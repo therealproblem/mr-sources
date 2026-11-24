@@ -11,7 +11,7 @@ export default madara({
     id: "5756634909776784131",
     name: "Sleepy Translations",
     lang: "en",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl: "https://sleepytranslations.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/sleepytranslations/res/mipmap-xhdpi/ic_launcher.png",
   },

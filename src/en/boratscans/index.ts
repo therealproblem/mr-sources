@@ -11,7 +11,7 @@ export default madara({
     id: "7909401032149692930",
     name: "Borat Scans",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://boratscans.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/boratscans/res/mipmap-xhdpi/ic_launcher.png",
   },

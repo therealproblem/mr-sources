@@ -11,7 +11,7 @@ export default madara({
     id: "3694940277826033657",
     name: "Gourmet Scans",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://gourmetsupremacy.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/gourmetscans/res/mipmap-xhdpi/ic_launcher.png",

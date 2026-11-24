@@ -11,7 +11,7 @@ export default madara({
     id: "1099222169691387069",
     name: "Mangaforfree.com",
     lang: "en",
-    version: "1.1.2",
+    version: "1.2.2",
     baseUrl: "https://mangaforfree.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangaforfreecom/res/mipmap-xhdpi/ic_launcher.png",

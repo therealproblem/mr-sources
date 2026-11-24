@@ -11,7 +11,7 @@ export default madara({
     id: "609477585841458199",
     name: "Inventario Oculto",
     lang: "es",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://inventariooculto.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/inventariooculto/res/mipmap-xhdpi/ic_launcher.png",
   },

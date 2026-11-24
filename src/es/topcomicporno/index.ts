@@ -11,7 +11,7 @@ export default madara({
     id: "6716313068102878996",
     name: "TopComicPorno",
     lang: "es",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://topcomicporno.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/topcomicporno/res/mipmap-xhdpi/ic_launcher.png",

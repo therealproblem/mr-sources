@@ -15,7 +15,7 @@ const source = madara({
     id: "987786689720213769",
     name: "Hanami Heaven",
     lang: "pt-BR",
-    version: "1.2.0",
+    version: "1.2.6",
     baseUrl,
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/noindexscan/res/mipmap-xhdpi/ic_launcher.png",

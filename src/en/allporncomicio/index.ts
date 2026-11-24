@@ -11,7 +11,7 @@ export default madara({
     id: "6660493687892371703",
     name: "AllPornComic.io",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://allporncomic.io",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/allporncomicio/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "3890119680043332770",
     name: "Cucumber Manga",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://cucumbermanga.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/cucumbermanga/res/mipmap-xhdpi/ic_launcher.png",

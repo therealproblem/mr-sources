@@ -11,7 +11,7 @@ export default madara({
     id: "6573506892686767219",
     name: "DragonTea",
     lang: "en",
-    version: "1.1.5",
+    version: "1.2.5",
     baseUrl: "https://dragontea.ink",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/dragontea/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "dragontea.ink", permits: 1, periodMs: 1000 }],

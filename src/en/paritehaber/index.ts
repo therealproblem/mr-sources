@@ -11,7 +11,7 @@ export default madara({
     id: "3740623306758763677",
     name: "Paritehaber",
     lang: "en",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl: "https://www.paritehaber.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/paritehaber/res/mipmap-xhdpi/ic_launcher.png",

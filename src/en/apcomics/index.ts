@@ -11,7 +11,7 @@ export default madara({
     id: "7848750588298461115",
     name: "AP Comics",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://apcomics.org",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/apcomics/res/mipmap-xhdpi/ic_launcher.png",

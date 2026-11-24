@@ -11,7 +11,7 @@ export default madara({
     id: "3809566188515992024",
     name: "Truyện tranh đam mỹ",
     lang: "vi",
-    version: "1.1.3",
+    version: "1.2.3",
     baseUrl: "https://truyentranhdammyy.site",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/vi/truyentranhdammy/res/mipmap-xhdpi/ic_launcher.png",

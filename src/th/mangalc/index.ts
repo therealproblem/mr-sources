@@ -11,7 +11,7 @@ export default madara({
     id: "5607835948857138011",
     name: "Manga-Lc",
     lang: "th",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://manga-lc.net",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/th/mangalc/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "1410750574939174515",
     name: "Nebulosa Scan",
     lang: "pt-BR",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl: "https://nebulosascan.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/nebulosascan/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "7733551911826034167",
     name: "Shinobi Scans",
     lang: "it",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://shinobiscans.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/it/shinobiscans/res/mipmap-xhdpi/ic_launcher.png",
   },

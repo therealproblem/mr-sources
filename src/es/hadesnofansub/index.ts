@@ -11,7 +11,7 @@ export default madara({
     id: "8311505150576608267",
     name: "Hades no Fansub",
     lang: "es",
-    version: "1.1.5",
+    version: "1.2.5",
     baseUrl: "https://lectorhades.latamtoon.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/hadesnofansub/res/mipmap-xhdpi/ic_launcher.png",

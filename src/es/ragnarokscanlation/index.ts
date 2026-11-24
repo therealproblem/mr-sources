@@ -11,7 +11,7 @@ export default madara({
     id: "1348827658894665970",
     name: "Ragnarok Scanlation",
     lang: "es",
-    version: "1.1.3",
+    version: "1.2.3",
     baseUrl: "https://ragnarokscanlation.org",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/ragnarokscanlation/res/mipmap-xhdpi/ic_launcher.png",
   },

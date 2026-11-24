@@ -11,7 +11,7 @@ export default madara({
     id: "5502656519292762717",
     name: "MangaManiacs",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://mangamaniacs.org",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangamaniacs/res/mipmap-xhdpi/ic_launcher.png",

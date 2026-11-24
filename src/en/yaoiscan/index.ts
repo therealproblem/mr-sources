@@ -11,7 +11,7 @@ export default madara({
     id: "4439807782838127935",
     name: "YaoiScan",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://yaoiscan.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/yaoiscan/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "5221484950287110636",
     name: "Kami Sama Explorer",
     lang: "pt-BR",
-    version: "1.1.3",
+    version: "1.2.3",
     baseUrl: "https://leitor.kamisama.com.br",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/kamisamaexplorer/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "leitor.kamisama.com.br", permits: 1, periodMs: 2000 }],

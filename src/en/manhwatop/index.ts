@@ -11,7 +11,7 @@ export default madara({
     id: "5177484976652938680",
     name: "Manhwatop",
     lang: "en",
-    version: "1.1.2",
+    version: "1.2.2",
     baseUrl: "https://manhwatop.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/manhwatop/res/mipmap-xhdpi/ic_launcher.png",

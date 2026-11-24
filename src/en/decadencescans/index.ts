@@ -11,7 +11,7 @@ export default madara({
     id: "7432245132662185058",
     name: "Decadence Scans",
     lang: "en",
-    version: "1.1.2",
+    version: "1.2.2",
     baseUrl: "https://reader.decadencescans.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/decadencescans/res/mipmap-xhdpi/ic_launcher.png",

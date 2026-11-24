@@ -11,7 +11,7 @@ export default madara({
     id: "7438489045468990067",
     name: "Rùa Hấp Chanh Dây",
     lang: "vi",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://ruahapchanhday2.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/vi/ruahapchanhday/res/mipmap-xhdpi/ic_launcher.png",

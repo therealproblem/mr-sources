@@ -11,7 +11,7 @@ export default madara({
     id: "4150746388640244220",
     name: "Ver Manhwas",
     lang: "es",
-    version: "1.1.2",
+    version: "1.2.2",
     baseUrl: "https://vermanhwa.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/vermanhwas/res/mipmap-xhdpi/ic_launcher.png",

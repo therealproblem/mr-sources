@@ -11,7 +11,7 @@ export default madara({
     id: "5213948951740602020",
     name: "KlikManga",
     lang: "id",
-    version: "1.1.5",
+    version: "1.2.5",
     baseUrl: "https://klikmanga.org",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/id/klikmanga/res/mipmap-xhdpi/ic_launcher.png",
   },

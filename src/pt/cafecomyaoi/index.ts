@@ -11,7 +11,7 @@ export default madara({
     id: "340055543197648554",
     name: "Café com Yaoi",
     lang: "pt-BR",
-    version: "1.1.3",
+    version: "1.2.3",
     baseUrl: "https://cafecomyaoi.com.br",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/cafecomyaoi/res/mipmap-xhdpi/ic_launcher.png",

@@ -34,7 +34,7 @@ export default madara({
     id: "3062846066388633553",
     name: "WebtoonScan",
     lang: "en",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl,
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/webtoonscan/res/mipmap-xhdpi/ic_launcher.png",

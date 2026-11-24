@@ -11,7 +11,7 @@ export default madara({
     id: "3606721916149050760",
     name: "Mangasushi",
     lang: "en",
-    version: "1.1.3",
+    version: "1.2.3",
     baseUrl: "https://mangasushi.org",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangasushi/res/mipmap-xhdpi/ic_launcher.png",
   },

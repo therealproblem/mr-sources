@@ -11,7 +11,7 @@ export default madara({
     id: "2031498907928923621",
     name: "MangaOwl.io (unoriginal)",
     lang: "en",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl: "https://mangaowl.io",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangaowlio/res/mipmap-xhdpi/ic_launcher.png",

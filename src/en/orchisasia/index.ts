@@ -11,7 +11,7 @@ export default madara({
     id: "4403086215261921832",
     name: "Orchisasia",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://www.orchisasia.org",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/orchisasia/res/mipmap-xhdpi/ic_launcher.png",

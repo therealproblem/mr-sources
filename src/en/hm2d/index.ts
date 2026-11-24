@@ -11,7 +11,7 @@ export default madara({
     id: "7329798563365402763",
     name: "HM2D",
     lang: "en",
-    version: "1.1.2",
+    version: "1.2.2",
     baseUrl: "https://doujindistrict.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/hm2d/res/mipmap-xhdpi/ic_launcher.png",

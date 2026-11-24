@@ -11,7 +11,7 @@ export default madara({
     id: "2962682340286299668",
     name: "Boruto Explorer",
     lang: "pt-BR",
-    version: "1.1.2",
+    version: "1.2.2",
     baseUrl: "https://leitor.borutoexplorer.com.br",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/borutoexplorer/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "leitor.borutoexplorer.com.br", permits: 1, periodMs: 2000 }],

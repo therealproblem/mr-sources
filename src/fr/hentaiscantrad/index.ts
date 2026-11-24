@@ -11,7 +11,7 @@ export default madara({
     id: "6747208512135394944",
     name: "Hentai-Scantrad",
     lang: "fr",
-    version: "1.1.2",
+    version: "1.2.2",
     baseUrl: "https://hentai-scantrad.org",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/fr/hentaiscantrad/res/mipmap-xhdpi/ic_launcher.png",

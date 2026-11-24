@@ -11,7 +11,7 @@ export default madara({
     id: "5246625723235112128",
     name: "GakaMangas",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://gakamangas.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/gakamangas/res/mipmap-xhdpi/ic_launcher.png",
   },

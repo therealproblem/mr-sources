@@ -11,7 +11,7 @@ export default madara({
     id: "5229341270935044914",
     name: "Manga Eclipse",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://mangaeclipse.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/mangaeclipse/res/mipmap-xhdpi/ic_launcher.png",
   },

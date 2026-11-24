@@ -11,7 +11,7 @@ export default madara({
     id: "9200419821846585447",
     name: "Tankou Hentai",
     lang: "pt-BR",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl: "https://tankouhentai.com",
     nsfw: true,
     rateLimits: [{ host: "tankouhentai.com", permits: 1, periodMs: 2000 }],

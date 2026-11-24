@@ -11,7 +11,7 @@ export default madara({
     id: "5795673090229968734",
     name: "Manhwa18.today",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://www.manhwa18.today",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/manhwa18today/res/mipmap-xhdpi/ic_launcher.png",

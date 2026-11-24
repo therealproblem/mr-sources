@@ -11,7 +11,7 @@ export default madara({
     id: "8802607595629671202",
     name: "LHTranslation",
     lang: "en",
-    version: "1.1.1",
+    version: "1.2.1",
     baseUrl: "https://lhtranslation.net",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/lhtranslation/res/mipmap-xhdpi/ic_launcher.png",
   },

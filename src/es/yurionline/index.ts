@@ -11,7 +11,7 @@ export default madara({
     id: "3410370616110029377",
     name: "Yuri-Online",
     lang: "es",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://yuri-online.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/yurionline/res/mipmap-xhdpi/ic_launcher.png",

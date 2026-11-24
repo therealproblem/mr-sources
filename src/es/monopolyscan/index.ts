@@ -11,7 +11,7 @@ export default madara({
     id: "5862188113261788590",
     name: "Monopoly Scan",
     lang: "es",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://monopolymanhua.com",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/es/monopolyscan/res/mipmap-xhdpi/ic_launcher.png",
   },

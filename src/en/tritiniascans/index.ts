@@ -11,7 +11,7 @@ export default madara({
     id: "6032516943051342273",
     name: "TritiniaScans",
     lang: "en",
-    version: "1.1.4",
+    version: "1.2.4",
     baseUrl: "https://tritinia.org",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/tritiniascans/res/mipmap-xhdpi/ic_launcher.png",
   },

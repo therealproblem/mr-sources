@@ -11,7 +11,7 @@ export default madara({
     id: "4598626990187882152",
     name: "GalaxyDegenScans",
     lang: "en",
-    version: "1.1.4",
+    version: "1.2.4",
     baseUrl: "https://gdscans.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/galaxydegenscans/res/mipmap-xhdpi/ic_launcher.png",

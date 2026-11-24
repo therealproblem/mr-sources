@@ -11,7 +11,7 @@ export default madara({
     id: "8541224312340631016",
     name: "Inkapk",
     lang: "pt-BR",
-    version: "1.1.3",
+    version: "1.2.3",
     baseUrl: "https://inkapk.net",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/pt/inkapk/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "2527256034272235453",
     name: "OctopusManga",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://octopusmanga.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/octopusmanga/res/mipmap-xhdpi/ic_launcher.png",

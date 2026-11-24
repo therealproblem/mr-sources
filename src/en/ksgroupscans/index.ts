@@ -11,7 +11,7 @@ export default madara({
     id: "4307007494151154546",
     name: "KSGroupScans",
     lang: "en",
-    version: "1.1.0",
+    version: "1.2.0",
     baseUrl: "https://ksgroupscans.com",
     nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/en/ksgroupscans/res/mipmap-xhdpi/ic_launcher.png",

@@ -11,7 +11,7 @@ export default madara({
     id: "8902732421830627437",
     name: "Webtoon Hatti",
     lang: "tr",
-    version: "1.1.7",
+    version: "1.2.7",
     baseUrl: "https://webtoonhatti.club",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/tr/webtoonhatti/res/mipmap-xhdpi/ic_launcher.png",
   },

@@ -59,7 +59,7 @@ function parseChapterDate(text: string): number | undefined {
 
 export default madara({
   info: {
-    id: "3235818654344600611", name: "Toon FR", lang: "fr", version: "1.1.1", baseUrl: "https://toonfr.com", nsfw: true,
+    id: "3235818654344600611", name: "Toon FR", lang: "fr", version: "1.2.1", baseUrl: "https://toonfr.com", nsfw: true,
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/fr/toonfr/res/mipmap-xhdpi/ic_launcher.png",
   },
   chapterMode: "MangaAjax",

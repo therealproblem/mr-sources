@@ -11,7 +11,7 @@ export default madara({
     id: "6058166507489091982",
     name: "Manga Starz",
     lang: "ar",
-    version: "1.1.11",
+    version: "1.2.11",
     baseUrl: "https://starzmanga.net",
     icon: "https://cdn.jsdelivr.net/gh/keiyoushi/extensions-source@main/src/ar/mangastarz/res/mipmap-xhdpi/ic_launcher.png",
     rateLimits: [{ host: "starzmanga.net", permits: 5, periodMs: 1000 }],
